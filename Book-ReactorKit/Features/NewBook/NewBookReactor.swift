@@ -30,14 +30,15 @@ extension NewBookReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .refresh:
-            NetworkService.shared.fetchBookItems { result in
-                switch result {
-                case .success(let bookItems):
-                    return Observable.just(.setBooks(bookItems))
-                case .failure:
-                    return .empty
-                }
-            }
+            return .empty()
+//            NetworkService.shared.fetchBookItems { result in
+//                switch result {
+//                case .success(let bookItems):
+//                    return Observable.just(.setBooks(bookItems))
+//                case .failure:
+//                    return .empty
+//                }
+//            }
         }
     }
 }
@@ -46,9 +47,8 @@ extension NewBookReactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         switch mutation {
-        case .mutation(let set):
-            state.state = set
+        case .setBooks(let bookItems):
+            return state
         }
-        return state
     }
 }
