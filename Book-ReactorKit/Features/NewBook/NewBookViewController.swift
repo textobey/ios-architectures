@@ -8,12 +8,18 @@
 import UIKit
 
 class NewBookViewController: UIViewController {
+    
+    private let newBookView = NewBookView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayout()
     }
     
     private func setupLayout() {
-        
+        view.addSubview(newBookView)
+        newBookView.snp.makeConstraints {
+            $0.directionalEdges.equalToSuperview()
+        }
     }
 }

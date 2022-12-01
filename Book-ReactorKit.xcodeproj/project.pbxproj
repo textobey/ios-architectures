@@ -22,6 +22,15 @@
 		A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CCF29388728005BC930 /* NewBookViewController.swift */; };
 		A65A2CD229388734005BC930 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CD129388734005BC930 /* SearchViewController.swift */; };
 		A65A2CD529388F31005BC930 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CD429388F31005BC930 /* Then.swift */; };
+		A684B8782938907500D6B5E1 /* NewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8772938907500D6B5E1 /* NewBookView.swift */; };
+		A684B87A2938907F00D6B5E1 /* NewBookReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8792938907F00D6B5E1 /* NewBookReactor.swift */; };
+		A684B87D2938910E00D6B5E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A684B87C2938910E00D6B5E1 /* RxCocoa */; };
+		A684B8802938970200D6B5E1 /* NewBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B87F2938970200D6B5E1 /* NewBookTableViewCell.swift */; };
+		A684B8822938973300D6B5E1 /* NewBookContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8812938973300D6B5E1 /* NewBookContentView.swift */; };
+		A684B886293897E100D6B5E1 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B885293897E100D6B5E1 /* BookModel.swift */; };
+		A684B8882938981D00D6B5E1 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8872938981D00D6B5E1 /* Enums.swift */; };
+		A684B88A2938984900D6B5E1 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8892938984900D6B5E1 /* BookItem.swift */; };
+		A684B88D2938991700D6B5E1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B88C2938991700D6B5E1 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +66,14 @@
 		A65A2CCF29388728005BC930 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
 		A65A2CD129388734005BC930 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A65A2CD429388F31005BC930 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		A684B8772938907500D6B5E1 /* NewBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookView.swift; sourceTree = "<group>"; };
+		A684B8792938907F00D6B5E1 /* NewBookReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookReactor.swift; sourceTree = "<group>"; };
+		A684B87F2938970200D6B5E1 /* NewBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookTableViewCell.swift; sourceTree = "<group>"; };
+		A684B8812938973300D6B5E1 /* NewBookContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookContentView.swift; sourceTree = "<group>"; };
+		A684B885293897E100D6B5E1 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		A684B8872938981D00D6B5E1 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		A684B8892938984900D6B5E1 /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
+		A684B88C2938991700D6B5E1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +83,7 @@
 			files = (
 				A65A2CC329388442005BC930 /* Kingfisher in Frameworks */,
 				A65A2CC6293884A7005BC930 /* Alamofire in Frameworks */,
+				A684B87D2938910E00D6B5E1 /* RxCocoa in Frameworks */,
 				A65A2CBD293883DD005BC930 /* ReactorKit in Frameworks */,
 				A65A2CC02938841C005BC930 /* SnapKit in Frameworks */,
 			);
@@ -111,13 +129,14 @@
 		A60EA06D29374A7F0064D21E /* Book-ReactorKit */ = {
 			isa = PBXGroup;
 			children = (
-				A60EA06E29374A7F0064D21E /* AppDelegate.swift */,
-				A60EA07029374A7F0064D21E /* SceneDelegate.swift */,
 				A60EA07C29374A800064D21E /* Info.plist */,
+				A684B883293897BC00D6B5E1 /* Application */,
 				A65A2CC929388587005BC930 /* Bases */,
 				A65A2CD329388F23005BC930 /* Foundation */,
 				A65A2CC729388534005BC930 /* Features */,
 				A65A2CC829388551005BC930 /* Resources */,
+				A684B884293897CB00D6B5E1 /* Model */,
+				A684B88B2938990100D6B5E1 /* Network */,
 			);
 			path = "Book-ReactorKit";
 			sourceTree = "<group>";
@@ -169,6 +188,9 @@
 		A65A2CCC293885D4005BC930 /* NewBook */ = {
 			isa = PBXGroup;
 			children = (
+				A684B87E293896E500D6B5E1 /* SubViews */,
+				A684B8772938907500D6B5E1 /* NewBookView.swift */,
+				A684B8792938907F00D6B5E1 /* NewBookReactor.swift */,
 				A65A2CCF29388728005BC930 /* NewBookViewController.swift */,
 			);
 			path = NewBook;
@@ -197,6 +219,42 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		A684B87E293896E500D6B5E1 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				A684B87F2938970200D6B5E1 /* NewBookTableViewCell.swift */,
+				A684B8812938973300D6B5E1 /* NewBookContentView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		A684B883293897BC00D6B5E1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A60EA06E29374A7F0064D21E /* AppDelegate.swift */,
+				A60EA07029374A7F0064D21E /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A684B884293897CB00D6B5E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A684B8872938981D00D6B5E1 /* Enums.swift */,
+				A684B885293897E100D6B5E1 /* BookModel.swift */,
+				A684B8892938984900D6B5E1 /* BookItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A684B88B2938990100D6B5E1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A684B88C2938991700D6B5E1 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,6 +276,7 @@
 				A65A2CBF2938841C005BC930 /* SnapKit */,
 				A65A2CC229388442005BC930 /* Kingfisher */,
 				A65A2CC5293884A7005BC930 /* Alamofire */,
+				A684B87C2938910E00D6B5E1 /* RxCocoa */,
 			);
 			productName = "Book-ReactorKit";
 			productReference = A60EA06B29374A7F0064D21E /* Book-ReactorKit.app */;
@@ -296,6 +355,7 @@
 				A65A2CBE2938841C005BC930 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A65A2CC129388442005BC930 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A65A2CC4293884A7005BC930 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A684B87B2938910E00D6B5E1 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = A60EA06C29374A7F0064D21E /* Products */;
 			projectDirPath = "";
@@ -339,12 +399,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A684B8822938973300D6B5E1 /* NewBookContentView.swift in Sources */,
 				A65A2CD229388734005BC930 /* SearchViewController.swift in Sources */,
 				A65A2CCB293885C4005BC930 /* UIBaseTabBarController.swift in Sources */,
 				A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */,
+				A684B886293897E100D6B5E1 /* BookModel.swift in Sources */,
 				A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */,
+				A684B88D2938991700D6B5E1 /* NetworkService.swift in Sources */,
+				A684B87A2938907F00D6B5E1 /* NewBookReactor.swift in Sources */,
 				A65A2CD529388F31005BC930 /* Then.swift in Sources */,
+				A684B8782938907500D6B5E1 /* NewBookView.swift in Sources */,
 				A60EA07129374A7F0064D21E /* SceneDelegate.swift in Sources */,
+				A684B8882938981D00D6B5E1 /* Enums.swift in Sources */,
+				A684B8802938970200D6B5E1 /* NewBookTableViewCell.swift in Sources */,
+				A684B88A2938984900D6B5E1 /* BookItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +780,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		A684B87B2938910E00D6B5E1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -734,6 +810,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A65A2CC4293884A7005BC930 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		A684B87C2938910E00D6B5E1 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A684B87B2938910E00D6B5E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
