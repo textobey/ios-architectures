@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA06E29374A7F0064D21E /* AppDelegate.swift */; };
 		A60EA07129374A7F0064D21E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA07029374A7F0064D21E /* SceneDelegate.swift */; };
-		A60EA07329374A7F0064D21E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA07229374A7F0064D21E /* ViewController.swift */; };
-		A60EA07629374A7F0064D21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60EA07429374A7F0064D21E /* Main.storyboard */; };
 		A60EA07829374A800064D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60EA07729374A800064D21E /* Assets.xcassets */; };
 		A60EA07B29374A800064D21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60EA07929374A800064D21E /* LaunchScreen.storyboard */; };
 		A60EA08629374A800064D21E /* Book_ReactorKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA08529374A800064D21E /* Book_ReactorKitTests.swift */; };
 		A60EA09029374A800064D21E /* Book_ReactorKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA08F29374A800064D21E /* Book_ReactorKitUITests.swift */; };
 		A60EA09229374A800064D21E /* Book_ReactorKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA09129374A800064D21E /* Book_ReactorKitUITestsLaunchTests.swift */; };
+		A65A2CBD293883DD005BC930 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A65A2CBC293883DD005BC930 /* ReactorKit */; };
+		A65A2CC02938841C005BC930 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A65A2CBF2938841C005BC930 /* SnapKit */; };
+		A65A2CC329388442005BC930 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A65A2CC229388442005BC930 /* Kingfisher */; };
+		A65A2CC6293884A7005BC930 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A65A2CC5293884A7005BC930 /* Alamofire */; };
+		A65A2CCB293885C4005BC930 /* UIBaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CCA293885C4005BC930 /* UIBaseTabBarController.swift */; };
+		A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CCF29388728005BC930 /* NewBookViewController.swift */; };
+		A65A2CD229388734005BC930 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CD129388734005BC930 /* SearchViewController.swift */; };
+		A65A2CD529388F31005BC930 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CD429388F31005BC930 /* Then.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +45,6 @@
 		A60EA06B29374A7F0064D21E /* Book-ReactorKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-ReactorKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60EA06E29374A7F0064D21E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A60EA07029374A7F0064D21E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A60EA07229374A7F0064D21E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A60EA07529374A7F0064D21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A60EA07729374A800064D21E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A60EA07A29374A800064D21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A60EA07C29374A800064D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		A60EA08B29374A800064D21E /* Book-ReactorKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book-ReactorKitUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60EA08F29374A800064D21E /* Book_ReactorKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_ReactorKitUITests.swift; sourceTree = "<group>"; };
 		A60EA09129374A800064D21E /* Book_ReactorKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_ReactorKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A65A2CCA293885C4005BC930 /* UIBaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarController.swift; sourceTree = "<group>"; };
+		A65A2CCF29388728005BC930 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
+		A65A2CD129388734005BC930 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A65A2CD429388F31005BC930 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A65A2CC329388442005BC930 /* Kingfisher in Frameworks */,
+				A65A2CC6293884A7005BC930 /* Alamofire in Frameworks */,
+				A65A2CBD293883DD005BC930 /* ReactorKit in Frameworks */,
+				A65A2CC02938841C005BC930 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,11 +113,11 @@
 			children = (
 				A60EA06E29374A7F0064D21E /* AppDelegate.swift */,
 				A60EA07029374A7F0064D21E /* SceneDelegate.swift */,
-				A60EA07229374A7F0064D21E /* ViewController.swift */,
-				A60EA07429374A7F0064D21E /* Main.storyboard */,
-				A60EA07729374A800064D21E /* Assets.xcassets */,
-				A60EA07929374A800064D21E /* LaunchScreen.storyboard */,
 				A60EA07C29374A800064D21E /* Info.plist */,
+				A65A2CC929388587005BC930 /* Bases */,
+				A65A2CD329388F23005BC930 /* Foundation */,
+				A65A2CC729388534005BC930 /* Features */,
+				A65A2CC829388551005BC930 /* Resources */,
 			);
 			path = "Book-ReactorKit";
 			sourceTree = "<group>";
@@ -127,6 +139,64 @@
 			path = "Book-ReactorKitUITests";
 			sourceTree = "<group>";
 		};
+		A65A2CC729388534005BC930 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A65A2CCC293885D4005BC930 /* NewBook */,
+				A65A2CCE29388604005BC930 /* Search */,
+				A65A2CCD293885EC005BC930 /* BookDetail */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A65A2CC829388551005BC930 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A60EA07729374A800064D21E /* Assets.xcassets */,
+				A60EA07929374A800064D21E /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A65A2CC929388587005BC930 /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				A65A2CCA293885C4005BC930 /* UIBaseTabBarController.swift */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		A65A2CCC293885D4005BC930 /* NewBook */ = {
+			isa = PBXGroup;
+			children = (
+				A65A2CCF29388728005BC930 /* NewBookViewController.swift */,
+			);
+			path = NewBook;
+			sourceTree = "<group>";
+		};
+		A65A2CCD293885EC005BC930 /* BookDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BookDetail;
+			sourceTree = "<group>";
+		};
+		A65A2CCE29388604005BC930 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A65A2CD129388734005BC930 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A65A2CD329388F23005BC930 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				A65A2CD429388F31005BC930 /* Then.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +213,12 @@
 			dependencies = (
 			);
 			name = "Book-ReactorKit";
+			packageProductDependencies = (
+				A65A2CBC293883DD005BC930 /* ReactorKit */,
+				A65A2CBF2938841C005BC930 /* SnapKit */,
+				A65A2CC229388442005BC930 /* Kingfisher */,
+				A65A2CC5293884A7005BC930 /* Alamofire */,
+			);
 			productName = "Book-ReactorKit";
 			productReference = A60EA06B29374A7F0064D21E /* Book-ReactorKit.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +291,12 @@
 				Base,
 			);
 			mainGroup = A60EA06229374A7F0064D21E;
+			packageReferences = (
+				A65A2CBB293883DD005BC930 /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				A65A2CBE2938841C005BC930 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A65A2CC129388442005BC930 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A65A2CC4293884A7005BC930 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = A60EA06C29374A7F0064D21E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +315,6 @@
 			files = (
 				A60EA07B29374A800064D21E /* LaunchScreen.storyboard in Resources */,
 				A60EA07829374A800064D21E /* Assets.xcassets in Resources */,
-				A60EA07629374A7F0064D21E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +339,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A60EA07329374A7F0064D21E /* ViewController.swift in Sources */,
+				A65A2CD229388734005BC930 /* SearchViewController.swift in Sources */,
+				A65A2CCB293885C4005BC930 /* UIBaseTabBarController.swift in Sources */,
 				A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */,
+				A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */,
+				A65A2CD529388F31005BC930 /* Then.swift in Sources */,
 				A60EA07129374A7F0064D21E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +381,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A60EA07429374A7F0064D21E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A60EA07529374A7F0064D21E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A60EA07929374A800064D21E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -442,7 +518,7 @@
 				INFOPLIST_FILE = "Book-ReactorKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +546,7 @@
 				INFOPLIST_FILE = "Book-ReactorKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -602,6 +678,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A65A2CBB293883DD005BC930 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		A65A2CBE2938841C005BC930 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		A65A2CC129388442005BC930 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		A65A2CC4293884A7005BC930 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A65A2CBC293883DD005BC930 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A65A2CBB293883DD005BC930 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+		A65A2CBF2938841C005BC930 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A65A2CBE2938841C005BC930 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A65A2CC229388442005BC930 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A65A2CC129388442005BC930 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		A65A2CC5293884A7005BC930 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A65A2CC4293884A7005BC930 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A60EA06329374A7F0064D21E /* Project object */;
 }
