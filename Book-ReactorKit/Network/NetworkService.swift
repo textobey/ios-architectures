@@ -42,19 +42,22 @@ extension NetworkService {
 }
 
 extension NetworkService {
-    func fetchBookItems(completionHandler: @escaping (Result<[BookItem], Error>) -> Void) {
-        let url = BooksURL.new.rawValue
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
-            .validate(statusCode: 200 ..< 300)
-            .responseDecodable(of: BookModel.self) { response in
-                switch response.result {
-                case .success(let response):
-                    completionHandler(.success(response.books ?? []))
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    completionHandler(.failure(error))
+    func fetchBookItems() -> ReturnResult<BookModel, Error> {
+        return ReturnResult<BookModel, Error> { [weak self] promise in
+            let url = BooksURL.new.rawValue
+            AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: self?.headers)
+                .validate(statusCode: 200 ..< 300)
+                .responseDecodable(of: BookModel.self) { response in
+                    switch response.result {
+                    case .success(let response):
+                        promise(.success(response))
+                        return
+                    case .failure(let error):
+                        promise(.failure(error))
+                        return
+                    }
                 }
-            }
+        }
     }
 }
 

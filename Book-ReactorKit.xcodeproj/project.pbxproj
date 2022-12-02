@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A600FDBB2939DE9B00D62397 /* ReturnResultKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */; };
 		A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA06E29374A7F0064D21E /* AppDelegate.swift */; };
 		A60EA07129374A7F0064D21E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA07029374A7F0064D21E /* SceneDelegate.swift */; };
 		A60EA07829374A800064D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60EA07729374A800064D21E /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnResultKit.swift; sourceTree = "<group>"; };
 		A60EA06B29374A7F0064D21E /* Book-ReactorKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-ReactorKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60EA06E29374A7F0064D21E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A60EA07029374A7F0064D21E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A600FDB72939DD5C00D62397 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		A60EA06229374A7F0064D21E = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 				A60EA07C29374A800064D21E /* Info.plist */,
 				A684B883293897BC00D6B5E1 /* Application */,
 				A65A2CC929388587005BC930 /* Bases */,
+				A600FDB72939DD5C00D62397 /* Extension */,
 				A65A2CD329388F23005BC930 /* Foundation */,
 				A65A2CC729388534005BC930 /* Features */,
 				A65A2CC829388551005BC930 /* Resources */,
@@ -405,6 +416,7 @@
 				A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */,
 				A684B886293897E100D6B5E1 /* BookModel.swift in Sources */,
 				A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */,
+				A600FDBB2939DE9B00D62397 /* ReturnResultKit.swift in Sources */,
 				A684B88D2938991700D6B5E1 /* NetworkService.swift in Sources */,
 				A684B87A2938907F00D6B5E1 /* NewBookReactor.swift in Sources */,
 				A65A2CD529388F31005BC930 /* Then.swift in Sources */,
