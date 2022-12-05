@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A600FDBB2939DE9B00D62397 /* ReturnResultKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */; };
+		A60D6F88293DCD8400F71CD3 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D6F87293DCD8400F71CD3 /* UIScrollView+.swift */; };
+		A60D6F8A293DD0C700F71CD3 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D6F89293DD0C700F71CD3 /* Array+.swift */; };
 		A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA06E29374A7F0064D21E /* AppDelegate.swift */; };
 		A60EA07129374A7F0064D21E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA07029374A7F0064D21E /* SceneDelegate.swift */; };
 		A60EA07829374A800064D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60EA07729374A800064D21E /* Assets.xcassets */; };
@@ -23,6 +25,7 @@
 		A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CCF29388728005BC930 /* NewBookViewController.swift */; };
 		A65A2CD229388734005BC930 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CD129388734005BC930 /* SearchViewController.swift */; };
 		A65A2CD529388F31005BC930 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CD429388F31005BC930 /* Then.swift */; };
+		A678043E293DC2E60014433C /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678043D293DC2E60014433C /* UIViewController+Rx.swift */; };
 		A684B8782938907500D6B5E1 /* NewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8772938907500D6B5E1 /* NewBookView.swift */; };
 		A684B87A2938907F00D6B5E1 /* NewBookReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8792938907F00D6B5E1 /* NewBookReactor.swift */; };
 		A684B87D2938910E00D6B5E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A684B87C2938910E00D6B5E1 /* RxCocoa */; };
@@ -53,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnResultKit.swift; sourceTree = "<group>"; };
+		A60D6F87293DCD8400F71CD3 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
+		A60D6F89293DD0C700F71CD3 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		A60EA06B29374A7F0064D21E /* Book-ReactorKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-ReactorKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60EA06E29374A7F0064D21E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A60EA07029374A7F0064D21E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 		A65A2CCF29388728005BC930 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
 		A65A2CD129388734005BC930 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A65A2CD429388F31005BC930 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		A678043D293DC2E60014433C /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		A684B8772938907500D6B5E1 /* NewBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookView.swift; sourceTree = "<group>"; };
 		A684B8792938907F00D6B5E1 /* NewBookReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookReactor.swift; sourceTree = "<group>"; };
 		A684B87F2938970200D6B5E1 /* NewBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,7 +117,10 @@
 		A600FDB72939DD5C00D62397 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A678043C293DC2CA0014433C /* Rx+ */,
 				A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */,
+				A60D6F87293DCD8400F71CD3 /* UIScrollView+.swift */,
+				A60D6F89293DD0C700F71CD3 /* Array+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -228,6 +237,14 @@
 				A65A2CD429388F31005BC930 /* Then.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		A678043C293DC2CA0014433C /* Rx+ */ = {
+			isa = PBXGroup;
+			children = (
+				A678043D293DC2E60014433C /* UIViewController+Rx.swift */,
+			);
+			path = "Rx+";
 			sourceTree = "<group>";
 		};
 		A684B87E293896E500D6B5E1 /* SubViews */ = {
@@ -416,11 +433,14 @@
 				A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */,
 				A684B886293897E100D6B5E1 /* BookModel.swift in Sources */,
 				A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */,
+				A678043E293DC2E60014433C /* UIViewController+Rx.swift in Sources */,
 				A600FDBB2939DE9B00D62397 /* ReturnResultKit.swift in Sources */,
 				A684B88D2938991700D6B5E1 /* NetworkService.swift in Sources */,
 				A684B87A2938907F00D6B5E1 /* NewBookReactor.swift in Sources */,
+				A60D6F88293DCD8400F71CD3 /* UIScrollView+.swift in Sources */,
 				A65A2CD529388F31005BC930 /* Then.swift in Sources */,
 				A684B8782938907500D6B5E1 /* NewBookView.swift in Sources */,
+				A60D6F8A293DD0C700F71CD3 /* Array+.swift in Sources */,
 				A60EA07129374A7F0064D21E /* SceneDelegate.swift in Sources */,
 				A684B8882938981D00D6B5E1 /* Enums.swift in Sources */,
 				A684B8802938970200D6B5E1 /* NewBookTableViewCell.swift in Sources */,

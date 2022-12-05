@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class NewBookTableViewCell: UITableViewCell {
     // MARK: - stored properties
@@ -55,13 +56,6 @@ extension NewBookTableViewCell {
         self.contentsView.subtitleLabel.text = bookModel?.subtitle ?? ""
         self.contentsView.priceLabel.text = bookModel?.price ?? ""
         self.contentsView.isbn13Label.text = bookModel?.isbn13 ?? ""
-
-        DispatchQueue.main.async {
-            guard let urlString = bookModel?.image else { return }
-            guard let imageURL = URL(string: urlString) else { return }
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-            self.contentsView.topImageView.image = UIImage(data: imageData)
-        }
+        self.contentsView.topImageView.kf.setImage(with: URL(string: bookModel?.image ?? ""))
     }
 }

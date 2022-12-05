@@ -11,12 +11,16 @@ import SnapKit
 import ReactorKit
 
 class NewBookReactor: Reactor {
+    fileprivate var allBooks: [[BookItem]] = []
+    
     enum Action {
         case refresh
+        case paging
     }
     
     enum Mutation {
         case setBooks([BookItem])
+        case pagingBooks
     }
     
     struct State {
@@ -33,6 +37,9 @@ extension NewBookReactor {
             return fetchBookItemsResult().flatMap { bookItems -> Observable<Mutation> in
                 return Observable.just(.setBooks(bookItems))
             }
+        case .paging:
+            guard allBooks.count > 0 else { return .empty() }
+            return Observable.just(.pagingBooks)
         }
     }
 }
@@ -42,7 +49,24 @@ extension NewBookReactor {
         var newState = state
         switch mutation {
         case .setBooks(let bookItems):
-            newState.books = bookItems
+            var bookTemp: [[BookItem]] = []
+            for i in stride(from: 0, to: bookItems.count, by: 3) {
+                if let split = bookItems[safe: i ..< i + 3] {
+                    bookTemp.append(Array(split))
+                }
+            }
+            allBooks = bookTemp
+            newState.books = bookTemp.first ?? []
+            allBooks.removeFirst()
+            print("남은 책 목록", allBooks.count)
+        case .pagingBooks:
+            if let nextBooks = allBooks.first {
+                newState.books.append(contentsOf: nextBooks)
+                allBooks.removeFirst()
+                print("남은 책 목록", allBooks.count)
+            } else {
+                print("마지막 페이지 입니다.")
+            }
         }
         return newState
     }

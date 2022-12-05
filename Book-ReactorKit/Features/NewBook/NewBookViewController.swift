@@ -7,19 +7,18 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SnapKit
 import ReactorKit
 
 class NewBookViewController: UIViewController {
     
-    var reactor: NewBookReactor?
-    var disposeBag: DisposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
+    let newBookView = NewBookView()
     
-    private let newBookView = NewBookView()
-    
-    init(reactor: NewBookReactor? = nil) {
+    init() {
+        defer { self.reactor = NewBookReactor() }
         super.init(nibName: nil, bundle: nil)
-        self.reactor = reactor
     }
     
     required init?(coder: NSCoder) {
@@ -39,17 +38,13 @@ class NewBookViewController: UIViewController {
     }
 }
 
-extension NewBookViewController: View {
+extension NewBookViewController: ReactorKit.View {
     func bind(reactor: NewBookReactor) {
-        Observable.just(())
-            .map { Reactor.Action.refresh }
+        newBookView.bind(reactor: reactor)
+        
+        self.rx.viewWillAppear
+            .map { _ in Reactor.Action.refresh }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
-        reactor.state
-            .compactMap { $0.books }
-            .subscribe(onNext: { books in
-                print(books)
-            }).disposed(by: disposeBag)
     }
 }

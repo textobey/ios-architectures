@@ -10,7 +10,7 @@ import UIKit
 final class UIBaseTabBarController: UITabBarController {
     
     private var rootViewControllers: [UIViewController] {
-        return [NewBookViewController(reactor: NewBookReactor()), SearchViewController()]
+        return [NewBookViewController(), SearchViewController()]
     }
     
     private var tabBarItems: [UITabBarItem] {
