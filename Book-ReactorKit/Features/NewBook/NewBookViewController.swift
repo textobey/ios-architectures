@@ -46,5 +46,12 @@ extension NewBookViewController: ReactorKit.View {
             .map { _ in Reactor.Action.refresh }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        newBookView.tableView.rx.modelSelected(BookItem.self)
+            .compactMap { $0.isbn13 }
+            .subscribe(onNext: { [weak self] isbn13 in
+                let viewController = BookDetailViewController(isbn13: isbn13)
+                self?.present(viewController, animated: true)
+            }).disposed(by: disposeBag)
     }
 }

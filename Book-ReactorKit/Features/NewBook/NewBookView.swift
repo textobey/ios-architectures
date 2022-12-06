@@ -55,11 +55,6 @@ extension NewBookView {
 
 extension NewBookView {
     private func bindAction(reactor: NewBookReactor) {
-        tableView.rx.itemSelected
-            .subscribe(onNext: { indexPath in
-                print(indexPath)
-            }).disposed(by: disposeBag)
-        
         tableView.rx.contentOffset.withUnretained(self)
             .filter { $0.0.tableView.isNearBottomEdge() }
             .map { _ in NewBookReactor.Action.paging }
