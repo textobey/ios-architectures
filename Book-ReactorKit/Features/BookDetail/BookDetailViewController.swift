@@ -37,8 +37,6 @@ class BookDetailViewController: UIViewController {
     
     lazy var bookDetailView = BookDetailView().then {
         $0.backgroundColor = .white
-        $0.textView.delegate = self
-        $0.textView.returnKeyType = .done
     }
 
     override func viewDidLoad() {
@@ -79,40 +77,5 @@ extension BookDetailViewController: ReactorKit.View {
             .map { _ in Reactor.Action.refresh }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-    }
-}
-
-// MARK: - text view delegate
-extension BookDetailViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        // FIXME: - keyboard 높이만큼 scroll view도 올라가야함 -> NotificationCenter
-        if textView.textColor != .black {
-            textView.text.removeAll()
-            textView.textColor = .black
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        guard let title = self.bookTitleLabel.text else { return }
-        guard let text = textView.text else { return }
-        
-        if textView.textColor == .systemGray3 || text == "" {
-            self.bookDetailView.textView.text = "메모를 입력해보세요"
-            self.bookDetailView.textView.textColor = .systemGray3
-            if UserDefaults.standard.string(forKey: title) != nil {
-                UserDefaults.standard.removeObject(forKey: title)
-            }
-        } else {
-            UserDefaults.standard.set(text, forKey: title)
-        }
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            textView.resignFirstResponder()
-            // MARK: - keyboard 내려갈때 scrollView도 내려가기 -> NotificationCenter
-            return false
-        }
-        return true
     }
 }

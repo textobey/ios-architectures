@@ -70,6 +70,8 @@ class BookDetailView: UIView {
     
     lazy var textView = UITextView().then {
         $0.text = "메모를 입력해보세요"
+        $0.delegate = self
+        $0.returnKeyType = .done
         $0.textColor = .systemGray3
         $0.layer.borderWidth = 2
         $0.layer.cornerRadius = 10
@@ -138,7 +140,10 @@ extension BookDetailView {
 
 extension BookDetailView {
     private func bindAction(reactor: BookDetailReactor) {
-        
+        //textView.rx.didBeginEditing
+            //.withLatestFrom(textView.text)
+            //.subscribe(onNext: { text in
+            //}).disposed(by: disposeBag)
     }
     
     private func bindState(reactor: BookDetailReactor) {
@@ -168,5 +173,41 @@ extension BookDetailView {
             self.textView.text = bookContext
             self.textView.textColor = .black
         }
+    }
+}
+
+
+// MARK: - text view delegate
+extension BookDetailView: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        // FIXME: - keyboard 높이만큼 scroll view도 올라가야함 -> NotificationCenter
+        if textView.textColor != .black {
+            textView.text.removeAll()
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let title = self.titleLabel.text else { return }
+        guard let text = textView.text else { return }
+        
+        if textView.textColor == .systemGray3 || text == "" {
+            self.textView.text = "메모를 입력해보세요"
+            self.textView.textColor = .systemGray3
+            if UserDefaults.standard.string(forKey: title) != nil {
+                UserDefaults.standard.removeObject(forKey: title)
+            }
+        } else {
+            UserDefaults.standard.set(text, forKey: title)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            // MARK: - keyboard 내려갈때 scrollView도 내려가기 -> NotificationCenter
+            return false
+        }
+        return true
     }
 }

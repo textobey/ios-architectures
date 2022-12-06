@@ -49,14 +49,9 @@ extension NewBookReactor {
         var newState = state
         switch mutation {
         case .setBooks(let bookItems):
-            var bookTemp: [[BookItem]] = []
-            for i in stride(from: 0, to: bookItems.count, by: 3) {
-                if let split = bookItems[safe: i ..< i + 3] {
-                    bookTemp.append(Array(split))
-                }
-            }
-            allBooks = bookTemp
-            newState.books = bookTemp.first ?? []
+            let slicedBookImtes = sliceBookItems(bookItems)
+            allBooks = slicedBookImtes
+            newState.books = slicedBookImtes.first ?? []
             allBooks.removeFirst()
             print("남은 책 목록", allBooks.count)
         case .pagingBooks:
@@ -88,5 +83,15 @@ private extension NewBookReactor {
             }
             return Disposables.create()
         }
+    }
+    
+    private func sliceBookItems(_ bookItems: [BookItem]) -> [[BookItem]] {
+        var slicedBookItems: [[BookItem]] = [[BookItem]]()
+        for i in stride(from: 0, to: bookItems.count, by: 3) {
+            if let split = bookItems[safe: i ..< i + 3] {
+                slicedBookItems.append(Array(split))
+            }
+        }
+        return slicedBookItems
     }
 }

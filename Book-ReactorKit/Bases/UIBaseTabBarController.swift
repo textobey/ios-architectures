@@ -16,6 +16,10 @@ final class UIBaseTabBarController: UITabBarController {
     private var tabBarItems: [UITabBarItem] {
         return self.fetchTabBarItems()
     }
+    
+    private var titles: [String] {
+        return self.fetchNavigationBarTitles()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,10 @@ final class UIBaseTabBarController: UITabBarController {
         let viewControllers = rootViewControllers.enumerated().map { index, rootViewController -> UINavigationController in
             rootViewController.view.backgroundColor = .white
             rootViewController.tabBarItem = tabBarItems[index]
-            return UINavigationController(rootViewController: rootViewController)
+            let navigationController = UINavigationController(rootViewController: rootViewController)
+            navigationController.navigationBar.topItem?.title = titles[index]
+            navigationController.navigationBar.prefersLargeTitles = true
+            return navigationController
         }
         self.viewControllers = viewControllers
     }
@@ -44,5 +51,9 @@ final class UIBaseTabBarController: UITabBarController {
             UITabBarItem(title: "New", image: UIImage(systemName: "book"), tag: 0),
             UITabBarItem(tabBarSystemItem: .search, tag: 1)
         ]
+    }
+    
+    private func fetchNavigationBarTitles() -> [String] {
+        return ["New Books", "Search Books"]
     }
 }
