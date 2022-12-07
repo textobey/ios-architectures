@@ -14,7 +14,6 @@ import ReactorKit
 class NewBookViewController: UIViewController {
     
     var disposeBag = DisposeBag()
-    let newBookView = NewBookView()
     
     init() {
         defer { self.reactor = NewBookReactor() }
@@ -24,6 +23,8 @@ class NewBookViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    let newBookView = NewBookView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ extension NewBookViewController: ReactorKit.View {
             .compactMap { $0.isbn13 }
             .subscribe(onNext: { [weak self] isbn13 in
                 let viewController = BookDetailViewController(isbn13: isbn13)
-                self?.present(viewController, animated: true)
+                self?.navigationController?.pushViewController(viewController, animated: true)
             }).disposed(by: disposeBag)
     }
 }

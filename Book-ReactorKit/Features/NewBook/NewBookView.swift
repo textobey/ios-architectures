@@ -20,7 +20,6 @@ class NewBookView: UIView {
         $0.separatorStyle = .none
         $0.register(NewBookTableViewCell.self, forCellReuseIdentifier: NewBookTableViewCell.identifier)
         $0.refreshControl = self.refreshControl
-        $0.refreshControl?.addTarget(self, action: #selector(self.handleRefreshControl), for: .valueChanged)
     }
     
     override init(frame: CGRect) {
@@ -41,12 +40,6 @@ class NewBookView: UIView {
 }
 
 extension NewBookView {
-    @objc func handleRefreshControl() {
-        self.tableView.refreshControl?.endRefreshing()
-    }
-}
-
-extension NewBookView {
     func bind(reactor: NewBookReactor) {
         bindAction(reactor: reactor)
         bindState(reactor: reactor)
@@ -62,6 +55,8 @@ extension NewBookView {
             .disposed(by: disposeBag)
         
         refreshControl.rx.controlEvent(.valueChanged)
+            .withUnretained(self)
+            .do(onNext: { $0.0.stopLoadingIndicator() })
             .map { _ in NewBookReactor.Action.refresh }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -73,5 +68,13 @@ extension NewBookView {
             .bind(to: tableView.rx.items(cellIdentifier: NewBookTableViewCell.identifier, cellType: NewBookTableViewCell.self)) { row, bookItem, cell in
                 cell.configureCell(by: bookItem)
             }.disposed(by: disposeBag)
+    }
+}
+
+extension NewBookView {
+    private func stopLoadingIndicator() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            self.tableView.refreshControl?.endRefreshing()
+        })
     }
 }

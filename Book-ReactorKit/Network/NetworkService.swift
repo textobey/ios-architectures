@@ -48,6 +48,11 @@ extension NetworkService {
         return request(url: url!, type: BookModel.self)
     }
     
+    func fetchSearchResults(of word: String, page: Int = 1) -> ReturnResult<BookModel, Error> {
+        let url = fetchRequestEndPoint("search", word, String(page))
+        return request(url: url!, type: BookModel.self)
+    }
+    
     private func request<T: Decodable>(url: URL, type: T.Type) -> ReturnResult<T, Error> {
         return ReturnResult<T, Error> { promise in
             AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: Self.headers)

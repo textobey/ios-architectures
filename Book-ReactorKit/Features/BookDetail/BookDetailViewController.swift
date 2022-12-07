@@ -24,16 +24,11 @@ class BookDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var bookTitleLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        $0.textColor = .black
-        $0.numberOfLines = 0
-        $0.text = nil
-    }
-    
     lazy var scrollView = UIScrollView().then {
         $0.backgroundColor = .white
     }
+    
+    lazy var scrollContainerView = UIView()
     
     lazy var bookDetailView = BookDetailView().then {
         $0.backgroundColor = .white
@@ -41,28 +36,26 @@ class BookDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Detail Book"
         view.backgroundColor = .white
         setupLayout()
     }
     
     private func setupLayout() {
-        self.view.addSubview(self.bookTitleLabel)
-        
-        self.view.addSubview(self.scrollView)
-        
-        self.scrollView.addSubview(self.bookDetailView)
-        
-        self.bookTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(10)
-            $0.leading.trailing.equalToSuperview().inset(20)
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints {
+            $0.directionalEdges.equalTo(view.safeAreaLayoutGuide)
         }
         
-        self.scrollView.snp.makeConstraints {
-            $0.top.equalTo(self.bookTitleLabel.snp.bottom).offset(10)
-            $0.leading.trailing.bottom.equalToSuperview()
+        scrollView.addSubview(scrollContainerView)
+        scrollContainerView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.centerX.equalToSuperview()
         }
         
-        self.bookDetailView.snp.makeConstraints {
+        scrollContainerView.addSubview(bookDetailView)
+        bookDetailView.snp.makeConstraints {
             $0.top.centerX.equalToSuperview()
             $0.leading.trailing.bottom.equalToSuperview().inset(20)
         }
