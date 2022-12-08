@@ -16,8 +16,8 @@ class SearchBookViewController: UIViewController {
     var disposeBag = DisposeBag()
     
     init() {
-        defer { self.reactor = SearchBookReactor() }
         super.init(nibName: nil, bundle: nil)
+        self.reactor = SearchBookReactor()
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +55,10 @@ class SearchBookViewController: UIViewController {
 extension SearchBookViewController: ReactorKit.View {
     func bind(reactor: SearchBookReactor) {
         searchBookView.bind(reactor: reactor)
-        
+        bindAction(reactor: reactor)
+    }
+    
+    private func bindAction(reactor: SearchBookReactor) {
         searchBookView.tableView.rx.contentOffset
             .withUnretained(self)
             .do(onNext: { $0.0.searchController.searchBar.endEditing(true) })
@@ -75,6 +78,12 @@ extension SearchBookViewController: ReactorKit.View {
             .map { SearchBookReactor.Action.phraseSearch($0 ?? "") }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        searchBookView.tableView.rx.modelSelected(BookItem.self)
+            .subscribe(onNext: { [weak self] item in
+                let viewController = BookDetailViewController(isbn13: item.isbn13 ?? "")
+                self?.navigationController?.pushViewController(viewController, animated: true)
+            }).disposed(by: disposeBag)
     }
 }
 
