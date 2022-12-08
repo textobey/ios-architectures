@@ -52,6 +52,7 @@ class SearchBookViewController: UIViewController {
     }
 }
 
+// TODO: - UIViewController에 종속적인 Action들만이 존재할때, 레이아웃을 위한 View와 ViewController를 나누는 구조가 비효율적인가?
 extension SearchBookViewController: ReactorKit.View {
     func bind(reactor: SearchBookReactor) {
         searchBookView.bind(reactor: reactor)
