@@ -9,8 +9,9 @@ import RxSwift
 import RxCocoa
 import SnapKit
 import ReactorKit
+import UserNotifications
 
-class NewBookReactor: Reactor {
+class NewBookReactor: GlobalEvents, Reactor {
     fileprivate var allBooks: [[BookItem]] = []
     
     enum Action {
@@ -21,6 +22,7 @@ class NewBookReactor: Reactor {
     enum Mutation {
         case setBooks([BookItem])
         case pagingBooks
+        case printBook([AnyHashable: Any])
     }
     
     struct State {
@@ -28,6 +30,12 @@ class NewBookReactor: Reactor {
     }
     
     let initialState = State()
+    
+    override init() {
+        super.init()
+        requestNotificationAuthorization()
+        sendNotification(seconds: 5)
+    }
 }
 
 extension NewBookReactor {
@@ -62,8 +70,29 @@ extension NewBookReactor {
             } else {
                 print("마지막 페이지 입니다.")
             }
+        case .printBook(let book):
+            print(book)
         }
         return newState
+    }
+}
+
+extension NewBookReactor {
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        let eventMutation = notificationEvent.flatMap { event -> Observable<Mutation> in
+            switch event {
+            case .didReceive(let dictionary):
+                print("didReceive")
+                return .just(.printBook(dictionary))
+            case .willPresent:
+                print("willPresent")
+                return .empty()
+            case .error:
+                print("Error")
+                return .empty()
+            }
+        }
+        return Observable.merge(mutation, eventMutation)
     }
 }
 
@@ -93,5 +122,37 @@ private extension NewBookReactor {
             }
         }
         return slicedBookItems
+    }
+}
+
+// MARK: - Local Notification
+extension NewBookReactor {
+    private func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { success, error in
+            if let error = error {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    private func sendNotification(seconds: Double) {
+        let notificationContent = UNMutableNotificationContent()
+        
+        notificationContent.title = "새로운 책들을 확인해보세요."
+        notificationContent.body = "베스트 셀러 작가들의 신규 책들이 발간 되었어요!"
+        notificationContent.userInfo = ["name":"A Swift Kickstart, 2nd Edition"]
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                            content: notificationContent,
+                                            trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
     }
 }
