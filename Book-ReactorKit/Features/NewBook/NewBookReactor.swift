@@ -11,7 +11,7 @@ import SnapKit
 import ReactorKit
 import UserNotifications
 
-class NewBookReactor: GlobalEvents, Reactor {
+class NewBookReactor: Reactor {
     fileprivate var allBooks: [[BookItem]] = []
     
     enum Action {
@@ -31,8 +31,7 @@ class NewBookReactor: GlobalEvents, Reactor {
     
     let initialState = State()
     
-    override init() {
-        super.init()
+    init() {
         requestNotificationAuthorization()
         sendNotification(seconds: 5)
     }
@@ -79,7 +78,7 @@ extension NewBookReactor {
 
 extension NewBookReactor {
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let eventMutation = notificationEvent.flatMap { event -> Observable<Mutation> in
+        let eventMutation = NotificationService.shared.event.flatMap { event -> Observable<Mutation> in
             switch event {
             case .didReceive(let dictionary):
                 print("didReceive")

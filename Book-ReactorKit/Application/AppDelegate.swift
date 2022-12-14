@@ -34,14 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     // Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        //let userInfo = notification.request.content.userInfo
+        let userInfo = notification.request.content.userInfo
+        NotificationCenter.default.post(name: .willPresentNotification, object: nil, userInfo: userInfo)
         completionHandler([.badge, .sound])
     }
     
     // Background -> Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        NotificationService.shared.event.accept(.didReceive(userInfo))
+        NotificationCenter.default.post(name: .didReceiveNotification, object: nil, userInfo: userInfo)
         completionHandler()
     }
 }
