@@ -78,16 +78,14 @@ extension NewBookReactor {
 
 extension NewBookReactor {
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let eventMutation = NotificationService.shared.event.flatMap { event -> Observable<Mutation> in
+        let eventMutation = NotificationService.shared.globalEventStream.flatMap { event -> Observable<Mutation> in
             switch event {
-            case .didReceive(let dictionary):
-                print("didReceive")
-                return .just(.printBook(dictionary))
-            case .willPresent:
-                print("willPresent")
-                return .empty()
-            case .error:
-                print("Error")
+            case .willPresentNotification(let object):
+                return Observable.just(.printBook(object!))
+            case .didReceiveNotification(let object):
+                return Observable.just(.printBook(object!))
+            default:
+                print("default")
                 return .empty()
             }
         }

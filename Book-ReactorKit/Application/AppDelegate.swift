@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        NotificationService.shared.addObservers()
         UNUserNotificationCenter.current().delegate = self
         return true
     }
@@ -35,14 +36,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
-        NotificationCenter.default.post(name: .willPresentNotification, object: nil, userInfo: userInfo)
+        InternalNotificationCenter.willPresentNotification.post(object: userInfo)
         completionHandler([.badge, .sound])
     }
     
     // Background -> Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        NotificationCenter.default.post(name: .didReceiveNotification, object: nil, userInfo: userInfo)
+        InternalNotificationCenter.didReceiveNotification.post(object: userInfo)
         completionHandler()
     }
 }
