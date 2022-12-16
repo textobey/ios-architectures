@@ -22,6 +22,8 @@ class NewBookView: UIView {
         $0.refreshControl = self.refreshControl
     }
     
+    lazy var loadingIndicator = UIActivityIndicatorView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -35,6 +37,11 @@ class NewBookView: UIView {
         addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.directionalEdges.equalToSuperview()
+        }
+        
+        addSubview(loadingIndicator)
+        loadingIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
 }
@@ -68,6 +75,18 @@ extension NewBookView {
             .bind(to: tableView.rx.items(cellIdentifier: NewBookTableViewCell.identifier, cellType: NewBookTableViewCell.self)) { row, bookItem, cell in
                 cell.configureCell(by: bookItem)
             }.disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.isLoading }
+            .distinctUntilChanged()
+            .bind(to: loadingIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { !$0.isLoading }
+            .distinctUntilChanged()
+            .bind(to: loadingIndicator.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 }
 

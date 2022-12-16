@@ -22,14 +22,14 @@ class NewBookReactor: Reactor {
     enum Mutation {
         case setBooks([BookItem])
         case pagingBooks
-        //case setLoading(Bool)
+        case setLoading(Bool)
         case showAlert
         case printBook([AnyHashable: Any])//For Test
     }
     
     struct State {
         var books: [BookItem] = []
-        //var isLoading: Bool = false
+        var isLoading: Bool = false
         @Pulse var alertTrigger: Void = Void()
     }
     
@@ -45,9 +45,13 @@ extension NewBookReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .refresh:
-            return fetchBookItemsResult().flatMap { bookItems -> Observable<Mutation> in
-                return Observable.just(.setBooks(bookItems))
-            }
+            return Observable.concat([
+                Observable.just(.setLoading(true)),
+                fetchBookItemsResult().flatMap { bookItems -> Observable<Mutation> in
+                    return Observable.just(.setBooks(bookItems))
+                }.delay(.seconds(Int(0.5)), scheduler: MainScheduler.instance),
+                Observable.just(.setLoading(false))
+            ])
         case .paging:
             guard allBooks.count > 0 else { return .empty() }
             return Observable.just(.pagingBooks)
@@ -73,6 +77,8 @@ extension NewBookReactor {
             } else {
                 print("마지막 페이지 입니다.")
             }
+        case .setLoading(let isLoading):
+            newState.isLoading = isLoading
         case .showAlert:
             newState.alertTrigger = Void()
         case .printBook(let book):
