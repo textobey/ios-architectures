@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A600FDBB2939DE9B00D62397 /* ReturnResultKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */; };
+		A60A2115294BF98400FED842 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A2114294BF98400FED842 /* UITableView+.swift */; };
 		A60D6F88293DCD8400F71CD3 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D6F87293DCD8400F71CD3 /* UIScrollView+.swift */; };
 		A60D6F8A293DD0C700F71CD3 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D6F89293DD0C700F71CD3 /* Array+.swift */; };
 		A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA06E29374A7F0064D21E /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnResultKit.swift; sourceTree = "<group>"; };
+		A60A2114294BF98400FED842 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		A60D6F87293DCD8400F71CD3 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		A60D6F89293DD0C700F71CD3 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		A60EA06B29374A7F0064D21E /* Book-ReactorKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-ReactorKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 				A678043C293DC2CA0014433C /* Rx+ */,
 				A600FDBA2939DE9B00D62397 /* ReturnResultKit.swift */,
 				A60D6F87293DCD8400F71CD3 /* UIScrollView+.swift */,
+				A60A2114294BF98400FED842 /* UITableView+.swift */,
 				A60D6F89293DD0C700F71CD3 /* Array+.swift */,
 			);
 			path = Extension;
@@ -478,6 +481,7 @@
 				A684B8822938973300D6B5E1 /* NewBookContentView.swift in Sources */,
 				A67C02AB293DDA9700B47E37 /* BookDetailReactor.swift in Sources */,
 				A65A2CCB293885C4005BC930 /* UIBaseTabBarController.swift in Sources */,
+				A60A2115294BF98400FED842 /* UITableView+.swift in Sources */,
 				A6E8AF06293F0C4900D9ABB2 /* SearchBookViewController.swift in Sources */,
 				A6A4C952294ADCE700E3EF1A /* GlobalEvents.swift in Sources */,
 				A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */,

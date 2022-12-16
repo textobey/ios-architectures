@@ -22,11 +22,15 @@ class NewBookReactor: Reactor {
     enum Mutation {
         case setBooks([BookItem])
         case pagingBooks
-        case printBook([AnyHashable: Any])
+        //case setLoading(Bool)
+        case showAlert
+        case printBook([AnyHashable: Any])//For Test
     }
     
     struct State {
         var books: [BookItem] = []
+        //var isLoading: Bool = false
+        @Pulse var alertTrigger: Void = Void()
     }
     
     let initialState = State()
@@ -69,6 +73,8 @@ extension NewBookReactor {
             } else {
                 print("마지막 페이지 입니다.")
             }
+        case .showAlert:
+            newState.alertTrigger = Void()
         case .printBook(let book):
             print(book)
         }
@@ -80,8 +86,8 @@ extension NewBookReactor {
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
         let eventMutation = NotificationService.shared.globalEventStream.flatMap { event -> Observable<Mutation> in
             switch event {
-            case .willPresentNotification(let object):
-                return Observable.just(.printBook(object!))
+            case .willPresentNotification:
+                return Observable.just(.showAlert)
             case .didReceiveNotification(let object):
                 return Observable.just(.printBook(object!))
             default:
