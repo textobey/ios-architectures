@@ -15,3 +15,10 @@ struct BookItem: Decodable {
     var image: String?
     var url: String?
 }
+
+extension BookItem {
+    func isBookmarked() -> Bool {
+        let list = Defaults.shared.get(for: .bookmarkList) ?? []
+        return isbn13 != nil ? list.contains(isbn13!) : false
+    }
+}

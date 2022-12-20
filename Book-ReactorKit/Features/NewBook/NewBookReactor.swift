@@ -17,6 +17,7 @@ class NewBookReactor: Reactor {
     enum Action {
         case refresh
         case paging
+        case bookmark(BookItem)
     }
     
     enum Mutation {
@@ -37,7 +38,7 @@ class NewBookReactor: Reactor {
     
     init() {
         requestNotificationAuthorization()
-        sendNotification(seconds: 5)
+        //sendNotification(seconds: 5)
     }
 }
 
@@ -55,6 +56,13 @@ extension NewBookReactor {
         case .paging:
             guard allBooks.count > 0 else { return .empty() }
             return Observable.just(.pagingBooks)
+        case .bookmark(let bookItem):
+            if let isbn13 = bookItem.isbn13 {
+                print("새로운 즐겨찾기 추가 :", bookItem.title)
+                print("즐겨찾기된 목록 :", Defaults.shared.get(for: .bookmarkList))
+                Defaults.shared.appendBookmark(isbn13: isbn13)
+            }
+            return .empty()
         }
     }
 }

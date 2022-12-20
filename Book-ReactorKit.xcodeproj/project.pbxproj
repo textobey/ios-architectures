@@ -40,6 +40,8 @@
 		A684B88A2938984900D6B5E1 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8892938984900D6B5E1 /* BookItem.swift */; };
 		A684B88D2938991700D6B5E1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B88C2938991700D6B5E1 /* NetworkService.swift */; };
 		A6A4C952294ADCE700E3EF1A /* GlobalEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A4C951294ADCE700E3EF1A /* GlobalEvents.swift */; };
+		A6E40318294C49A300AD788B /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E40317294C49A300AD788B /* Defaults.swift */; };
+		A6E4031A294C4BA200AD788B /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E40319294C4BA200AD788B /* UserDefaultsService.swift */; };
 		A6E8AF06293F0C4900D9ABB2 /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E8AF05293F0C4900D9ABB2 /* SearchBookViewController.swift */; };
 		A6E8AF08293F0C5300D9ABB2 /* SearchBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E8AF07293F0C5300D9ABB2 /* SearchBookView.swift */; };
 		A6E8AF0A293F0C5A00D9ABB2 /* SearchBookReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E8AF09293F0C5A00D9ABB2 /* SearchBookReactor.swift */; };
@@ -96,6 +98,8 @@
 		A684B8892938984900D6B5E1 /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		A684B88C2938991700D6B5E1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A6A4C951294ADCE700E3EF1A /* GlobalEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEvents.swift; sourceTree = "<group>"; };
+		A6E40317294C49A300AD788B /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		A6E40319294C4BA200AD788B /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		A6E8AF05293F0C4900D9ABB2 /* SearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
 		A6E8AF07293F0C5300D9ABB2 /* SearchBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookView.swift; sourceTree = "<group>"; };
 		A6E8AF09293F0C5A00D9ABB2 /* SearchBookReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookReactor.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				A6A4C951294ADCE700E3EF1A /* GlobalEvents.swift */,
+				A6E40319294C4BA200AD788B /* UserDefaultsService.swift */,
 				A6F4474F2949A0EF003DF6C2 /* Notification */,
 			);
 			path = Service;
@@ -270,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				A65A2CD429388F31005BC930 /* Then.swift */,
+				A6E40317294C49A300AD788B /* Defaults.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A684B8822938973300D6B5E1 /* NewBookContentView.swift in Sources */,
+				A6E40318294C49A300AD788B /* Defaults.swift in Sources */,
 				A67C02AB293DDA9700B47E37 /* BookDetailReactor.swift in Sources */,
 				A65A2CCB293885C4005BC930 /* UIBaseTabBarController.swift in Sources */,
 				A60A2115294BF98400FED842 /* UITableView+.swift in Sources */,
@@ -498,6 +505,7 @@
 				A67C02A7293DDA0C00B47E37 /* BookDetailView.swift in Sources */,
 				A684B8782938907500D6B5E1 /* NewBookView.swift in Sources */,
 				A60D6F8A293DD0C700F71CD3 /* Array+.swift in Sources */,
+				A6E4031A294C4BA200AD788B /* UserDefaultsService.swift in Sources */,
 				A62BD0E4294802A600B96EEC /* NotificationService.swift in Sources */,
 				A60EA07129374A7F0064D21E /* SceneDelegate.swift in Sources */,
 				A6E8AF0A293F0C5A00D9ABB2 /* SearchBookReactor.swift in Sources */,

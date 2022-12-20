@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import SnapKit
 
 class NewBookContentView: UIView {
+    
+    private let disposeBag = DisposeBag()
+    
     // MARK: - stored properties
     lazy var topView = UIView().then {
         $0.backgroundColor = .systemGray6
@@ -20,6 +25,12 @@ class NewBookContentView: UIView {
     
     lazy var topImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
+    }
+    
+    lazy var bookmarkIcon = UIButton().then {
+        $0.setImage(UIImage(systemName: "star"), for: .normal)
+        $0.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        $0.tintColor = .black.withAlphaComponent(0.6)
     }
     
     lazy var bottomStackView = UIStackView().then {
@@ -61,6 +72,7 @@ class NewBookContentView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupLayout()
+        self.bindRx()
     }
     
     required init?(coder: NSCoder) {
@@ -79,6 +91,7 @@ extension NewBookContentView {
         
         self.addSubview(self.topView)
         self.addSubview(self.bottomView)
+        self.addSubview(self.bookmarkIcon)
         
         self.topView.addSubview(self.topImageView)
         
@@ -98,6 +111,12 @@ extension NewBookContentView {
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
+        self.bookmarkIcon.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(12)
+            $0.width.equalTo(22)
+            $0.height.equalTo(20)
+        }
+        
         self.topImageView.snp.makeConstraints {
             $0.top.equalTo(self.topView).offset(25)
             $0.bottom.equalTo(self.topView).offset(-25)
@@ -114,5 +133,13 @@ extension NewBookContentView {
             $0.trailing.equalTo(self.bottomView).offset(-20)
             $0.bottom.equalTo(self.bottomView).offset(-15)
         }
+    }
+    
+    private func bindRx() {
+        bookmarkIcon.rx.tap
+            .withUnretained(self)
+            .map { !$0.0.bookmarkIcon.isSelected }
+            .bind(to: bookmarkIcon.rx.isSelected)
+            .disposed(by: disposeBag)
     }
 }
