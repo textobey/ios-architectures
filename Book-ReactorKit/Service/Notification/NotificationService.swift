@@ -19,6 +19,7 @@ class NotificationService: GlobalEventsProtocol {
     
     private init() { }
     
+    /// Never duplicate calls
     func addObservers() {
         InternalNotificationCenter.allCases.forEach { name in
             name.addObserver().map { object in
@@ -47,6 +48,7 @@ extension NotificationCenterProtocol {
 enum InternalNotificationCenter: NotificationCenterProtocol, CaseIterable {
     case willPresentNotification
     case didReceiveNotification
+    case updatedBookmarkList
     case other
     
     var name: Notification.Name {
@@ -55,17 +57,21 @@ enum InternalNotificationCenter: NotificationCenterProtocol, CaseIterable {
             return Notification.Name(rawValue: "willPresentNotification")
         case .didReceiveNotification:
             return Notification.Name(rawValue: "didReceiveNotification")
+        case .updatedBookmarkList:
+            return Notification.Name(rawValue: "updatedBookmarkList")
         case .other:
             return Notification.Name(rawValue: "other")
         }
     }
     
-    func transform(_ object: Any?)-> GlobalEvents {
+    func transform(_ object: Any?) -> GlobalEvents {
         switch self {
         case .willPresentNotification:
             return .willPresentNotification((object as! [AnyHashable : Any]))
         case .didReceiveNotification:
             return .didReceiveNotification((object as! [AnyHashable : Any]))
+        case .updatedBookmarkList:
+            return .updatedBookmarkList
         case .other:
             return .none
         }

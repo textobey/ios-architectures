@@ -15,6 +15,7 @@ protocol GlobalEventsProtocol {
 enum GlobalEvents {
     case willPresentNotification([AnyHashable: Any]?)
     case didReceiveNotification([AnyHashable: Any]?)
+    case updatedBookmarkList
     case error
     case none
 }

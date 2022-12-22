@@ -25,4 +25,10 @@ extension Defaults {
         list.contains(isbn13) ? Void() : list.append(isbn13)
         self.set(list, for: .bookmarkList)
     }
+    
+    public func removeBookmark(isbn13: String) {
+        var list = self.get(for: .bookmarkList) ?? []
+        list.contains(isbn13) ? list.removeAll(where: { $0 == isbn13 }) : Void()
+        self.set(list, for: .bookmarkList)
+    }
 }

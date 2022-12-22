@@ -17,7 +17,7 @@ class NewBookReactor: Reactor {
     enum Action {
         case refresh
         case paging
-        case bookmark(BookItem)
+        case bookmark(Bool, BookItem)
     }
     
     enum Mutation {
@@ -38,7 +38,7 @@ class NewBookReactor: Reactor {
     
     init() {
         requestNotificationAuthorization()
-        //sendNotification(seconds: 5)
+        sendNotification(seconds: 5)
     }
 }
 
@@ -56,11 +56,15 @@ extension NewBookReactor {
         case .paging:
             guard allBooks.count > 0 else { return .empty() }
             return Observable.just(.pagingBooks)
-        case .bookmark(let bookItem):
+        case .bookmark(let isSelected, let bookItem):
             if let isbn13 = bookItem.isbn13 {
-                print("새로운 즐겨찾기 추가 :", bookItem.title)
-                print("즐겨찾기된 목록 :", Defaults.shared.get(for: .bookmarkList))
-                Defaults.shared.appendBookmark(isbn13: isbn13)
+                if isSelected {
+                    print("새로운 즐겨찾기 추가 :", bookItem.title)
+                    Defaults.shared.appendBookmark(isbn13: isbn13)
+                } else {
+                    print("즐겨찾기 제거 :", bookItem.title)
+                    Defaults.shared.removeBookmark(isbn13: isbn13)
+                }
             }
             return .empty()
         }
@@ -105,11 +109,25 @@ extension NewBookReactor {
             case .didReceiveNotification(let object):
                 return Observable.just(.printBook(object!))
             default:
-                print("default")
+                print("NewBookReactor Mutation Other...")
                 return .empty()
             }
         }
         return Observable.merge(mutation, eventMutation)
+    }
+    
+    func transform(action: Observable<Action>) -> Observable<Action> {
+        let eventAction = NotificationService.shared.globalEventStream.flatMap { event -> Observable<Action> in
+            switch event {
+            case .updatedBookmarkList:
+                print("NewBookReactor refresh action")
+                return Observable.just(.refresh)
+            default:
+                print("NewBookReactor Mutation Other...")
+                return .empty()
+            }
+        }
+        return Observable.merge(action, eventAction)
     }
 }
 

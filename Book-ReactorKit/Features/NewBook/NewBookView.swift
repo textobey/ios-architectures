@@ -74,8 +74,10 @@ extension NewBookView {
             .compactMap { $0.books }
             .bind(to: tableView.rx.items(cellIdentifier: NewBookTableViewCell.identifier, cellType: NewBookTableViewCell.self)) { row, bookItem, cell in
                 cell.configureCell(by: bookItem)
-                cell.bookmarkTap.map { bookItem }
-                    .map { NewBookReactor.Action.bookmark($0) }.bind(to: reactor.action).disposed(by: cell.disposeBag)
+                cell.bookmarkTap
+                    .map { NewBookReactor.Action.bookmark($0, bookItem) }
+                    .bind(to: reactor.action)
+                    .disposed(by: cell.disposeBag)
             }.disposed(by: disposeBag)
         
         reactor.state

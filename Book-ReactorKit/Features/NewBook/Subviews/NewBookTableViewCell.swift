@@ -17,8 +17,11 @@ class NewBookTableViewCell: UITableViewCell {
     
     var disposeBag = DisposeBag()
     
-    var bookmarkTap: Observable<Void> {
+    var bookmarkTap: Observable<Bool> {
         return self.contentsView.bookmarkIcon.rx.tap.asObservable()
+            .map { [weak self] _ -> Bool in
+                self?.contentsView.bookmarkIcon.isSelected ?? false
+            }
     }
     
     lazy var contentsView = NewBookContentView()

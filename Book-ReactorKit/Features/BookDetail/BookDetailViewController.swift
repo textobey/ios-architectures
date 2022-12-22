@@ -24,6 +24,12 @@ class BookDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    lazy var bookmark = UIButton().then {
+        $0.setImage(UIImage(systemName: "star"), for: .normal)
+        $0.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        $0.tintColor = .black.withAlphaComponent(0.6)
+    }
+    
     lazy var scrollView = UIScrollView().then {
         $0.backgroundColor = .white
     }
@@ -39,6 +45,7 @@ class BookDetailViewController: UIViewController {
         self.title = "Detail Book"
         view.backgroundColor = .white
         setupLayout()
+        setupNavigationBar()
     }
     
     private func setupLayout() {
@@ -60,14 +67,29 @@ class BookDetailViewController: UIViewController {
             $0.leading.trailing.bottom.equalToSuperview().inset(20)
         }
     }
+    
+    private func setupNavigationBar() {
+        let item = UIBarButtonItem(customView: bookmark)
+        navigationItem.rightBarButtonItem = item
+    }
 }
 
 extension BookDetailViewController: ReactorKit.View {
     func bind(reactor: BookDetailReactor) {
         bookDetailView.bind(reactor: reactor)
         
+        reactor.state
+            .map { $0.isBookmarked }
+            .bind(to: bookmark.rx.isSelected)
+            .disposed(by: disposeBag)
+        
         self.rx.viewWillAppear
             .map { _ in Reactor.Action.refresh }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        bookmark.rx.tap
+            .map { Reactor.Action.bookmark }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
