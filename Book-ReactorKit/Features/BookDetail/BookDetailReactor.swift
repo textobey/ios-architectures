@@ -9,6 +9,7 @@ import RxSwift
 import RxCocoa
 import SnapKit
 import ReactorKit
+import Foundation
 
 class BookDetailReactor: Reactor {
     
@@ -97,6 +98,6 @@ private extension BookDetailReactor {
         } else {
             Defaults.shared.appendBookmark(isbn13: currentState.isbn13)
         }
-        InternalNotificationCenter.updatedBookmarkList.post()
+        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.updatedBookmarkList.convertToUserInfo())
     }
 }

@@ -17,11 +17,11 @@ struct InternalNotification {
     let userInfo: [AnyHashable: Any]?
 }
 
-protocol NotificationCenterProtocol {
-    var name: Notification.Name { get }
-}
+//protocol NotificationCenterProtocol {
+//    var name: Notification.Name { get }
+//}
 
-enum InternalNotificationCenter: NotificationCenterProtocol, CaseIterable {
+enum InternalNotificationCenter: CaseIterable {
     case willPresentNotification
     case didReceiveNotification
     case updatedBookmarkList
@@ -37,19 +37,6 @@ enum InternalNotificationCenter: NotificationCenterProtocol, CaseIterable {
             return Notification.Name(rawValue: "updatedBookmarkList")
         case .other:
             return Notification.Name(rawValue: "other")
-        }
-    }
-    
-    func transform(_ object: Any?) -> GlobalEvents {
-        switch self {
-        case .willPresentNotification:
-            return .willPresentNotification((object as! [AnyHashable : Any]))
-        case .didReceiveNotification:
-            return .didReceiveNotification((object as! [AnyHashable : Any]))
-        case .updatedBookmarkList:
-            return .updatedBookmarkList
-        case .other:
-            return .none
         }
     }
 }

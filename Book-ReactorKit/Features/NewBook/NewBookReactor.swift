@@ -101,22 +101,8 @@ extension NewBookReactor {
 }
 
 extension NewBookReactor {
-    func transform(action: Observable<Action>) -> Observable<Action> {
-        let eventAction = NotificationService.shared.fetchGlobalEventStream().flatMap { event -> Observable<Action> in
-            switch event.type {
-            case .updatedBookmarkList:
-                print("NewBookReactor refresh action")
-                return Observable.just(.refresh)
-            default:
-                print("NewBookReactor Mutation Other...")
-                return .empty()
-            }
-        }
-        return Observable.merge(action, eventAction)
-    }
-    /*
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let eventMutation = NotificationService.shared.globalEventStream.flatMap { event -> Observable<Mutation> in
+        let eventMutation = GlobalEventsDispatcher.shared.rx.globalEventStream.flatMap { event -> Observable<Mutation> in
             switch event {
             case .willPresentNotification:
                 return Observable.just(.showAlert)
@@ -131,7 +117,7 @@ extension NewBookReactor {
     }
     
     func transform(action: Observable<Action>) -> Observable<Action> {
-        let eventAction = NotificationService.shared.globalEventStream.flatMap { event -> Observable<Action> in
+        let eventAction = GlobalEventsDispatcher.shared.rx.globalEventStream.flatMap { event -> Observable<Action> in
             switch event {
             case .updatedBookmarkList:
                 print("NewBookReactor refresh action")
@@ -143,7 +129,6 @@ extension NewBookReactor {
         }
         return Observable.merge(action, eventAction)
     }
-    */
 }
 
 private extension NewBookReactor {

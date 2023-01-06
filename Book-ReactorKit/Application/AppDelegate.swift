@@ -36,14 +36,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
-        InternalNotificationCenter.willPresentNotification.post(object: userInfo)
+        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.willPresentNotification(userInfo).convertToUserInfo())
         completionHandler([.badge, .sound])
     }
     
     // Background -> Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        InternalNotificationCenter.didReceiveNotification.post(object: userInfo)
+        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.didReceiveNotification(userInfo).convertToUserInfo())
         completionHandler()
     }
 }
