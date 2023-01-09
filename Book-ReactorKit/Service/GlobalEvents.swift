@@ -16,7 +16,7 @@ extension Notification.Name {
 enum GlobalEvent {
     case willPresentNotification([AnyHashable: Any]?)
     case didReceiveNotification([AnyHashable: Any]?)
-    case updatedBookmarkList
+    case updateBookmarkList
     case error(String)
     case none
     

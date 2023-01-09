@@ -119,7 +119,7 @@ extension NewBookReactor {
     func transform(action: Observable<Action>) -> Observable<Action> {
         let eventAction = GlobalEventsDispatcher.shared.rx.globalEventStream.flatMap { event -> Observable<Action> in
             switch event {
-            case .updatedBookmarkList:
+            case .updateBookmarkList:
                 print("NewBookReactor refresh action")
                 return Observable.just(.refresh)
             default:

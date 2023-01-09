@@ -98,6 +98,6 @@ private extension BookDetailReactor {
         } else {
             Defaults.shared.appendBookmark(isbn13: currentState.isbn13)
         }
-        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.updatedBookmarkList.convertToUserInfo())
+        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.updateBookmarkList.convertToUserInfo())
     }
 }
