@@ -13,6 +13,16 @@ extension Notification.Name {
     static let globalEvent = Notification.Name(rawValue: "globalEvent")
 }
 
+typealias GlobalEventDictionary = [String: GlobalEvent]
+
+@dynamicMemberLookup
+struct GlobalEventWrapper {
+    fileprivate var eventDictionary: GlobalEventDictionary
+    subscript(dynamicMember member: String) -> GlobalEvent? {
+        return eventDictionary[member]
+    }
+}
+
 enum GlobalEvent {
     case willPresentNotification([AnyHashable: Any]?)
     case didReceiveNotification([AnyHashable: Any]?)
@@ -21,10 +31,10 @@ enum GlobalEvent {
     case none
     
     private var EVENT_KEY: String {
-        return "globalEvent"
+        return "global_event"
     }
     
-    public func convertToUserInfo() -> [AnyHashable : Any] {
+    public func convertToUserInfo() -> GlobalEventDictionary {
         return [EVENT_KEY: self]
     }
 }
@@ -51,8 +61,9 @@ final class GlobalEventsDispatcher: NSObject {
     }
     
     private func convertToGlobalEvent(from notification: Notification) -> Observable<GlobalEvent> {
-        let globalEvents = notification.userInfo?.compactMap { $0.value as? GlobalEvent } ?? []
-        return Observable.from(globalEvents)
+        guard let dictionary = notification.userInfo as? GlobalEventDictionary else { return Observable.just(.none) }
+        let container = GlobalEventWrapper(eventDictionary: dictionary)
+        return Observable.just(container.global_event ?? .none)
     }
 }
 

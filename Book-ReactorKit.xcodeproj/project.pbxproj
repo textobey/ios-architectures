@@ -18,7 +18,6 @@
 		A60EA08629374A800064D21E /* Book_ReactorKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA08529374A800064D21E /* Book_ReactorKitTests.swift */; };
 		A60EA09029374A800064D21E /* Book_ReactorKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA08F29374A800064D21E /* Book_ReactorKitUITests.swift */; };
 		A60EA09229374A800064D21E /* Book_ReactorKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EA09129374A800064D21E /* Book_ReactorKitUITestsLaunchTests.swift */; };
-		A62BD0E4294802A600B96EEC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62BD0E3294802A600B96EEC /* NotificationService.swift */; };
 		A65A2CBD293883DD005BC930 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = A65A2CBC293883DD005BC930 /* ReactorKit */; };
 		A65A2CC02938841C005BC930 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A65A2CBF2938841C005BC930 /* SnapKit */; };
 		A65A2CC329388442005BC930 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A65A2CC229388442005BC930 /* Kingfisher */; };
@@ -40,7 +39,6 @@
 		A684B88A2938984900D6B5E1 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B8892938984900D6B5E1 /* BookItem.swift */; };
 		A684B88D2938991700D6B5E1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B88C2938991700D6B5E1 /* NetworkService.swift */; };
 		A6A4C952294ADCE700E3EF1A /* GlobalEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A4C951294ADCE700E3EF1A /* GlobalEvents.swift */; };
-		A6B0687229557BAA00843EF1 /* InternalNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B0687129557BAA00843EF1 /* InternalNotificationCenter.swift */; };
 		A6E40318294C49A300AD788B /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E40317294C49A300AD788B /* Defaults.swift */; };
 		A6E4031A294C4BA200AD788B /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E40319294C4BA200AD788B /* UserDefaultsService.swift */; };
 		A6E8AF06293F0C4900D9ABB2 /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E8AF05293F0C4900D9ABB2 /* SearchBookViewController.swift */; };
@@ -82,7 +80,6 @@
 		A60EA08B29374A800064D21E /* Book-ReactorKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book-ReactorKitUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60EA08F29374A800064D21E /* Book_ReactorKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_ReactorKitUITests.swift; sourceTree = "<group>"; };
 		A60EA09129374A800064D21E /* Book_ReactorKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_ReactorKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A62BD0E3294802A600B96EEC /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		A65A2CCA293885C4005BC930 /* UIBaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarController.swift; sourceTree = "<group>"; };
 		A65A2CCF29388728005BC930 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
 		A65A2CD429388F31005BC930 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
@@ -99,7 +96,6 @@
 		A684B8892938984900D6B5E1 /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		A684B88C2938991700D6B5E1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A6A4C951294ADCE700E3EF1A /* GlobalEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEvents.swift; sourceTree = "<group>"; };
-		A6B0687129557BAA00843EF1 /* InternalNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNotificationCenter.swift; sourceTree = "<group>"; };
 		A6E40317294C49A300AD788B /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		A6E40319294C4BA200AD788B /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		A6E8AF05293F0C4900D9ABB2 /* SearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
@@ -209,7 +205,6 @@
 			children = (
 				A6A4C951294ADCE700E3EF1A /* GlobalEvents.swift */,
 				A6E40319294C4BA200AD788B /* UserDefaultsService.swift */,
-				A6F4474F2949A0EF003DF6C2 /* Notification */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -332,15 +327,6 @@
 				A6E8AF0C293F152900D9ABB2 /* SearchBookTableViewCell.swift */,
 			);
 			path = Subviews;
-			sourceTree = "<group>";
-		};
-		A6F4474F2949A0EF003DF6C2 /* Notification */ = {
-			isa = PBXGroup;
-			children = (
-				A62BD0E3294802A600B96EEC /* NotificationService.swift */,
-				A6B0687129557BAA00843EF1 /* InternalNotificationCenter.swift */,
-			);
-			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,9 +495,7 @@
 				A684B8782938907500D6B5E1 /* NewBookView.swift in Sources */,
 				A60D6F8A293DD0C700F71CD3 /* Array+.swift in Sources */,
 				A6E4031A294C4BA200AD788B /* UserDefaultsService.swift in Sources */,
-				A62BD0E4294802A600B96EEC /* NotificationService.swift in Sources */,
 				A60EA07129374A7F0064D21E /* SceneDelegate.swift in Sources */,
-				A6B0687229557BAA00843EF1 /* InternalNotificationCenter.swift in Sources */,
 				A6E8AF0A293F0C5A00D9ABB2 /* SearchBookReactor.swift in Sources */,
 				A67C02A4293DD9A300B47E37 /* BookDetailViewController.swift in Sources */,
 				A684B8882938981D00D6B5E1 /* Enums.swift in Sources */,
