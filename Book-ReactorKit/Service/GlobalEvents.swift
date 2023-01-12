@@ -2,7 +2,7 @@
 //  GlobalEvents.swift
 //  Book-ReactorKit
 //
-//  Created by 이서준 onwlsWk  2022/12/15.
+//  Created by 이서준 on 2022/12/15.
 //
 
 import Foundation
