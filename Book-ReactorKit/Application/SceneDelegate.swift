@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        UNUserNotificationCenter.current().delegate = self
         self.window?.rootViewController = UIBaseTabBarController()
         self.window?.windowScene = windowScene
         self.window?.makeKeyAndVisible()
@@ -53,3 +54,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate: UNUserNotificationCenterDelegate {
+    // Foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.willPresentNotification(userInfo).convertToUserInfo())
+        completionHandler([.badge, .sound])
+    }
+    
+    // Background -> Foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.didReceiveNotification(userInfo).convertToUserInfo())
+        completionHandler()
+    }
+}

@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //NotificationService.shared.addObservers()
-        UNUserNotificationCenter.current().delegate = self
         return true
     }
 
@@ -29,21 +28,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    // Foreground
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.willPresentNotification(userInfo).convertToUserInfo())
-        completionHandler([.badge, .sound])
-    }
-    
-    // Background -> Foreground
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.didReceiveNotification(userInfo).convertToUserInfo())
-        completionHandler()
     }
 }
