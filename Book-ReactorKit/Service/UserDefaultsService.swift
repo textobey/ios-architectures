@@ -6,6 +6,83 @@
 //
 
 import Foundation
+import RxSwift
+import RxRelay
+
+enum StorageEvent {
+    case create
+    case save([String])
+    case remove([String])
+    case reset
+}
+
+protocol StorageServiceType {
+    var event: PublishSubject<StorageEvent> { get }
+    func fetchBookmark() -> Observable<[String]>
+
+    @discardableResult
+    func reset() -> Observable<Void>
+    @discardableResult
+    func save(_ isbn13s: [String]) -> Observable<Void>
+    
+    func insert(isbn13: String) -> Observable<[String]>
+    func remove(isbn13: String) -> Observable<[String]>
+    func isBookmarked(isbn13: String) -> Observable<Bool>
+}
+
+final class StorageService: BaseService, StorageServiceType {
+
+    private var shared: Defaults {
+        return Defaults.shared
+    }
+
+    func fetchBookmark() -> Observable<[String]> {
+        if let savedStorage = self.shared.get(for: .bookmarkList) {
+            return .just(savedStorage)
+        }
+        return .just([])
+    }
+
+    let event = PublishSubject<StorageEvent>()
+
+    func reset() -> Observable<Void> {
+        shared.clear(.bookmarkList)
+        return Observable.just(())
+    }
+    
+    func save(_ bookmarks: [String]) -> Observable<Void> {
+        self.shared.set(bookmarks, for: .bookmarkList)
+        return Observable.just(())
+    }
+
+    func insert(isbn13: String) -> Observable<[String]> {
+        return fetchBookmark()
+            .flatMap { [weak self] list -> Observable<[String]> in
+                guard let `self` = self else { return .empty() }
+                let newList = list.contains(isbn13) ? list : list + [isbn13]
+                return self.save(newList).map { newList }
+            }
+            .do(onNext: { list in
+                self.event.onNext(.save(list))
+            })
+    }
+
+    func remove(isbn13: String) -> Observable<[String]> {
+        return fetchBookmark()
+            .flatMap { [weak self] list -> Observable<[String]> in
+                guard let `self` = self else { return .empty() }
+                let newList = list.contains(isbn13) ? list.filter { $0 != isbn13 } : list
+                return self.save(newList).map { newList }
+            }
+            .do(onNext: { list in
+                self.event.onNext(.remove(list))
+            })
+    }
+
+    func isBookmarked(isbn13: String) -> Observable<Bool> {
+        return fetchBookmark().map { $0.contains(isbn13) }
+    }
+}
 
 extension DefaultsKey {
     static let bookmarkList = Key<[String]>("bookmark_list")

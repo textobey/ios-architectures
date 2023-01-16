@@ -8,9 +8,11 @@
 import Foundation
 
 protocol ServiceProviderType: AnyObject {
+    var storageService: StorageServiceType { get }
     var notificationCenterService: NotificationCenterService { get }
 }
 
 final class ServiceProvider: ServiceProviderType {
+    lazy var storageService: StorageServiceType = StorageService(provider: self)
     lazy var notificationCenterService: NotificationCenterService = NotificationCenterService(provider: self)
 }
