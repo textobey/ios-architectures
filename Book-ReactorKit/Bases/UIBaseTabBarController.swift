@@ -9,6 +9,8 @@ import UIKit
 
 final class UIBaseTabBarController: UITabBarController {
     
+    let provider: ServiceProviderType
+    
     private var rootViewControllers: [UIViewController] {
         return [NewBookViewController(), SearchBookViewController()]
     }
@@ -20,7 +22,16 @@ final class UIBaseTabBarController: UITabBarController {
     private var titles: [String] {
         return self.fetchNavigationBarTitles()
     }
-
+    
+    init(provider: ServiceProviderType) {
+        self.provider = provider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.appendRootViewControllers()

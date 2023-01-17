@@ -16,6 +16,10 @@ enum StorageEvent {
     case reset
 }
 
+extension DefaultsKey {
+    static let bookmarkList = Key<[String]>("bookmark_list")
+}
+
 protocol StorageServiceType {
     var event: PublishSubject<StorageEvent> { get }
     func fetchBookmark() -> Observable<[String]>
@@ -84,28 +88,27 @@ final class StorageService: BaseService, StorageServiceType {
     }
 }
 
-extension DefaultsKey {
-    static let bookmarkList = Key<[String]>("bookmark_list")
-}
-
-extension Defaults {
-    @discardableResult
-    public func reset<ValueType>(key: Key<ValueType>) -> ValueType? {
-        clear(key)
-        return get(for: key)
-    }
-}
-
-extension Defaults {
-    public func appendBookmark(isbn13: String) {
-        var list = self.get(for: .bookmarkList) ?? []
-        list.contains(isbn13) ? Void() : list.append(isbn13)
-        self.set(list, for: .bookmarkList)
-    }
-    
-    public func removeBookmark(isbn13: String) {
-        var list = self.get(for: .bookmarkList) ?? []
-        list.contains(isbn13) ? list.removeAll(where: { $0 == isbn13 }) : Void()
-        self.set(list, for: .bookmarkList)
-    }
-}
+/*
+ MARK: *Deprecated
+ extension Defaults {
+ @discardableResult
+ public func reset<ValueType>(key: Key<ValueType>) -> ValueType? {
+ clear(key)
+ return get(for: key)
+ }
+ }
+ 
+ extension Defaults {
+ public func appendBookmark(isbn13: String) {
+ var list = self.get(for: .bookmarkList) ?? []
+ list.contains(isbn13) ? Void() : list.append(isbn13)
+ self.set(list, for: .bookmarkList)
+ }
+ 
+ public func removeBookmark(isbn13: String) {
+ var list = self.get(for: .bookmarkList) ?? []
+ list.contains(isbn13) ? list.removeAll(where: { $0 == isbn13 }) : Void()
+ self.set(list, for: .bookmarkList)
+ }
+ }
+ */
