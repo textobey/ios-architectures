@@ -20,7 +20,7 @@ extension DefaultsKey {
     static let bookmarkList = Key<[String]>("bookmark_list")
 }
 
-protocol StorageServiceType {
+private protocol StorageServiceType {
     var event: PublishSubject<StorageEvent> { get }
     func fetchBookmark() -> Observable<[String]>
 
@@ -47,7 +47,7 @@ final class StorageService: BaseService, StorageServiceType {
         return .just([])
     }
 
-    let event = PublishSubject<StorageEvent>()
+    fileprivate let event = PublishSubject<StorageEvent>()
 
     func reset() -> Observable<Void> {
         shared.clear(.bookmarkList)
@@ -85,6 +85,12 @@ final class StorageService: BaseService, StorageServiceType {
 
     func isBookmarked(isbn13: String) -> Observable<Bool> {
         return fetchBookmark().map { $0.contains(isbn13) }
+    }
+}
+
+extension Reactive where Base: StorageService {
+    var event: Observable<StorageEvent> {
+        return base.event.asObservable()
     }
 }
 

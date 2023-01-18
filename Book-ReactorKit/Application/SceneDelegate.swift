@@ -18,8 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(frame: UIScreen.main.bounds)
         UNUserNotificationCenter.current().delegate = self
-        let serviceProvider = ServiceProvider()
-        self.window?.rootViewController = UIBaseTabBarController(provider: serviceProvider)
+        self.window?.rootViewController = UIBaseTabBarController()
         self.window?.windowScene = windowScene
         self.window?.makeKeyAndVisible()
     }
@@ -58,15 +57,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate: UNUserNotificationCenterDelegate {
     // Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.willPresentNotification(userInfo).convertToUserInfo())
+        //let userInfo = notification.request.content.userInfo
+        ServiceProvider.shared.internalNotificationService.notify(event: .willPresentNotification)
         completionHandler([.badge, .sound])
     }
     
     // Background -> Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.didReceiveNotification(userInfo).convertToUserInfo())
+        ServiceProvider.shared.internalNotificationService.notify(event: .didReceiveNotification(userInfo["name"] as! String))
         completionHandler()
     }
 }

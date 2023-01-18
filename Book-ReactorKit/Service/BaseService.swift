@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BaseService {
+class BaseService: NSObject {
     unowned let provider: ServiceProviderType
     
     init(provider: ServiceProviderType) {

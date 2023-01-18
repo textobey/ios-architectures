@@ -25,7 +25,7 @@ class NewBookReactor: Reactor {
         case pagingBooks
         case setLoading(Bool)
         case showAlert
-        case printBook([AnyHashable: Any])//For Test
+        case printBook(String)//For Test
     }
     
     struct State {
@@ -48,25 +48,19 @@ extension NewBookReactor {
         case .refresh:
             return Observable.concat([
                 Observable.just(.setLoading(true)),
-                fetchBookItemsResult().flatMap { bookItems -> Observable<Mutation> in
-                    return Observable.just(.setBooks(bookItems))
-                }.delay(.seconds(Int(0.5)), scheduler: MainScheduler.instance),
+                fetchBookItemsResult().map(Mutation.setBooks).delay(.seconds(Int(0.5)), scheduler: MainScheduler.instance),
                 Observable.just(.setLoading(false))
             ])
         case .paging:
             guard allBooks.count > 0 else { return .empty() }
             return Observable.just(.pagingBooks)
         case .bookmark(let isSelected, let bookItem):
-            if let isbn13 = bookItem.isbn13 {
-                if isSelected {
-                    print("새로운 즐겨찾기 추가 :", bookItem.title)
-                    Defaults.shared.appendBookmark(isbn13: isbn13)
-                } else {
-                    print("즐겨찾기 제거 :", bookItem.title)
-                    Defaults.shared.removeBookmark(isbn13: isbn13)
-                }
-            }
-            return .empty()
+            guard let isbn13 = bookItem.isbn13 else { return .empty() }
+            let storageServiceResult = isSelected
+            ? ServiceProvider.shared.storageService.insert(isbn13: isbn13)
+            : ServiceProvider.shared.storageService.insert(isbn13: isbn13)
+            
+            return storageServiceResult.flatMap { _ in Observable<Mutation>.empty() }
         }
     }
 }
@@ -102,32 +96,42 @@ extension NewBookReactor {
 
 extension NewBookReactor {
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let eventMutation = GlobalEventsDispatcher.shared.rx.globalEventStream.flatMap { event -> Observable<Mutation> in
-            switch event {
-            case .willPresentNotification:
-                return Observable.just(.showAlert)
-            case .didReceiveNotification(let object):
-                return Observable.just(.printBook(object!))
-            default:
-                print("NewBookReactor Mutation Other...")
-                return .empty()
+        let internalNotificationEventMutation = ServiceProvider.shared.internalNotificationService.rx.event
+            .flatMap { [weak self] internalNotificationServiceEvent -> Observable<Mutation> in
+                self?.mutate(internalNotificationEvent: internalNotificationServiceEvent) ?? .empty()
             }
-        }
-        return Observable.merge(mutation, eventMutation)
+        return Observable.merge(mutation, internalNotificationEventMutation)
     }
     
     func transform(action: Observable<Action>) -> Observable<Action> {
-        let eventAction = GlobalEventsDispatcher.shared.rx.globalEventStream.flatMap { event -> Observable<Action> in
-            switch event {
-            case .updateBookmarkList:
-                print("NewBookReactor refresh action")
-                return Observable.just(.refresh)
-            default:
-                print("NewBookReactor Mutation Other...")
-                return .empty()
+        let internalNotificationEventAction = ServiceProvider.shared.internalNotificationService.rx.event
+            .flatMap { [weak self] internalNotificationServiceEvent -> Observable<Action> in
+                self?.mutate(internalNotificationEvent: internalNotificationServiceEvent) ?? .empty()
             }
+        return Observable.merge(action, internalNotificationEventAction)
+    }
+    
+    private func mutate(internalNotificationEvent: InternalNotificationEvent) -> Observable<Mutation> {
+        switch internalNotificationEvent {
+        case .willPresentNotification:
+            return Observable.just(.showAlert)
+        case .didReceiveNotification(let bookName):
+            return Observable.just(.printBook(bookName))
+        default:
+            print("NewBookReactor Mutation Other...")
+            return Observable.empty()
         }
-        return Observable.merge(action, eventAction)
+    }
+    
+    private func mutate(internalNotificationEvent: InternalNotificationEvent) -> Observable<Action> {
+        switch internalNotificationEvent {
+        case .updateBookmarkList:
+            print("NewBookReactor refresh action")
+            return Observable.just(.refresh)
+        default:
+            print("NewBookReactor Mutation Other...")
+            return .empty()
+        }
     }
 }
 

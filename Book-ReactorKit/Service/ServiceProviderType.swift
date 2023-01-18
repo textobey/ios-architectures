@@ -8,11 +8,15 @@
 import Foundation
 
 protocol ServiceProviderType: AnyObject {
-    var storageService: StorageServiceType { get }
-    var notificationCenterService: NotificationCenterService { get }
+    var storageService: StorageService { get }
+    var internalNotificationService: InternalNotificationService { get }
 }
 
 final class ServiceProvider: ServiceProviderType {
-    lazy var storageService: StorageServiceType = StorageService(provider: self)
-    lazy var notificationCenterService: NotificationCenterService = NotificationCenterService(provider: self)
+    // TODO: 싱글턴 패턴 차용하지 않기
+    static let shared: ServiceProvider = ServiceProvider()
+    
+    private init() { }
+    lazy var storageService: StorageService = StorageService(provider: self)
+    lazy var internalNotificationService: InternalNotificationService = InternalNotificationService(provider: self)
 }

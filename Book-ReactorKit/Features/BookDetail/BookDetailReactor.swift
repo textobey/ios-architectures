@@ -48,8 +48,15 @@ extension BookDetailReactor {
                 }
             ])
         case .bookmark:
-            self.updateBookmarkList(isbn13: currentState.isbn13)
-            return Observable.just(.changeBookmarkState)
+            let isBookmarked = checkBookIsBookmarked(isbn13: currentState.isbn13)
+            let storageResultObservable = isBookmarked
+            ? ServiceProvider.shared.storageService.remove(isbn13: currentState.isbn13)
+            : ServiceProvider.shared.storageService.insert(isbn13: currentState.isbn13)
+            
+            return Observable.concat([
+                storageResultObservable.flatMap { _ in Observable<Mutation>.empty() },
+                ServiceProvider.shared.internalNotificationService.notify(event: .updateBookmarkList).map { _ in Mutation.changeBookmarkState } // map(Mutation.changeBookmarkState)
+            ])
         }
     }
 }
@@ -89,15 +96,5 @@ private extension BookDetailReactor {
     
     private func checkBookIsBookmarked(isbn13: String) -> Bool {
         return Defaults.shared.get(for: .bookmarkList)?.contains(isbn13) ?? false
-    }
-    
-    private func updateBookmarkList(isbn13: String) {
-        let isBookmarked = checkBookIsBookmarked(isbn13: isbn13)
-        if isBookmarked {
-            Defaults.shared.removeBookmark(isbn13: currentState.isbn13)
-        } else {
-            Defaults.shared.appendBookmark(isbn13: currentState.isbn13)
-        }
-        NotificationCenter.default.post(name: .globalEvent, object: nil, userInfo: GlobalEvent.updateBookmarkList.convertToUserInfo())
     }
 }
