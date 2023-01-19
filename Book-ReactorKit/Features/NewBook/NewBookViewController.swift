@@ -15,11 +15,11 @@ class NewBookViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
-    init() {
+    init(reactor: NewBookReactor) {
         super.init(nibName: nil, bundle: nil)
-        self.reactor = NewBookReactor()
-
+        self.reactor = reactor
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -59,8 +59,10 @@ extension NewBookViewController: ReactorKit.View {
         newBookView.tableView.rx.modelSelected(BookItem.self)
             .compactMap { $0.isbn13 }
             .subscribe(onNext: { [weak self] isbn13 in
-                let viewController = BookDetailViewController(isbn13: isbn13)
-                self?.navigationController?.pushViewController(viewController, animated: true)
+                guard let `self` = self else { return }
+                let reactor = BookDetailReactor(provider: self.reactor!.provider, isbn13: isbn13)
+                let viewController = BookDetailViewController(reactor: reactor)
+                self.navigationController?.pushViewController(viewController, animated: true)
             }).disposed(by: disposeBag)
     }
 }

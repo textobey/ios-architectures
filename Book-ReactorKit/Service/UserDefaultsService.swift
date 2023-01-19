@@ -11,8 +11,9 @@ import RxRelay
 
 enum StorageEvent {
     case create
-    case save([String])
-    case remove([String])
+    case save
+    case insert([String])
+    case delete([String])
     case reset
 }
 
@@ -20,7 +21,7 @@ extension DefaultsKey {
     static let bookmarkList = Key<[String]>("bookmark_list")
 }
 
-private protocol StorageServiceType {
+protocol StorageServiceType {
     var event: PublishSubject<StorageEvent> { get }
     func fetchBookmark() -> Observable<[String]>
 
@@ -30,7 +31,7 @@ private protocol StorageServiceType {
     func save(_ isbn13s: [String]) -> Observable<Void>
     
     func insert(isbn13: String) -> Observable<[String]>
-    func remove(isbn13: String) -> Observable<[String]>
+    func delete(isbn13: String) -> Observable<[String]>
     func isBookmarked(isbn13: String) -> Observable<Bool>
 }
 
@@ -47,7 +48,7 @@ final class StorageService: BaseService, StorageServiceType {
         return .just([])
     }
 
-    fileprivate let event = PublishSubject<StorageEvent>()
+    let event = PublishSubject<StorageEvent>()
 
     func reset() -> Observable<Void> {
         shared.clear(.bookmarkList)
@@ -56,6 +57,7 @@ final class StorageService: BaseService, StorageServiceType {
     
     func save(_ bookmarks: [String]) -> Observable<Void> {
         self.shared.set(bookmarks, for: .bookmarkList)
+        self.event.onNext(.save)
         return Observable.just(())
     }
 
@@ -67,11 +69,11 @@ final class StorageService: BaseService, StorageServiceType {
                 return self.save(newList).map { newList }
             }
             .do(onNext: { list in
-                self.event.onNext(.save(list))
+                self.event.onNext(.insert(list))
             })
     }
 
-    func remove(isbn13: String) -> Observable<[String]> {
+    func delete(isbn13: String) -> Observable<[String]> {
         return fetchBookmark()
             .flatMap { [weak self] list -> Observable<[String]> in
                 guard let `self` = self else { return .empty() }
@@ -79,7 +81,7 @@ final class StorageService: BaseService, StorageServiceType {
                 return self.save(newList).map { newList }
             }
             .do(onNext: { list in
-                self.event.onNext(.remove(list))
+                self.event.onNext(.delete(list))
             })
     }
 

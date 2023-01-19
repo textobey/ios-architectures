@@ -15,9 +15,9 @@ class SearchBookViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
-    init() {
+    init(reactor: SearchBookReactor) {
         super.init(nibName: nil, bundle: nil)
-        self.reactor = SearchBookReactor()
+        self.reactor = reactor
     }
     
     required init?(coder: NSCoder) {
@@ -82,8 +82,10 @@ extension SearchBookViewController: ReactorKit.View {
         
         searchBookView.tableView.rx.modelSelected(BookItem.self)
             .subscribe(onNext: { [weak self] item in
-                let viewController = BookDetailViewController(isbn13: item.isbn13 ?? "")
-                self?.navigationController?.pushViewController(viewController, animated: true)
+                guard let `self` = self else { return }
+                let reactor = BookDetailReactor(provider: self.reactor!.provider, isbn13: item.isbn13 ?? "")
+                let viewController = BookDetailViewController(reactor: reactor)
+                self.navigationController?.pushViewController(viewController, animated: true)
             }).disposed(by: disposeBag)
     }
 }

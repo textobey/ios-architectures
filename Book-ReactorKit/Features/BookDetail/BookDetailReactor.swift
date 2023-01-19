@@ -30,11 +30,17 @@ class BookDetailReactor: Reactor {
         var isBookmarked: Bool = false
     }
     
+    let provider: ServiceProviderType
     let initialState: State
     
-    init(isbn13: String) {
+    init(provider: ServiceProviderType, isbn13: String) {
+        self.provider = provider
         initialState = State(isbn13: isbn13)
     }
+    
+    //deinit {
+    //    print("BookDetailReactor Deinit")
+    //}
 }
 
 extension BookDetailReactor {
@@ -43,19 +49,17 @@ extension BookDetailReactor {
         case .refresh:
             return Observable.concat([
                 Observable.just(.setBookmarkState),
-                fetchBookItemsResult().flatMap { bookModel -> Observable<Mutation> in
-                    return Observable.just(.setBookDetail(bookModel))
-                }
+                fetchBookItemsResult().map(Mutation.setBookDetail)
             ])
         case .bookmark:
             let isBookmarked = checkBookIsBookmarked(isbn13: currentState.isbn13)
             let storageResultObservable = isBookmarked
-            ? ServiceProvider.shared.storageService.remove(isbn13: currentState.isbn13)
-            : ServiceProvider.shared.storageService.insert(isbn13: currentState.isbn13)
+            ? self.provider.storageService.delete(isbn13: currentState.isbn13)
+            : self.provider.storageService.insert(isbn13: currentState.isbn13)
             
             return Observable.concat([
                 storageResultObservable.flatMap { _ in Observable<Mutation>.empty() },
-                ServiceProvider.shared.internalNotificationService.notify(event: .updateBookmarkList).map { _ in Mutation.changeBookmarkState } // map(Mutation.changeBookmarkState)
+                self.provider.internalNotificationService.notify(event: .updateBookmarkList).map { _ in Mutation.changeBookmarkState } // map(Mutation.changeBookmarkState)
             ])
         }
     }

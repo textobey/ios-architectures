@@ -17,7 +17,7 @@ enum InternalNotificationEvent {
     case none
 }
 
-private protocol InternalNotificationServiceType {
+protocol InternalNotificationServiceType {
     var event: PublishSubject<InternalNotificationEvent> { get }
     
     func notify(event: InternalNotificationEvent) -> Observable<InternalNotificationEvent>
@@ -25,7 +25,7 @@ private protocol InternalNotificationServiceType {
 
 final class InternalNotificationService: BaseService, InternalNotificationServiceType {
 
-    fileprivate let event = PublishSubject<InternalNotificationEvent>()
+    let event = PublishSubject<InternalNotificationEvent>()
     
     @discardableResult
     func notify(event: InternalNotificationEvent) -> Observable<InternalNotificationEvent> {

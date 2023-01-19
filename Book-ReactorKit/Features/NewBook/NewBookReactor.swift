@@ -34,9 +34,11 @@ class NewBookReactor: Reactor {
         @Pulse var alertTrigger: Void = Void()
     }
     
+    let provider: ServiceProviderType
     let initialState = State()
     
-    init() {
+    init(provider: ServiceProviderType) {
+        self.provider = provider
         requestNotificationAuthorization()
         sendNotification(seconds: 5)
     }
@@ -57,8 +59,8 @@ extension NewBookReactor {
         case .bookmark(let isSelected, let bookItem):
             guard let isbn13 = bookItem.isbn13 else { return .empty() }
             let storageServiceResult = isSelected
-            ? ServiceProvider.shared.storageService.insert(isbn13: isbn13)
-            : ServiceProvider.shared.storageService.insert(isbn13: isbn13)
+            ? self.provider.storageService.insert(isbn13: isbn13)
+            : self.provider.storageService.delete(isbn13: isbn13)
             
             return storageServiceResult.flatMap { _ in Observable<Mutation>.empty() }
         }
@@ -96,7 +98,7 @@ extension NewBookReactor {
 
 extension NewBookReactor {
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let internalNotificationEventMutation = ServiceProvider.shared.internalNotificationService.rx.event
+        let internalNotificationEventMutation = self.provider.internalNotificationService.event
             .flatMap { [weak self] internalNotificationServiceEvent -> Observable<Mutation> in
                 self?.mutate(internalNotificationEvent: internalNotificationServiceEvent) ?? .empty()
             }
@@ -104,7 +106,7 @@ extension NewBookReactor {
     }
     
     func transform(action: Observable<Action>) -> Observable<Action> {
-        let internalNotificationEventAction = ServiceProvider.shared.internalNotificationService.rx.event
+        let internalNotificationEventAction = self.provider.internalNotificationService.event
             .flatMap { [weak self] internalNotificationServiceEvent -> Observable<Action> in
                 self?.mutate(internalNotificationEvent: internalNotificationServiceEvent) ?? .empty()
             }

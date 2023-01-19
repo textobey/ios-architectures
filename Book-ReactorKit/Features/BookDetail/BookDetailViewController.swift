@@ -15,9 +15,9 @@ class BookDetailViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
-    init(isbn13: String) {
+    init(reactor: BookDetailReactor) {
         super.init(nibName: nil, bundle: nil)
-        self.reactor = BookDetailReactor(isbn13: isbn13)
+        self.reactor = reactor
     }
     
     required init?(coder: NSCoder) {

@@ -30,9 +30,11 @@ class SearchBookReactor: Reactor {
         var books: [BookItem] = []
     }
     
+    let provider: ServiceProviderType
     let initialState = State()
     
-    init() {
+    init(provider: ServiceProviderType) {
+        self.provider = provider
         self.refresh()
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private let serviceProvider: ServiceProviderType = ServiceProvider()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -18,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(frame: UIScreen.main.bounds)
         UNUserNotificationCenter.current().delegate = self
-        self.window?.rootViewController = UIBaseTabBarController()
+        self.window?.rootViewController = UIBaseTabBarController(provider: serviceProvider)
         self.window?.windowScene = windowScene
         self.window?.makeKeyAndVisible()
     }
@@ -58,14 +59,14 @@ extension SceneDelegate: UNUserNotificationCenterDelegate {
     // Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         //let userInfo = notification.request.content.userInfo
-        ServiceProvider.shared.internalNotificationService.notify(event: .willPresentNotification)
+        self.serviceProvider.internalNotificationService.notify(event: .willPresentNotification)
         completionHandler([.badge, .sound])
     }
     
     // Background -> Foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        ServiceProvider.shared.internalNotificationService.notify(event: .didReceiveNotification(userInfo["name"] as! String))
+        self.serviceProvider.internalNotificationService.notify(event: .didReceiveNotification(userInfo["name"] as! String))
         completionHandler()
     }
 }
