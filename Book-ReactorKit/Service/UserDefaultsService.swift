@@ -21,8 +21,12 @@ extension DefaultsKey {
     static let bookmarkList = Key<[String]>("bookmark_list")
 }
 
+struct StorageEventDispatcher {
+    fileprivate let event = PublishSubject<StorageEvent>()
+}
+
 protocol StorageServiceType {
-    var event: PublishSubject<StorageEvent> { get }
+    var eventDispatcher: StorageEventDispatcher { get }
     func fetchBookmark() -> Observable<[String]>
 
     @discardableResult
@@ -48,7 +52,7 @@ final class StorageService: BaseService, StorageServiceType {
         return .just([])
     }
 
-    let event = PublishSubject<StorageEvent>()
+    let eventDispatcher: StorageEventDispatcher = StorageEventDispatcher()
 
     func reset() -> Observable<Void> {
         shared.clear(.bookmarkList)
@@ -57,7 +61,7 @@ final class StorageService: BaseService, StorageServiceType {
     
     func save(_ bookmarks: [String]) -> Observable<Void> {
         self.shared.set(bookmarks, for: .bookmarkList)
-        self.event.onNext(.save)
+        self.eventDispatcher.event.onNext(.save)
         return Observable.just(())
     }
 
@@ -69,7 +73,7 @@ final class StorageService: BaseService, StorageServiceType {
                 return self.save(newList).map { newList }
             }
             .do(onNext: { list in
-                self.event.onNext(.insert(list))
+                self.eventDispatcher.event.onNext(.insert(list))
             })
     }
 
@@ -81,7 +85,7 @@ final class StorageService: BaseService, StorageServiceType {
                 return self.save(newList).map { newList }
             }
             .do(onNext: { list in
-                self.event.onNext(.delete(list))
+                self.eventDispatcher.event.onNext(.delete(list))
             })
     }
 
@@ -92,7 +96,7 @@ final class StorageService: BaseService, StorageServiceType {
 
 extension Reactive where Base: StorageService {
     var event: Observable<StorageEvent> {
-        return base.event.asObservable()
+        return base.eventDispatcher.event.asObservable()
     }
 }
 

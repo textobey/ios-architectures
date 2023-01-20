@@ -17,30 +17,31 @@ enum InternalNotificationEvent {
     case none
 }
 
+struct InternalNotificationEventDispatcher {
+    fileprivate let event = PublishSubject<InternalNotificationEvent>()
+}
+
 protocol InternalNotificationServiceType {
-    var event: PublishSubject<InternalNotificationEvent> { get }
+    var eventDispatcher: InternalNotificationEventDispatcher { get }
     
+    @discardableResult
     func notify(event: InternalNotificationEvent) -> Observable<InternalNotificationEvent>
 }
 
 final class InternalNotificationService: BaseService, InternalNotificationServiceType {
 
-    let event = PublishSubject<InternalNotificationEvent>()
+    let eventDispatcher: InternalNotificationEventDispatcher = InternalNotificationEventDispatcher()
     
-    @discardableResult
     func notify(event: InternalNotificationEvent) -> Observable<InternalNotificationEvent> {
-        return Observable<InternalNotificationEvent>.create { observer in
-            observer.on(.next(event))
-            return Disposables.create()
+        defer {
+            self.eventDispatcher.event.onNext(event)
         }
-        .do(onNext: {
-            self.event.onNext($0)
-        })
+        return Observable.just(event)
     }
 }
 
 extension Reactive where Base: InternalNotificationService {
     var event: Observable<InternalNotificationEvent> {
-        return base.event.asObservable()
+        return base.eventDispatcher.event.asObservable()
     }
 }
