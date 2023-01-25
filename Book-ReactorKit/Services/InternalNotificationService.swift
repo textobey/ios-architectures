@@ -17,7 +17,7 @@ enum InternalNotificationEvent {
     case none
 }
 
-struct InternalNotificationEventDispatcher {
+final class InternalNotificationEventDispatcher: NSObject {
     fileprivate let event = PublishSubject<InternalNotificationEvent>()
 }
 
@@ -40,8 +40,8 @@ final class InternalNotificationService: BaseService, InternalNotificationServic
     }
 }
 
-extension Reactive where Base: InternalNotificationService {
-    var event: Observable<InternalNotificationEvent> {
-        return base.eventDispatcher.event.asObservable()
+extension Reactive where Base: InternalNotificationEventDispatcher {
+    var eventStream: Observable<InternalNotificationEvent> {
+        return base.event.asObservable()
     }
 }

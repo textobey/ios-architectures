@@ -21,7 +21,7 @@ extension DefaultsKey {
     static let bookmarkList = Key<[String]>("bookmark_list")
 }
 
-struct StorageEventDispatcher {
+final class StorageEventDispatcher: NSObject {
     fileprivate let event = PublishSubject<StorageEvent>()
 }
 
@@ -94,9 +94,9 @@ final class StorageService: BaseService, StorageServiceType {
     }
 }
 
-extension Reactive where Base: StorageService {
-    var event: Observable<StorageEvent> {
-        return base.eventDispatcher.event.asObservable()
+extension Reactive where Base: StorageEventDispatcher {
+    var eventStream: Observable<StorageEvent> {
+        return base.event.asObservable()
     }
 }
 

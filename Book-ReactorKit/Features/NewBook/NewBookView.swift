@@ -6,12 +6,14 @@
 //
 
 import UIKit
+
 import RxSwift
 import RxCocoa
 import SnapKit
 import ReactorKit
 
-class NewBookView: UIView {
+final class NewBookView: UIView {
+    
     private let disposeBag = DisposeBag()
     
     private let refreshControl = UIRefreshControl()
@@ -26,7 +28,7 @@ class NewBookView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayout()
+        self.setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -34,13 +36,13 @@ class NewBookView: UIView {
     }
     
     private func setupLayout() {
-        addSubview(tableView)
-        tableView.snp.makeConstraints {
+        addSubview(self.tableView)
+        self.tableView.snp.makeConstraints {
             $0.directionalEdges.equalToSuperview()
         }
         
-        addSubview(loadingIndicator)
-        loadingIndicator.snp.makeConstraints {
+        addSubview(self.loadingIndicator)
+        self.loadingIndicator.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
     }
@@ -48,20 +50,20 @@ class NewBookView: UIView {
 
 extension NewBookView {
     func bind(reactor: NewBookReactor) {
-        bindAction(reactor: reactor)
-        bindState(reactor: reactor)
+        self.bindAction(reactor: reactor)
+        self.bindState(reactor: reactor)
     }
 }
 
 extension NewBookView {
     private func bindAction(reactor: NewBookReactor) {
-        tableView.rx.contentOffset.withUnretained(self)
+        self.tableView.rx.contentOffset.withUnretained(self)
             .filter { $0.0.tableView.isNearBottomEdge() }
             .map { _ in NewBookReactor.Action.paging }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        refreshControl.rx.controlEvent(.valueChanged)
+        self.refreshControl.rx.controlEvent(.valueChanged)
             .withUnretained(self)
             .do(onNext: { $0.0.stopLoadingIndicator() })
             .map { _ in NewBookReactor.Action.refresh }
@@ -72,7 +74,10 @@ extension NewBookView {
     private func bindState(reactor: NewBookReactor) {
         reactor.state
             .compactMap { $0.books }
-            .bind(to: tableView.rx.items(cellIdentifier: NewBookTableViewCell.identifier, cellType: NewBookTableViewCell.self)) { row, bookItem, cell in
+            .bind(to: self.tableView.rx.items(
+                cellIdentifier: NewBookTableViewCell.identifier,
+                cellType: NewBookTableViewCell.self)
+            ) { row, bookItem, cell in
                 cell.configureCell(by: bookItem)
                 cell.bookmarkTap
                     .map { NewBookReactor.Action.bookmark($0, bookItem) }
@@ -83,20 +88,22 @@ extension NewBookView {
         reactor.state
             .map { $0.isLoading }
             .distinctUntilChanged()
-            .bind(to: loadingIndicator.rx.isAnimating)
+            .bind(to: self.loadingIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
         reactor.state
             .map { !$0.isLoading }
             .distinctUntilChanged()
-            .bind(to: loadingIndicator.rx.isHidden)
+            .bind(to: self.loadingIndicator.rx.isHidden)
             .disposed(by: disposeBag)
     }
 }
 
 extension NewBookView {
     private func stopLoadingIndicator() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + 1,
+            execute: {
             self.tableView.refreshControl?.endRefreshing()
         })
     }

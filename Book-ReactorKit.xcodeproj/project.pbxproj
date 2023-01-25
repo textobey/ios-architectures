@@ -188,7 +188,7 @@
 				A65A2CC829388551005BC930 /* Resources */,
 				A684B884293897CB00D6B5E1 /* Model */,
 				A684B88B2938990100D6B5E1 /* Network */,
-				A62BD0E22948028A00B96EEC /* Service */,
+				A62BD0E22948028A00B96EEC /* Services */,
 			);
 			path = "Book-ReactorKit";
 			sourceTree = "<group>";
@@ -210,7 +210,7 @@
 			path = "Book-ReactorKitUITests";
 			sourceTree = "<group>";
 		};
-		A62BD0E22948028A00B96EEC /* Service */ = {
+		A62BD0E22948028A00B96EEC /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				A6A4C951294ADCE700E3EF1A /* GlobalEvents.swift */,
@@ -219,7 +219,7 @@
 				A6E40319294C4BA200AD788B /* UserDefaultsService.swift */,
 				A62D0AAF29765E3200A947CF /* InternalNotificationService.swift */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		A65A2CC729388534005BC930 /* Features */ = {

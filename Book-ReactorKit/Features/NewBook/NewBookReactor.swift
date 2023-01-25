@@ -5,13 +5,15 @@
 //  Created by 이서준 on 2022/12/01.
 //
 
+import UserNotifications
+
 import RxSwift
 import RxCocoa
 import SnapKit
 import ReactorKit
-import UserNotifications
 
-class NewBookReactor: Reactor {
+final class NewBookReactor: Reactor {
+    
     fileprivate var allBooks: [[BookItem]] = []
     
     enum Action {
@@ -42,9 +44,7 @@ class NewBookReactor: Reactor {
         requestNotificationAuthorization()
         sendNotification(seconds: 5)
     }
-}
-
-extension NewBookReactor {
+    
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .refresh:
@@ -65,9 +65,7 @@ extension NewBookReactor {
             return storageServiceResult.flatMap { _ in Observable<Mutation>.empty() }
         }
     }
-}
-
-extension NewBookReactor {
+    
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
@@ -94,11 +92,9 @@ extension NewBookReactor {
         }
         return newState
     }
-}
-
-extension NewBookReactor {
+    
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let internalNotificationEventMutation = self.provider.internalNotificationService.event
+        let internalNotificationEventMutation = self.provider.internalNotificationService.eventDispatcher.rx.eventStream
             .flatMap { [weak self] internalNotificationServiceEvent -> Observable<Mutation> in
                 self?.mutate(internalNotificationEvent: internalNotificationServiceEvent) ?? .empty()
             }
@@ -106,7 +102,7 @@ extension NewBookReactor {
     }
     
     func transform(action: Observable<Action>) -> Observable<Action> {
-        let internalNotificationEventAction = self.provider.internalNotificationService.event
+        let internalNotificationEventAction = self.provider.internalNotificationService.eventDispatcher.rx.eventStream
             .flatMap { [weak self] internalNotificationServiceEvent -> Observable<Action> in
                 self?.mutate(internalNotificationEvent: internalNotificationServiceEvent) ?? .empty()
             }
@@ -135,9 +131,7 @@ extension NewBookReactor {
             return .empty()
         }
     }
-}
-
-private extension NewBookReactor {
+    
     func fetchBookItemsResult() -> Observable<[BookItem]> {
         let fetchResult = NetworkService.shared.fetchBookItems()
         return Observable<[BookItem]>.create { observer in
@@ -167,6 +161,7 @@ private extension NewBookReactor {
 }
 
 // MARK: - Local Notification
+
 extension NewBookReactor {
     private func requestNotificationAuthorization() {
         let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
@@ -185,10 +180,15 @@ extension NewBookReactor {
         notificationContent.body = "베스트 셀러 작가들의 신규 책들이 발간 되었어요!"
         notificationContent.userInfo = ["name":"A Swift Kickstart, 2nd Edition"]
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString,
-                                            content: notificationContent,
-                                            trigger: trigger)
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: seconds,
+            repeats: false
+        )
+        let request = UNNotificationRequest(
+            identifier: UUID().uuidString,
+            content: notificationContent,
+            trigger: trigger
+        )
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
