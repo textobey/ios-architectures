@@ -29,6 +29,7 @@
 		A65A2CCB293885C4005BC930 /* UIBaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CCA293885C4005BC930 /* UIBaseTabBarController.swift */; };
 		A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CCF29388728005BC930 /* NewBookViewController.swift */; };
 		A65A2CD529388F31005BC930 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A2CD429388F31005BC930 /* Then.swift */; };
+		A66677E12983C7E10073B0EF /* TypistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66677E02983C7E10073B0EF /* TypistService.swift */; };
 		A678043E293DC2E60014433C /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678043D293DC2E60014433C /* UIViewController+Rx.swift */; };
 		A67C02A4293DD9A300B47E37 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67C02A3293DD9A300B47E37 /* BookDetailViewController.swift */; };
 		A67C02A7293DDA0C00B47E37 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67C02A6293DDA0C00B47E37 /* BookDetailView.swift */; };
@@ -92,6 +93,7 @@
 		A65A2CCA293885C4005BC930 /* UIBaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTabBarController.swift; sourceTree = "<group>"; };
 		A65A2CCF29388728005BC930 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
 		A65A2CD429388F31005BC930 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		A66677E02983C7E10073B0EF /* TypistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypistService.swift; sourceTree = "<group>"; };
 		A678043D293DC2E60014433C /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		A67C02A3293DD9A300B47E37 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		A67C02A6293DDA0C00B47E37 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				A608DC58296FFBDE004FB4CB /* ServiceProviderType.swift */,
 				A6E40319294C4BA200AD788B /* UserDefaultsService.swift */,
 				A62D0AAF29765E3200A947CF /* InternalNotificationService.swift */,
+				A66677E02983C7E10073B0EF /* TypistService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				A60EA06F29374A7F0064D21E /* AppDelegate.swift in Sources */,
 				A684B886293897E100D6B5E1 /* BookModel.swift in Sources */,
 				A608DC57296FFBA1004FB4CB /* BaseService.swift in Sources */,
+				A66677E12983C7E10073B0EF /* TypistService.swift in Sources */,
 				A65A2CD029388728005BC930 /* NewBookViewController.swift in Sources */,
 				A678043E293DC2E60014433C /* UIViewController+Rx.swift in Sources */,
 				A600FDBB2939DE9B00D62397 /* ReturnResultKit.swift in Sources */,

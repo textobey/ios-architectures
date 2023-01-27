@@ -51,6 +51,7 @@ extension BookDetailReactor {
                 Observable.just(.setBookmarkState),
                 fetchBookItemsResult().map(Mutation.setBookDetail)
             ])
+            
         case .bookmark:
             let isBookmarked = checkBookIsBookmarked(isbn13: currentState.isbn13)
             let storageResultObservable = isBookmarked
@@ -59,7 +60,8 @@ extension BookDetailReactor {
             
             return Observable.concat([
                 storageResultObservable.flatMap { _ in Observable<Mutation>.empty() },
-                self.provider.internalNotificationService.notify(event: .updateBookmarkList).map { _ in Mutation.changeBookmarkState } // map(Mutation.changeBookmarkState)
+                self.provider.internalNotificationService.notify(event: .updateBookmarkList)
+                    .map { _ in Mutation.changeBookmarkState } // map(Mutation.changeBookmarkState)
             ])
         }
     }
@@ -71,8 +73,10 @@ extension BookDetailReactor {
         switch mutation {
         case .setBookmarkState:
             newState.isBookmarked = checkBookIsBookmarked(isbn13: currentState.isbn13)
+            
         case .setBookDetail(let bookModel):
             newState.bookModel = bookModel
+            
         case .changeBookmarkState:
             newState.isBookmarked = !newState.isBookmarked
         }
@@ -83,6 +87,7 @@ extension BookDetailReactor {
 private extension BookDetailReactor {
     private func fetchBookItemsResult() -> Observable<BookModel> {
         let fetchResult = NetworkService.shared.fetchBookDetail(of: initialState.isbn13)
+        
         return Observable<BookModel>.create { observer in
             fetchResult.sink { result in
                 switch result {
