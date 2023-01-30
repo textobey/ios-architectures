@@ -14,8 +14,6 @@ import ReactorKit
 
 final class NewBookReactor: Reactor {
     
-    fileprivate var allBooks: [[BookItem]] = []
-    
     enum Action {
         case refresh
         case paging
@@ -38,6 +36,8 @@ final class NewBookReactor: Reactor {
     
     let provider: ServiceProviderType
     let initialState = State()
+    
+    fileprivate var allBooks: [[BookItem]] = []
     
     init(provider: ServiceProviderType) {
         self.provider = provider
