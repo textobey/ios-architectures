@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(frame: UIScreen.main.bounds)
         UNUserNotificationCenter.current().delegate = self
+        //serviceProvider.typistService.start()
+        TypistService.shared.start()
         self.window?.rootViewController = UIBaseTabBarController(provider: serviceProvider)
         self.window?.windowScene = windowScene
         self.window?.makeKeyAndVisible()

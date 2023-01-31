@@ -28,7 +28,7 @@ class SearchBookView: UIView {
     
     lazy var tableView = UITableView().then {
         $0.separatorStyle = .none
-        //$0.register(NewBookTableViewCell.self, forCellReuseIdentifier: NewBookTableViewCell.identifier)
+        $0.keyboardDismissMode = .interactive
         $0.register(SearchBookTableViewCell.self, forCellReuseIdentifier: SearchBookTableViewCell.identifier)
         $0.refreshControl = self.refreshControl
     }
@@ -45,6 +45,10 @@ extension SearchBookView {
     func bind(reactor: SearchBookReactor) {
         bindAction(reactor: reactor)
         bindState(reactor: reactor)
+        TypistService.shared.rx.willShow
+            .subscribe(onNext: {
+                print("ddd")
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -59,5 +63,9 @@ extension SearchBookView {
             .bind(to: tableView.rx.items(cellIdentifier: SearchBookTableViewCell.identifier, cellType: SearchBookTableViewCell.self)) { row, item, cell in
                 cell.bindView(bookItem: item)
             }.disposed(by: disposeBag)
+        
+        //keyboardDismiss
+        //    .bind(to: tableView.rx.keyboardDismissMode)
+        //    .disposed(by: disposeBag)
     }
 }

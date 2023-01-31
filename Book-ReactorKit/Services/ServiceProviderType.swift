@@ -11,9 +11,11 @@ import RxSwift
 protocol ServiceProviderType: AnyObject {
     var storageService: StorageServiceType { get }
     var internalNotificationService: InternalNotificationServiceType { get }
+    //var typistService: TypistServiceType { get }
 }
 
 final class ServiceProvider: ServiceProviderType {
     lazy var storageService: StorageServiceType = StorageService(provider: self)
     lazy var internalNotificationService: InternalNotificationServiceType = InternalNotificationService(provider: self)
+    //lazy var typistService: TypistServiceType = TypistService(provider: self)
 }
