@@ -7,10 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A62D7E7929DFB8E400CEFE90 /* RIBs in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7E7829DFB8E400CEFE90 /* RIBs */; };
+		A62D7E7C29DFCFD400CEFE90 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7E7B29DFCFD400CEFE90 /* SnapKit */; };
+		A62D7E7F29DFD00F00CEFE90 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7E7E29DFD00F00CEFE90 /* Alamofire */; };
+		A62D7E8429DFD13700CEFE90 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8329DFD13700CEFE90 /* Then.swift */; };
+		A62D7E8A29DFD17F00CEFE90 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8629DFD17F00CEFE90 /* UIScrollView+.swift */; };
+		A62D7E8B29DFD17F00CEFE90 /* ReturnResultKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8729DFD17F00CEFE90 /* ReturnResultKit.swift */; };
+		A62D7E8C29DFD17F00CEFE90 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8829DFD17F00CEFE90 /* Array+.swift */; };
+		A62D7E8D29DFD17F00CEFE90 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8929DFD17F00CEFE90 /* UITableView+.swift */; };
+		A62D7E8F29DFD19E00CEFE90 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8E29DFD19E00CEFE90 /* Defaults.swift */; };
+		A62D7E9229DFD1F000CEFE90 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9129DFD1F000CEFE90 /* NetworkService.swift */; };
+		A62D7E9929DFD22900CEFE90 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9729DFD22900CEFE90 /* UserDefaultsService.swift */; };
+		A62D7E9A29DFD22900CEFE90 /* InternalNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9829DFD22900CEFE90 /* InternalNotificationService.swift */; };
+		A62D7E9D29DFD23900CEFE90 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9B29DFD23900CEFE90 /* BaseService.swift */; };
+		A62D7E9E29DFD23900CEFE90 /* ServiceProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9C29DFD23900CEFE90 /* ServiceProviderType.swift */; };
+		A62D7EA129DFD4DE00CEFE90 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7EA029DFD4DE00CEFE90 /* RxCocoa */; };
+		A62D7EA629DFD54C00CEFE90 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EA329DFD54C00CEFE90 /* BookModel.swift */; };
+		A62D7EA729DFD54C00CEFE90 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EA429DFD54C00CEFE90 /* Enums.swift */; };
+		A62D7EA829DFD54C00CEFE90 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EA529DFD54C00CEFE90 /* BookItem.swift */; };
+		A62D7EAA29DFE07100CEFE90 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EA929DFE07100CEFE90 /* AppComponent.swift */; };
+		A62D7EB029DFE0F400CEFE90 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EAC29DFE0F400CEFE90 /* RootRouter.swift */; };
+		A62D7EB129DFE0F400CEFE90 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EAD29DFE0F400CEFE90 /* RootViewController.swift */; };
+		A62D7EB229DFE0F400CEFE90 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EAE29DFE0F400CEFE90 /* RootBuilder.swift */; };
+		A62D7EB329DFE0F400CEFE90 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EAF29DFE0F400CEFE90 /* RootInteractor.swift */; };
+		A62D7EBD29DFF50D00CEFE90 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EB929DFF50D00CEFE90 /* TabBarRouter.swift */; };
+		A62D7EBE29DFF50D00CEFE90 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EBA29DFF50D00CEFE90 /* TabBarViewController.swift */; };
+		A62D7EBF29DFF50D00CEFE90 /* TabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EBB29DFF50D00CEFE90 /* TabBarBuilder.swift */; };
+		A62D7EC029DFF50D00CEFE90 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EBC29DFF50D00CEFE90 /* TabBarInteractor.swift */; };
+		A62D7EC729E005E900CEFE90 /* SearchBookRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EC329E005E900CEFE90 /* SearchBookRouter.swift */; };
+		A62D7EC829E005E900CEFE90 /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EC429E005E900CEFE90 /* SearchBookViewController.swift */; };
+		A62D7EC929E005E900CEFE90 /* SearchBookBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EC529E005E900CEFE90 /* SearchBookBuilder.swift */; };
+		A62D7ECA29E005E900CEFE90 /* SearchBookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EC629E005E900CEFE90 /* SearchBookInteractor.swift */; };
+		A62D7ECF29E005F400CEFE90 /* NewBookRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7ECB29E005F400CEFE90 /* NewBookRouter.swift */; };
+		A62D7ED029E005F400CEFE90 /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7ECC29E005F400CEFE90 /* NewBookViewController.swift */; };
+		A62D7ED129E005F400CEFE90 /* NewBookBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7ECD29E005F400CEFE90 /* NewBookBuilder.swift */; };
+		A62D7ED229E005F400CEFE90 /* NewBookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7ECE29E005F400CEFE90 /* NewBookInteractor.swift */; };
 		A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEBFE29DE815700546D80 /* AppDelegate.swift */; };
 		A6CFEC0129DE815700546D80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEC0029DE815700546D80 /* SceneDelegate.swift */; };
-		A6CFEC0329DE815700546D80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEC0229DE815700546D80 /* ViewController.swift */; };
-		A6CFEC0629DE815700546D80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CFEC0429DE815700546D80 /* Main.storyboard */; };
 		A6CFEC0829DE815800546D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CFEC0729DE815800546D80 /* Assets.xcassets */; };
 		A6CFEC0B29DE815800546D80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CFEC0929DE815800546D80 /* LaunchScreen.storyboard */; };
 		A6CFEC1629DE815900546D80 /* Book_RIBsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEC1529DE815900546D80 /* Book_RIBsTests.swift */; };
@@ -36,11 +69,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A62D7E8329DFD13700CEFE90 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		A62D7E8629DFD17F00CEFE90 /* UIScrollView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+.swift"; path = "../../../../ReactorKit/Book-ReactorKit/Extension/UIScrollView+.swift"; sourceTree = "<group>"; };
+		A62D7E8729DFD17F00CEFE90 /* ReturnResultKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnResultKit.swift; path = "../../../../ReactorKit/Book-ReactorKit/Extension/ReturnResultKit.swift"; sourceTree = "<group>"; };
+		A62D7E8829DFD17F00CEFE90 /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+.swift"; path = "../../../../ReactorKit/Book-ReactorKit/Extension/Array+.swift"; sourceTree = "<group>"; };
+		A62D7E8929DFD17F00CEFE90 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+.swift"; path = "../../../../ReactorKit/Book-ReactorKit/Extension/UITableView+.swift"; sourceTree = "<group>"; };
+		A62D7E8E29DFD19E00CEFE90 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		A62D7E9129DFD1F000CEFE90 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A62D7E9729DFD22900CEFE90 /* UserDefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsService.swift; path = "../../../../ReactorKit/Book-ReactorKit/Services/UserDefaultsService.swift"; sourceTree = "<group>"; };
+		A62D7E9829DFD22900CEFE90 /* InternalNotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternalNotificationService.swift; path = "../../../../ReactorKit/Book-ReactorKit/Services/InternalNotificationService.swift"; sourceTree = "<group>"; };
+		A62D7E9B29DFD23900CEFE90 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseService.swift; path = "../../../../ReactorKit/Book-ReactorKit/Services/BaseService.swift"; sourceTree = "<group>"; };
+		A62D7E9C29DFD23900CEFE90 /* ServiceProviderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceProviderType.swift; path = "../../../../ReactorKit/Book-ReactorKit/Services/ServiceProviderType.swift"; sourceTree = "<group>"; };
+		A62D7EA329DFD54C00CEFE90 /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookModel.swift; path = "../../../../ReactorKit/Book-ReactorKit/Model/BookModel.swift"; sourceTree = "<group>"; };
+		A62D7EA429DFD54C00CEFE90 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = "../../../../ReactorKit/Book-ReactorKit/Model/Enums.swift"; sourceTree = "<group>"; };
+		A62D7EA529DFD54C00CEFE90 /* BookItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookItem.swift; path = "../../../../ReactorKit/Book-ReactorKit/Model/BookItem.swift"; sourceTree = "<group>"; };
+		A62D7EA929DFE07100CEFE90 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
+		A62D7EAC29DFE0F400CEFE90 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		A62D7EAD29DFE0F400CEFE90 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A62D7EAE29DFE0F400CEFE90 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
+		A62D7EAF29DFE0F400CEFE90 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
+		A62D7EB929DFF50D00CEFE90 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		A62D7EBA29DFF50D00CEFE90 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		A62D7EBB29DFF50D00CEFE90 /* TabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBuilder.swift; sourceTree = "<group>"; };
+		A62D7EBC29DFF50D00CEFE90 /* TabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
+		A62D7EC329E005E900CEFE90 /* SearchBookRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookRouter.swift; sourceTree = "<group>"; };
+		A62D7EC429E005E900CEFE90 /* SearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
+		A62D7EC529E005E900CEFE90 /* SearchBookBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookBuilder.swift; sourceTree = "<group>"; };
+		A62D7EC629E005E900CEFE90 /* SearchBookInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookInteractor.swift; sourceTree = "<group>"; };
+		A62D7ECB29E005F400CEFE90 /* NewBookRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookRouter.swift; sourceTree = "<group>"; };
+		A62D7ECC29E005F400CEFE90 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
+		A62D7ECD29E005F400CEFE90 /* NewBookBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookBuilder.swift; sourceTree = "<group>"; };
+		A62D7ECE29E005F400CEFE90 /* NewBookInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookInteractor.swift; sourceTree = "<group>"; };
 		A6CFEBFB29DE815700546D80 /* Book-RIBs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-RIBs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CFEBFE29DE815700546D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6CFEC0029DE815700546D80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A6CFEC0229DE815700546D80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A6CFEC0529DE815700546D80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6CFEC0729DE815800546D80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6CFEC0A29DE815800546D80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6CFEC0C29DE815800546D80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +118,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A62D7E7F29DFD00F00CEFE90 /* Alamofire in Frameworks */,
+				A62D7E7929DFB8E400CEFE90 /* RIBs in Frameworks */,
+				A62D7EA129DFD4DE00CEFE90 /* RxCocoa in Frameworks */,
+				A62D7E7C29DFCFD400CEFE90 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +142,122 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A62D7E8029DFD10200CEFE90 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6CFEC0729DE815800546D80 /* Assets.xcassets */,
+				A6CFEC0929DE815800546D80 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A62D7E8129DFD10B00CEFE90 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7E8329DFD13700CEFE90 /* Then.swift */,
+				A62D7E8E29DFD19E00CEFE90 /* Defaults.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A62D7E8229DFD12100CEFE90 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A6CFEBFE29DE815700546D80 /* AppDelegate.swift */,
+				A6CFEC0029DE815700546D80 /* SceneDelegate.swift */,
+				A62D7EA929DFE07100CEFE90 /* AppComponent.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A62D7E8529DFD15600CEFE90 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7E8829DFD17F00CEFE90 /* Array+.swift */,
+				A62D7E8729DFD17F00CEFE90 /* ReturnResultKit.swift */,
+				A62D7E8629DFD17F00CEFE90 /* UIScrollView+.swift */,
+				A62D7E8929DFD17F00CEFE90 /* UITableView+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A62D7E9029DFD1BA00CEFE90 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7E9B29DFD23900CEFE90 /* BaseService.swift */,
+				A62D7E9C29DFD23900CEFE90 /* ServiceProviderType.swift */,
+				A62D7E9129DFD1F000CEFE90 /* NetworkService.swift */,
+				A62D7E9829DFD22900CEFE90 /* InternalNotificationService.swift */,
+				A62D7E9729DFD22900CEFE90 /* UserDefaultsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A62D7EA229DFD52200CEFE90 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7EA529DFD54C00CEFE90 /* BookItem.swift */,
+				A62D7EA329DFD54C00CEFE90 /* BookModel.swift */,
+				A62D7EA429DFD54C00CEFE90 /* Enums.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A62D7EAB29DFE0C100CEFE90 /* RIBs */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7EB429DFE0FC00CEFE90 /* Root */,
+				A62D7EB829DFF4BF00CEFE90 /* TabBar */,
+				A62D7EC129E005B100CEFE90 /* NewBook */,
+				A62D7EC229E005C000CEFE90 /* SearchBook */,
+			);
+			path = RIBs;
+			sourceTree = "<group>";
+		};
+		A62D7EB429DFE0FC00CEFE90 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7EAC29DFE0F400CEFE90 /* RootRouter.swift */,
+				A62D7EAD29DFE0F400CEFE90 /* RootViewController.swift */,
+				A62D7EAE29DFE0F400CEFE90 /* RootBuilder.swift */,
+				A62D7EAF29DFE0F400CEFE90 /* RootInteractor.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		A62D7EB829DFF4BF00CEFE90 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7EB929DFF50D00CEFE90 /* TabBarRouter.swift */,
+				A62D7EBA29DFF50D00CEFE90 /* TabBarViewController.swift */,
+				A62D7EBB29DFF50D00CEFE90 /* TabBarBuilder.swift */,
+				A62D7EBC29DFF50D00CEFE90 /* TabBarInteractor.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A62D7EC129E005B100CEFE90 /* NewBook */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7ECB29E005F400CEFE90 /* NewBookRouter.swift */,
+				A62D7ECC29E005F400CEFE90 /* NewBookViewController.swift */,
+				A62D7ECD29E005F400CEFE90 /* NewBookBuilder.swift */,
+				A62D7ECE29E005F400CEFE90 /* NewBookInteractor.swift */,
+			);
+			path = NewBook;
+			sourceTree = "<group>";
+		};
+		A62D7EC229E005C000CEFE90 /* SearchBook */ = {
+			isa = PBXGroup;
+			children = (
+				A62D7EC329E005E900CEFE90 /* SearchBookRouter.swift */,
+				A62D7EC429E005E900CEFE90 /* SearchBookViewController.swift */,
+				A62D7EC529E005E900CEFE90 /* SearchBookBuilder.swift */,
+				A62D7EC629E005E900CEFE90 /* SearchBookInteractor.swift */,
+			);
+			path = SearchBook;
+			sourceTree = "<group>";
+		};
 		A6CFEBF229DE815700546D80 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +281,14 @@
 		A6CFEBFD29DE815700546D80 /* Book-RIBs */ = {
 			isa = PBXGroup;
 			children = (
-				A6CFEBFE29DE815700546D80 /* AppDelegate.swift */,
-				A6CFEC0029DE815700546D80 /* SceneDelegate.swift */,
-				A6CFEC0229DE815700546D80 /* ViewController.swift */,
-				A6CFEC0429DE815700546D80 /* Main.storyboard */,
-				A6CFEC0729DE815800546D80 /* Assets.xcassets */,
-				A6CFEC0929DE815800546D80 /* LaunchScreen.storyboard */,
 				A6CFEC0C29DE815800546D80 /* Info.plist */,
+				A62D7E8229DFD12100CEFE90 /* Application */,
+				A62D7EAB29DFE0C100CEFE90 /* RIBs */,
+				A62D7E8529DFD15600CEFE90 /* Extensions */,
+				A62D7EA229DFD52200CEFE90 /* Models */,
+				A62D7E9029DFD1BA00CEFE90 /* Services */,
+				A62D7E8129DFD10B00CEFE90 /* Utils */,
+				A62D7E8029DFD10200CEFE90 /* Resources */,
 			);
 			path = "Book-RIBs";
 			sourceTree = "<group>";
@@ -143,6 +326,12 @@
 			dependencies = (
 			);
 			name = "Book-RIBs";
+			packageProductDependencies = (
+				A62D7E7829DFB8E400CEFE90 /* RIBs */,
+				A62D7E7B29DFCFD400CEFE90 /* SnapKit */,
+				A62D7E7E29DFD00F00CEFE90 /* Alamofire */,
+				A62D7EA029DFD4DE00CEFE90 /* RxCocoa */,
+			);
 			productName = "Book-RIBs";
 			productReference = A6CFEBFB29DE815700546D80 /* Book-RIBs.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +404,12 @@
 				Base,
 			);
 			mainGroup = A6CFEBF229DE815700546D80;
+			packageReferences = (
+				A62D7E7729DFB8E400CEFE90 /* XCRemoteSwiftPackageReference "RIBs" */,
+				A62D7E7A29DFCFD400CEFE90 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A62D7E7D29DFD00F00CEFE90 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A62D7E9F29DFD4DE00CEFE90 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = A6CFEBFC29DE815700546D80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +428,6 @@
 			files = (
 				A6CFEC0B29DE815800546D80 /* LaunchScreen.storyboard in Resources */,
 				A6CFEC0829DE815800546D80 /* Assets.xcassets in Resources */,
-				A6CFEC0629DE815700546D80 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +452,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6CFEC0329DE815700546D80 /* ViewController.swift in Sources */,
+				A62D7EA629DFD54C00CEFE90 /* BookModel.swift in Sources */,
+				A62D7EC829E005E900CEFE90 /* SearchBookViewController.swift in Sources */,
+				A62D7E9229DFD1F000CEFE90 /* NetworkService.swift in Sources */,
+				A62D7ECF29E005F400CEFE90 /* NewBookRouter.swift in Sources */,
+				A62D7EB329DFE0F400CEFE90 /* RootInteractor.swift in Sources */,
+				A62D7EB029DFE0F400CEFE90 /* RootRouter.swift in Sources */,
+				A62D7E8F29DFD19E00CEFE90 /* Defaults.swift in Sources */,
+				A62D7E8429DFD13700CEFE90 /* Then.swift in Sources */,
+				A62D7ED229E005F400CEFE90 /* NewBookInteractor.swift in Sources */,
+				A62D7EBF29DFF50D00CEFE90 /* TabBarBuilder.swift in Sources */,
+				A62D7E8D29DFD17F00CEFE90 /* UITableView+.swift in Sources */,
+				A62D7EAA29DFE07100CEFE90 /* AppComponent.swift in Sources */,
+				A62D7ECA29E005E900CEFE90 /* SearchBookInteractor.swift in Sources */,
+				A62D7EB229DFE0F400CEFE90 /* RootBuilder.swift in Sources */,
+				A62D7E8A29DFD17F00CEFE90 /* UIScrollView+.swift in Sources */,
+				A62D7E8B29DFD17F00CEFE90 /* ReturnResultKit.swift in Sources */,
+				A62D7EBE29DFF50D00CEFE90 /* TabBarViewController.swift in Sources */,
+				A62D7EB129DFE0F400CEFE90 /* RootViewController.swift in Sources */,
+				A62D7E9D29DFD23900CEFE90 /* BaseService.swift in Sources */,
 				A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */,
+				A62D7EA829DFD54C00CEFE90 /* BookItem.swift in Sources */,
+				A62D7ED029E005F400CEFE90 /* NewBookViewController.swift in Sources */,
 				A6CFEC0129DE815700546D80 /* SceneDelegate.swift in Sources */,
+				A62D7EBD29DFF50D00CEFE90 /* TabBarRouter.swift in Sources */,
+				A62D7E9A29DFD22900CEFE90 /* InternalNotificationService.swift in Sources */,
+				A62D7E8C29DFD17F00CEFE90 /* Array+.swift in Sources */,
+				A62D7ED129E005F400CEFE90 /* NewBookBuilder.swift in Sources */,
+				A62D7EC729E005E900CEFE90 /* SearchBookRouter.swift in Sources */,
+				A62D7E9E29DFD23900CEFE90 /* ServiceProviderType.swift in Sources */,
+				A62D7EC929E005E900CEFE90 /* SearchBookBuilder.swift in Sources */,
+				A62D7EA729DFD54C00CEFE90 /* Enums.swift in Sources */,
+				A62D7E9929DFD22900CEFE90 /* UserDefaultsService.swift in Sources */,
+				A62D7EC029DFF50D00CEFE90 /* TabBarInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +521,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A6CFEC0429DE815700546D80 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6CFEC0529DE815700546D80 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A6CFEC0929DE815800546D80 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -442,9 +658,9 @@
 				INFOPLIST_FILE = "Book-RIBs/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,9 +686,9 @@
 				INFOPLIST_FILE = "Book-RIBs/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -602,6 +818,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A62D7E7729DFB8E400CEFE90 /* XCRemoteSwiftPackageReference "RIBs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uber/RIBs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+		A62D7E7A29DFCFD400CEFE90 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		A62D7E7D29DFD00F00CEFE90 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		A62D7E9F29DFD4DE00CEFE90 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A62D7E7829DFB8E400CEFE90 /* RIBs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A62D7E7729DFB8E400CEFE90 /* XCRemoteSwiftPackageReference "RIBs" */;
+			productName = RIBs;
+		};
+		A62D7E7B29DFCFD400CEFE90 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A62D7E7A29DFCFD400CEFE90 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A62D7E7E29DFD00F00CEFE90 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A62D7E7D29DFD00F00CEFE90 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A62D7EA029DFD4DE00CEFE90 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A62D7E9F29DFD4DE00CEFE90 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A6CFEBF329DE815700546D80 /* Project object */;
 }
