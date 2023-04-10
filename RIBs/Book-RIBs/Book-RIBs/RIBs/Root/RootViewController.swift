@@ -20,6 +20,6 @@ final class RootViewController: UINavigationController, RootPresentable, RootVie
     weak var listener: RootPresentableListener?
     
     func pushViewController(_ viewController: ViewControllable, animated: Bool) {
-        pushViewController(viewController.uiviewController, animated: animated)
+        super.pushViewController(viewController.uiviewController, animated: animated)
     }
 }

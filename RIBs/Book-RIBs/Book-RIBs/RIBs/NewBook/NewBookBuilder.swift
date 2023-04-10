@@ -30,7 +30,6 @@ final class NewBookBuilder: Builder<NewBookDependency>, NewBookBuildable {
     }
 
     func build(withListener listener: NewBookListener) -> NewBookRouting {
-        let component = NewBookComponent(dependency: dependency)
         let viewController = NewBookViewController()
         let interactor = NewBookInteractor(presenter: viewController)
         interactor.listener = listener

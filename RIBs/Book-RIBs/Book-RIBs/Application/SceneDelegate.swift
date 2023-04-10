@@ -12,6 +12,8 @@ import RxSwift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    private var lauchRouter: LaunchRouting?
 
     func scene(
         _ scene: UIScene,
@@ -20,8 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     {
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let launchRouter: LaunchRouting = RootBuilder(dependency: AppComponent()).build()
-        launchRouter.launch(from: window!)
+        let appComponent = AppComponent()
+        self.lauchRouter = RootBuilder(dependency: appComponent).build()
+        self.lauchRouter?.launch(from: window!)
         window?.backgroundColor = .systemBackground
     }
 

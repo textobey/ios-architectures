@@ -30,7 +30,6 @@ final class SearchBookBuilder: Builder<SearchBookDependency>, SearchBookBuildabl
     }
 
     func build(withListener listener: SearchBookListener) -> SearchBookRouting {
-        let component = SearchBookComponent(dependency: dependency)
         let viewController = SearchBookViewController()
         let interactor = SearchBookInteractor(presenter: viewController)
         interactor.listener = listener

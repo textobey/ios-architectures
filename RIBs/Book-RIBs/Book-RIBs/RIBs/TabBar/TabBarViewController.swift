@@ -27,8 +27,17 @@ final class TabBarViewController: UITabBarController, TabBarPresentable, TabBarV
         return self.fetchNavigationBarTitles()
     }
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
     }
     
     func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {

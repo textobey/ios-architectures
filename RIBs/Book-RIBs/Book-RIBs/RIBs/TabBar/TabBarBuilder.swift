@@ -32,8 +32,8 @@ final class TabBarBuilder: Builder<TabBarDependency>, TabBarBuildable {
     }
 
     func build(withListener listener: TabBarListener) -> TabBarRouting {
-        let component = TabBarComponent(dependency: dependency)
         let viewController = TabBarViewController()
+        let component = TabBarComponent(dependency: dependency)
         let interactor = TabBarInteractor(presenter: viewController)
         
         let newBookBuilder = NewBookBuilder(dependency: component)
