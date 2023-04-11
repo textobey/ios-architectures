@@ -2,7 +2,7 @@
 //  RootBuilder.swift
 //  Book-RIBs
 //
-//  Created by 이서준 on 2023/04/07.
+//  Created by 이서준 on 2023/04/11.
 //
 
 import RIBs
@@ -12,17 +12,10 @@ protocol RootDependency: Dependency {
     // created by this RIB.
 }
 
-final class RootComponent: Component<RootDependency> {
+final class RootComponent: Component<RootDependency>, NewBookDependency, SearchBookDependency {
 
-    let rootViewController: RootViewController
-    
-    init(dependency: RootDependency, rootViewController: RootViewController) {
-        self.rootViewController = rootViewController
-        super.init(dependency: dependency)
-    }
+    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
-
-extension RootComponent: TabBarDependency { }
 
 // MARK: - Builder
 
@@ -31,21 +24,24 @@ protocol RootBuildable: Buildable {
 }
 
 final class RootBuilder: Builder<RootDependency>, RootBuildable {
-
+    
     override init(dependency: RootDependency) {
         super.init(dependency: dependency)
     }
     
     func build() -> LaunchRouting {
-        let viewController = RootViewController()
-        let component = RootComponent(dependency: dependency, rootViewController: viewController)
-        let interactor = RootInteractor(presenter: viewController)
-        let tabBarBuilder = TabBarBuilder(dependency: component)
+        let component = RootComponent(dependency: dependency)
+        let tabBar = RootTabBarViewController()
+        let interactor = RootInteractor(presenter: tabBar)
+        
+        let newBookBuilder = NewBookBuilder(dependency: component)
+        let searchBookBuilder = SearchBookBuilder(dependency: component)
         
         return RootRouter(
-            tabBarBuilder: tabBarBuilder,
             interactor: interactor,
-            viewController: viewController
+            viewController: tabBar,
+            newBookBuilder: newBookBuilder,
+            searchBookBuilder: searchBookBuilder
         )
     }
 }

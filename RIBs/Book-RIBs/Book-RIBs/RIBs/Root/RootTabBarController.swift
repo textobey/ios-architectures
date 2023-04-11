@@ -1,23 +1,23 @@
 //
-//  TabBarViewController.swift
+//  RootTabBarController.swift
 //  Book-RIBs
 //
-//  Created by 이서준 on 2023/04/07.
+//  Created by 이서준 on 2023/04/11.
 //
 
 import RIBs
 import RxSwift
 import UIKit
 
-protocol TabBarPresentableListener: AnyObject {
+protocol RootPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
 }
 
-final class TabBarViewController: UITabBarController, TabBarPresentable, TabBarViewControllable {
+final class RootTabBarViewController: UITabBarController, RootViewControllable, RootPresentable {
 
-    weak var listener: TabBarPresentableListener?
+    weak var listener: RootPresentableListener?
     
     private var tabBarItems: [UITabBarItem] {
         return self.fetchTabBarItems()
@@ -42,16 +42,15 @@ final class TabBarViewController: UITabBarController, TabBarPresentable, TabBarV
     
     func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         let rootViewControllers = zip(viewControllers, tabBarItems)
-            .map { rootViewController, tabBarItem -> UINavigationController in
+            .map { rootViewController, tabBarItem -> UIViewController in
                 rootViewController.view.backgroundColor = .systemBackground
                 rootViewController.tabBarItem = tabBarItem
-                
-                return UINavigationController(rootViewController: rootViewController).then {
-                    $0.navigationBar.prefersLargeTitles = true
-                    $0.navigationBar.topItem?.title = tabBarItem.title
-                }
+                return rootViewController
             }
-        super.setViewControllers(rootViewControllers, animated: animated)
+        
+        let navigationControllers = createNavigationControllers(rootViewControllers)
+        //super.setViewControllers(navigationControllers, animated: animated)
+        self.viewControllers = navigationControllers
     }
     
     func setupTabBarController() {
@@ -59,6 +58,15 @@ final class TabBarViewController: UITabBarController, TabBarPresentable, TabBarV
         self.view.backgroundColor = .white
         self.tabBar.isTranslucent = true
         self.tabBar.backgroundColor = .systemGroupedBackground
+    }
+    
+    private func createNavigationControllers(_ viewControllers: [UIViewController]) -> [UINavigationController] {
+        return zip(viewControllers, titles).map { rootViewController, title -> UINavigationController in
+            return UINavigationController(rootViewController: rootViewController).then {
+                $0.navigationBar.prefersLargeTitles = true
+                $0.navigationBar.topItem?.title = title
+            }
+        }
     }
     
     private func fetchTabBarItems() -> [UITabBarItem] {

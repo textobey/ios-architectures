@@ -2,7 +2,7 @@
 //  RootInteractor.swift
 //  Book-RIBs
 //
-//  Created by 이서준 on 2023/04/07.
+//  Created by 이서준 on 2023/04/11.
 //
 
 import RIBs
@@ -10,6 +10,7 @@ import RxSwift
 
 protocol RootRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func attachTabs()
 }
 
 protocol RootPresentable: Presentable {
@@ -36,6 +37,7 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
+        router?.attachTabs()
     }
 
     override func willResignActive() {

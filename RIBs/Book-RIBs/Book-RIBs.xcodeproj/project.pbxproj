@@ -26,14 +26,6 @@
 		A62D7EA729DFD54C00CEFE90 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EA429DFD54C00CEFE90 /* Enums.swift */; };
 		A62D7EA829DFD54C00CEFE90 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EA529DFD54C00CEFE90 /* BookItem.swift */; };
 		A62D7EAA29DFE07100CEFE90 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EA929DFE07100CEFE90 /* AppComponent.swift */; };
-		A62D7EB029DFE0F400CEFE90 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EAC29DFE0F400CEFE90 /* RootRouter.swift */; };
-		A62D7EB129DFE0F400CEFE90 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EAD29DFE0F400CEFE90 /* RootViewController.swift */; };
-		A62D7EB229DFE0F400CEFE90 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EAE29DFE0F400CEFE90 /* RootBuilder.swift */; };
-		A62D7EB329DFE0F400CEFE90 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EAF29DFE0F400CEFE90 /* RootInteractor.swift */; };
-		A62D7EBD29DFF50D00CEFE90 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EB929DFF50D00CEFE90 /* TabBarRouter.swift */; };
-		A62D7EBE29DFF50D00CEFE90 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EBA29DFF50D00CEFE90 /* TabBarViewController.swift */; };
-		A62D7EBF29DFF50D00CEFE90 /* TabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EBB29DFF50D00CEFE90 /* TabBarBuilder.swift */; };
-		A62D7EC029DFF50D00CEFE90 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EBC29DFF50D00CEFE90 /* TabBarInteractor.swift */; };
 		A62D7EC729E005E900CEFE90 /* SearchBookRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EC329E005E900CEFE90 /* SearchBookRouter.swift */; };
 		A62D7EC829E005E900CEFE90 /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EC429E005E900CEFE90 /* SearchBookViewController.swift */; };
 		A62D7EC929E005E900CEFE90 /* SearchBookBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7EC529E005E900CEFE90 /* SearchBookBuilder.swift */; };
@@ -42,6 +34,10 @@
 		A62D7ED029E005F400CEFE90 /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7ECC29E005F400CEFE90 /* NewBookViewController.swift */; };
 		A62D7ED129E005F400CEFE90 /* NewBookBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7ECD29E005F400CEFE90 /* NewBookBuilder.swift */; };
 		A62D7ED229E005F400CEFE90 /* NewBookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7ECE29E005F400CEFE90 /* NewBookInteractor.swift */; };
+		A669E55A29E522FC00434F76 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669E55629E522FC00434F76 /* RootRouter.swift */; };
+		A669E55C29E522FC00434F76 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669E55829E522FC00434F76 /* RootBuilder.swift */; };
+		A669E55D29E522FC00434F76 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669E55929E522FC00434F76 /* RootInteractor.swift */; };
+		A669E55F29E5231600434F76 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669E55E29E5231600434F76 /* RootTabBarController.swift */; };
 		A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEBFE29DE815700546D80 /* AppDelegate.swift */; };
 		A6CFEC0129DE815700546D80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEC0029DE815700546D80 /* SceneDelegate.swift */; };
 		A6CFEC0829DE815800546D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CFEC0729DE815800546D80 /* Assets.xcassets */; };
@@ -84,14 +80,6 @@
 		A62D7EA429DFD54C00CEFE90 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = "../../../../ReactorKit/Book-ReactorKit/Model/Enums.swift"; sourceTree = "<group>"; };
 		A62D7EA529DFD54C00CEFE90 /* BookItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookItem.swift; path = "../../../../ReactorKit/Book-ReactorKit/Model/BookItem.swift"; sourceTree = "<group>"; };
 		A62D7EA929DFE07100CEFE90 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
-		A62D7EAC29DFE0F400CEFE90 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
-		A62D7EAD29DFE0F400CEFE90 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		A62D7EAE29DFE0F400CEFE90 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
-		A62D7EAF29DFE0F400CEFE90 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
-		A62D7EB929DFF50D00CEFE90 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
-		A62D7EBA29DFF50D00CEFE90 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		A62D7EBB29DFF50D00CEFE90 /* TabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBuilder.swift; sourceTree = "<group>"; };
-		A62D7EBC29DFF50D00CEFE90 /* TabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
 		A62D7EC329E005E900CEFE90 /* SearchBookRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookRouter.swift; sourceTree = "<group>"; };
 		A62D7EC429E005E900CEFE90 /* SearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
 		A62D7EC529E005E900CEFE90 /* SearchBookBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookBuilder.swift; sourceTree = "<group>"; };
@@ -100,6 +88,10 @@
 		A62D7ECC29E005F400CEFE90 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
 		A62D7ECD29E005F400CEFE90 /* NewBookBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookBuilder.swift; sourceTree = "<group>"; };
 		A62D7ECE29E005F400CEFE90 /* NewBookInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookInteractor.swift; sourceTree = "<group>"; };
+		A669E55629E522FC00434F76 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		A669E55829E522FC00434F76 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
+		A669E55929E522FC00434F76 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
+		A669E55E29E5231600434F76 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		A6CFEBFB29DE815700546D80 /* Book-RIBs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-RIBs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CFEBFE29DE815700546D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6CFEC0029DE815700546D80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				A62D7EB429DFE0FC00CEFE90 /* Root */,
-				A62D7EB829DFF4BF00CEFE90 /* TabBar */,
 				A62D7EC129E005B100CEFE90 /* NewBook */,
 				A62D7EC229E005C000CEFE90 /* SearchBook */,
 			);
@@ -217,23 +208,12 @@
 		A62D7EB429DFE0FC00CEFE90 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				A62D7EAC29DFE0F400CEFE90 /* RootRouter.swift */,
-				A62D7EAD29DFE0F400CEFE90 /* RootViewController.swift */,
-				A62D7EAE29DFE0F400CEFE90 /* RootBuilder.swift */,
-				A62D7EAF29DFE0F400CEFE90 /* RootInteractor.swift */,
+				A669E55629E522FC00434F76 /* RootRouter.swift */,
+				A669E55829E522FC00434F76 /* RootBuilder.swift */,
+				A669E55929E522FC00434F76 /* RootInteractor.swift */,
+				A669E55E29E5231600434F76 /* RootTabBarController.swift */,
 			);
 			path = Root;
-			sourceTree = "<group>";
-		};
-		A62D7EB829DFF4BF00CEFE90 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				A62D7EB929DFF50D00CEFE90 /* TabBarRouter.swift */,
-				A62D7EBA29DFF50D00CEFE90 /* TabBarViewController.swift */,
-				A62D7EBB29DFF50D00CEFE90 /* TabBarBuilder.swift */,
-				A62D7EBC29DFF50D00CEFE90 /* TabBarInteractor.swift */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		A62D7EC129E005B100CEFE90 /* NewBook */ = {
@@ -456,27 +436,24 @@
 				A62D7EC829E005E900CEFE90 /* SearchBookViewController.swift in Sources */,
 				A62D7E9229DFD1F000CEFE90 /* NetworkService.swift in Sources */,
 				A62D7ECF29E005F400CEFE90 /* NewBookRouter.swift in Sources */,
-				A62D7EB329DFE0F400CEFE90 /* RootInteractor.swift in Sources */,
-				A62D7EB029DFE0F400CEFE90 /* RootRouter.swift in Sources */,
 				A62D7E8F29DFD19E00CEFE90 /* Defaults.swift in Sources */,
+				A669E55F29E5231600434F76 /* RootTabBarController.swift in Sources */,
 				A62D7E8429DFD13700CEFE90 /* Then.swift in Sources */,
 				A62D7ED229E005F400CEFE90 /* NewBookInteractor.swift in Sources */,
-				A62D7EBF29DFF50D00CEFE90 /* TabBarBuilder.swift in Sources */,
 				A62D7E8D29DFD17F00CEFE90 /* UITableView+.swift in Sources */,
 				A62D7EAA29DFE07100CEFE90 /* AppComponent.swift in Sources */,
 				A62D7ECA29E005E900CEFE90 /* SearchBookInteractor.swift in Sources */,
-				A62D7EB229DFE0F400CEFE90 /* RootBuilder.swift in Sources */,
 				A62D7E8A29DFD17F00CEFE90 /* UIScrollView+.swift in Sources */,
 				A62D7E8B29DFD17F00CEFE90 /* ReturnResultKit.swift in Sources */,
-				A62D7EBE29DFF50D00CEFE90 /* TabBarViewController.swift in Sources */,
-				A62D7EB129DFE0F400CEFE90 /* RootViewController.swift in Sources */,
 				A62D7E9D29DFD23900CEFE90 /* BaseService.swift in Sources */,
 				A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */,
+				A669E55A29E522FC00434F76 /* RootRouter.swift in Sources */,
 				A62D7EA829DFD54C00CEFE90 /* BookItem.swift in Sources */,
 				A62D7ED029E005F400CEFE90 /* NewBookViewController.swift in Sources */,
 				A6CFEC0129DE815700546D80 /* SceneDelegate.swift in Sources */,
-				A62D7EBD29DFF50D00CEFE90 /* TabBarRouter.swift in Sources */,
 				A62D7E9A29DFD22900CEFE90 /* InternalNotificationService.swift in Sources */,
+				A669E55C29E522FC00434F76 /* RootBuilder.swift in Sources */,
+				A669E55D29E522FC00434F76 /* RootInteractor.swift in Sources */,
 				A62D7E8C29DFD17F00CEFE90 /* Array+.swift in Sources */,
 				A62D7ED129E005F400CEFE90 /* NewBookBuilder.swift in Sources */,
 				A62D7EC729E005E900CEFE90 /* SearchBookRouter.swift in Sources */,
@@ -484,7 +461,6 @@
 				A62D7EC929E005E900CEFE90 /* SearchBookBuilder.swift in Sources */,
 				A62D7EA729DFD54C00CEFE90 /* Enums.swift in Sources */,
 				A62D7E9929DFD22900CEFE90 /* UserDefaultsService.swift in Sources */,
-				A62D7EC029DFF50D00CEFE90 /* TabBarInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
