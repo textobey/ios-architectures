@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		A62D7E7929DFB8E400CEFE90 /* RIBs in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7E7829DFB8E400CEFE90 /* RIBs */; };
 		A62D7E7C29DFCFD400CEFE90 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7E7B29DFCFD400CEFE90 /* SnapKit */; };
-		A62D7E7F29DFD00F00CEFE90 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7E7E29DFD00F00CEFE90 /* Alamofire */; };
 		A62D7E8429DFD13700CEFE90 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8329DFD13700CEFE90 /* Then.swift */; };
 		A62D7E8A29DFD17F00CEFE90 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8629DFD17F00CEFE90 /* UIScrollView+.swift */; };
 		A62D7E8B29DFD17F00CEFE90 /* ReturnResultKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8729DFD17F00CEFE90 /* ReturnResultKit.swift */; };
 		A62D7E8C29DFD17F00CEFE90 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8829DFD17F00CEFE90 /* Array+.swift */; };
 		A62D7E8D29DFD17F00CEFE90 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8929DFD17F00CEFE90 /* UITableView+.swift */; };
 		A62D7E8F29DFD19E00CEFE90 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8E29DFD19E00CEFE90 /* Defaults.swift */; };
-		A62D7E9229DFD1F000CEFE90 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9129DFD1F000CEFE90 /* NetworkService.swift */; };
 		A62D7E9929DFD22900CEFE90 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9729DFD22900CEFE90 /* UserDefaultsService.swift */; };
 		A62D7E9A29DFD22900CEFE90 /* InternalNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9829DFD22900CEFE90 /* InternalNotificationService.swift */; };
 		A62D7E9D29DFD23900CEFE90 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E9B29DFD23900CEFE90 /* BaseService.swift */; };
@@ -38,6 +36,17 @@
 		A669E55C29E522FC00434F76 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669E55829E522FC00434F76 /* RootBuilder.swift */; };
 		A669E55D29E522FC00434F76 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669E55929E522FC00434F76 /* RootInteractor.swift */; };
 		A669E55F29E5231600434F76 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669E55E29E5231600434F76 /* RootTabBarController.swift */; };
+		A66C69B929E5320100C1CCD9 /* NewBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69B829E5320100C1CCD9 /* NewBookTableViewCell.swift */; };
+		A66C69BC29E5323700C1CCD9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A66C69BB29E5323700C1CCD9 /* Kingfisher */; };
+		A66C69BE29E532EC00C1CCD9 /* NewBookContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69BD29E532EC00C1CCD9 /* NewBookContentView.swift */; };
+		A66C69C429E64B5F00C1CCD9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69C329E64B5F00C1CCD9 /* Network.swift */; };
+		A66C69C629E64BD300C1CCD9 /* NetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69C529E64BD300C1CCD9 /* NetworkImpl.swift */; };
+		A66C69C829E64D1900C1CCD9 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69C729E64D1900C1CCD9 /* BaseAPI.swift */; };
+		A66C69CB29E64E0100C1CCD9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A66C69CA29E64E0100C1CCD9 /* Moya */; };
+		A66C69CD29E64E0100C1CCD9 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A66C69CC29E64E0100C1CCD9 /* RxMoya */; };
+		A66C69D029E6690300C1CCD9 /* BookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69CF29E6690300C1CCD9 /* BookAPI.swift */; };
+		A66C69D329E6758B00C1CCD9 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69D229E6758B00C1CCD9 /* BookRepository.swift */; };
+		A66C69D529E6760600C1CCD9 /* BookRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69D429E6760600C1CCD9 /* BookRepositoryImpl.swift */; };
 		A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEBFE29DE815700546D80 /* AppDelegate.swift */; };
 		A6CFEC0129DE815700546D80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEC0029DE815700546D80 /* SceneDelegate.swift */; };
 		A6CFEC0829DE815800546D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CFEC0729DE815800546D80 /* Assets.xcassets */; };
@@ -71,7 +80,6 @@
 		A62D7E8829DFD17F00CEFE90 /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+.swift"; path = "../../../../ReactorKit/Book-ReactorKit/Extension/Array+.swift"; sourceTree = "<group>"; };
 		A62D7E8929DFD17F00CEFE90 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+.swift"; path = "../../../../ReactorKit/Book-ReactorKit/Extension/UITableView+.swift"; sourceTree = "<group>"; };
 		A62D7E8E29DFD19E00CEFE90 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
-		A62D7E9129DFD1F000CEFE90 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A62D7E9729DFD22900CEFE90 /* UserDefaultsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsService.swift; path = "../../../../ReactorKit/Book-ReactorKit/Services/UserDefaultsService.swift"; sourceTree = "<group>"; };
 		A62D7E9829DFD22900CEFE90 /* InternalNotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternalNotificationService.swift; path = "../../../../ReactorKit/Book-ReactorKit/Services/InternalNotificationService.swift"; sourceTree = "<group>"; };
 		A62D7E9B29DFD23900CEFE90 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseService.swift; path = "../../../../ReactorKit/Book-ReactorKit/Services/BaseService.swift"; sourceTree = "<group>"; };
@@ -92,6 +100,14 @@
 		A669E55829E522FC00434F76 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		A669E55929E522FC00434F76 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		A669E55E29E5231600434F76 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		A66C69B829E5320100C1CCD9 /* NewBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookTableViewCell.swift; sourceTree = "<group>"; };
+		A66C69BD29E532EC00C1CCD9 /* NewBookContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookContentView.swift; sourceTree = "<group>"; };
+		A66C69C329E64B5F00C1CCD9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A66C69C529E64BD300C1CCD9 /* NetworkImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImpl.swift; sourceTree = "<group>"; };
+		A66C69C729E64D1900C1CCD9 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		A66C69CF29E6690300C1CCD9 /* BookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPI.swift; sourceTree = "<group>"; };
+		A66C69D229E6758B00C1CCD9 /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
+		A66C69D429E6760600C1CCD9 /* BookRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepositoryImpl.swift; sourceTree = "<group>"; };
 		A6CFEBFB29DE815700546D80 /* Book-RIBs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-RIBs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CFEBFE29DE815700546D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6CFEC0029DE815700546D80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,10 +126,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A62D7E7F29DFD00F00CEFE90 /* Alamofire in Frameworks */,
+				A66C69CD29E64E0100C1CCD9 /* RxMoya in Frameworks */,
 				A62D7E7929DFB8E400CEFE90 /* RIBs in Frameworks */,
 				A62D7EA129DFD4DE00CEFE90 /* RxCocoa in Frameworks */,
 				A62D7E7C29DFCFD400CEFE90 /* SnapKit in Frameworks */,
+				A66C69CB29E64E0100C1CCD9 /* Moya in Frameworks */,
+				A66C69BC29E5323700C1CCD9 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +196,6 @@
 			children = (
 				A62D7E9B29DFD23900CEFE90 /* BaseService.swift */,
 				A62D7E9C29DFD23900CEFE90 /* ServiceProviderType.swift */,
-				A62D7E9129DFD1F000CEFE90 /* NetworkService.swift */,
 				A62D7E9829DFD22900CEFE90 /* InternalNotificationService.swift */,
 				A62D7E9729DFD22900CEFE90 /* UserDefaultsService.swift */,
 			);
@@ -223,6 +240,7 @@
 				A62D7ECC29E005F400CEFE90 /* NewBookViewController.swift */,
 				A62D7ECD29E005F400CEFE90 /* NewBookBuilder.swift */,
 				A62D7ECE29E005F400CEFE90 /* NewBookInteractor.swift */,
+				A66C69B729E531EA00C1CCD9 /* Views */,
 			);
 			path = NewBook;
 			sourceTree = "<group>";
@@ -236,6 +254,35 @@
 				A62D7EC629E005E900CEFE90 /* SearchBookInteractor.swift */,
 			);
 			path = SearchBook;
+			sourceTree = "<group>";
+		};
+		A66C69B729E531EA00C1CCD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A66C69B829E5320100C1CCD9 /* NewBookTableViewCell.swift */,
+				A66C69BD29E532EC00C1CCD9 /* NewBookContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A66C69C029E53D3200C1CCD9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A66C69C729E64D1900C1CCD9 /* BaseAPI.swift */,
+				A66C69CF29E6690300C1CCD9 /* BookAPI.swift */,
+				A66C69C329E64B5F00C1CCD9 /* Network.swift */,
+				A66C69C529E64BD300C1CCD9 /* NetworkImpl.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A66C69D129E6750400C1CCD9 /* Repositorys */ = {
+			isa = PBXGroup;
+			children = (
+				A66C69D229E6758B00C1CCD9 /* BookRepository.swift */,
+				A66C69D429E6760600C1CCD9 /* BookRepositoryImpl.swift */,
+			);
+			path = Repositorys;
 			sourceTree = "<group>";
 		};
 		A6CFEBF229DE815700546D80 = {
@@ -266,6 +313,8 @@
 				A62D7EAB29DFE0C100CEFE90 /* RIBs */,
 				A62D7E8529DFD15600CEFE90 /* Extensions */,
 				A62D7EA229DFD52200CEFE90 /* Models */,
+				A66C69C029E53D3200C1CCD9 /* Network */,
+				A66C69D129E6750400C1CCD9 /* Repositorys */,
 				A62D7E9029DFD1BA00CEFE90 /* Services */,
 				A62D7E8129DFD10B00CEFE90 /* Utils */,
 				A62D7E8029DFD10200CEFE90 /* Resources */,
@@ -309,8 +358,10 @@
 			packageProductDependencies = (
 				A62D7E7829DFB8E400CEFE90 /* RIBs */,
 				A62D7E7B29DFCFD400CEFE90 /* SnapKit */,
-				A62D7E7E29DFD00F00CEFE90 /* Alamofire */,
 				A62D7EA029DFD4DE00CEFE90 /* RxCocoa */,
+				A66C69BB29E5323700C1CCD9 /* Kingfisher */,
+				A66C69CA29E64E0100C1CCD9 /* Moya */,
+				A66C69CC29E64E0100C1CCD9 /* RxMoya */,
 			);
 			productName = "Book-RIBs";
 			productReference = A6CFEBFB29DE815700546D80 /* Book-RIBs.app */;
@@ -387,8 +438,9 @@
 			packageReferences = (
 				A62D7E7729DFB8E400CEFE90 /* XCRemoteSwiftPackageReference "RIBs" */,
 				A62D7E7A29DFCFD400CEFE90 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				A62D7E7D29DFD00F00CEFE90 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A62D7E9F29DFD4DE00CEFE90 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				A66C69BA29E5323700C1CCD9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A66C69C929E64E0100C1CCD9 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = A6CFEBFC29DE815700546D80 /* Products */;
 			projectDirPath = "";
@@ -433,8 +485,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A62D7EA629DFD54C00CEFE90 /* BookModel.swift in Sources */,
+				A66C69D029E6690300C1CCD9 /* BookAPI.swift in Sources */,
+				A66C69D329E6758B00C1CCD9 /* BookRepository.swift in Sources */,
 				A62D7EC829E005E900CEFE90 /* SearchBookViewController.swift in Sources */,
-				A62D7E9229DFD1F000CEFE90 /* NetworkService.swift in Sources */,
 				A62D7ECF29E005F400CEFE90 /* NewBookRouter.swift in Sources */,
 				A62D7E8F29DFD19E00CEFE90 /* Defaults.swift in Sources */,
 				A669E55F29E5231600434F76 /* RootTabBarController.swift in Sources */,
@@ -449,6 +502,9 @@
 				A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */,
 				A669E55A29E522FC00434F76 /* RootRouter.swift in Sources */,
 				A62D7EA829DFD54C00CEFE90 /* BookItem.swift in Sources */,
+				A66C69BE29E532EC00C1CCD9 /* NewBookContentView.swift in Sources */,
+				A66C69C429E64B5F00C1CCD9 /* Network.swift in Sources */,
+				A66C69B929E5320100C1CCD9 /* NewBookTableViewCell.swift in Sources */,
 				A62D7ED029E005F400CEFE90 /* NewBookViewController.swift in Sources */,
 				A6CFEC0129DE815700546D80 /* SceneDelegate.swift in Sources */,
 				A62D7E9A29DFD22900CEFE90 /* InternalNotificationService.swift in Sources */,
@@ -456,11 +512,14 @@
 				A669E55D29E522FC00434F76 /* RootInteractor.swift in Sources */,
 				A62D7E8C29DFD17F00CEFE90 /* Array+.swift in Sources */,
 				A62D7ED129E005F400CEFE90 /* NewBookBuilder.swift in Sources */,
+				A66C69C629E64BD300C1CCD9 /* NetworkImpl.swift in Sources */,
 				A62D7EC729E005E900CEFE90 /* SearchBookRouter.swift in Sources */,
 				A62D7E9E29DFD23900CEFE90 /* ServiceProviderType.swift in Sources */,
 				A62D7EC929E005E900CEFE90 /* SearchBookBuilder.swift in Sources */,
+				A66C69C829E64D1900C1CCD9 /* BaseAPI.swift in Sources */,
 				A62D7EA729DFD54C00CEFE90 /* Enums.swift in Sources */,
 				A62D7E9929DFD22900CEFE90 /* UserDefaultsService.swift in Sources */,
+				A66C69D529E6760600C1CCD9 /* BookRepositoryImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,20 +871,28 @@
 				kind = branch;
 			};
 		};
-		A62D7E7D29DFD00F00CEFE90 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		A62D7E9F29DFD4DE00CEFE90 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.0.0;
+			};
+		};
+		A66C69BA29E5323700C1CCD9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		A66C69C929E64E0100C1CCD9 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -841,15 +908,25 @@
 			package = A62D7E7A29DFCFD400CEFE90 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		A62D7E7E29DFD00F00CEFE90 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A62D7E7D29DFD00F00CEFE90 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
 		A62D7EA029DFD4DE00CEFE90 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A62D7E9F29DFD4DE00CEFE90 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
+		};
+		A66C69BB29E5323700C1CCD9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A66C69BA29E5323700C1CCD9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		A66C69CA29E64E0100C1CCD9 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A66C69C929E64E0100C1CCD9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		A66C69CC29E64E0100C1CCD9 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A66C69C929E64E0100C1CCD9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
