@@ -45,10 +45,6 @@ extension SearchBookView {
     func bind(reactor: SearchBookReactor) {
         bindAction(reactor: reactor)
         bindState(reactor: reactor)
-        TypistService.shared.rx.willShow
-            .subscribe(onNext: {
-                print("ddd")
-            }).disposed(by: disposeBag)
     }
 }
 
