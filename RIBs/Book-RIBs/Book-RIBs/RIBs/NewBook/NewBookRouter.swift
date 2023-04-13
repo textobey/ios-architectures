@@ -23,4 +23,8 @@ final class NewBookRouter: ViewableRouter<NewBookInteractable, NewBookViewContro
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
+    
+    func routeToBookDetail() {
+        
+    }
 }

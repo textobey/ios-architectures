@@ -8,13 +8,18 @@
 import RIBs
 
 protocol NewBookDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var network: Network { get }
+    var services: ServiceProviderType { get }
 }
 
 final class NewBookComponent: Component<NewBookDependency> {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var network: Network {
+        dependency.network
+    }
+    
+    var services: ServiceProviderType {
+        dependency.services
+    }
 }
 
 // MARK: - Builder
@@ -30,8 +35,13 @@ final class NewBookBuilder: Builder<NewBookDependency>, NewBookBuildable {
     }
 
     func build(withListener listener: NewBookListener) -> NewBookRouting {
+        let component = NewBookComponent(dependency: dependency)
         let viewController = NewBookViewController()
-        let interactor = NewBookInteractor(presenter: viewController)
+        let interactor = NewBookInteractor(
+            presenter: viewController,
+            repository: BookRepositoryImpl(network: component.network),
+            serviceProvider: component.services
+        )
         interactor.listener = listener
         return NewBookRouter(interactor: interactor, viewController: viewController)
     }

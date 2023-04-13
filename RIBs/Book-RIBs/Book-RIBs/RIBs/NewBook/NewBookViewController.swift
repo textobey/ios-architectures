@@ -12,9 +12,11 @@ import RxCocoa
 import SnapKit
 
 protocol NewBookPresentableListener: AnyObject {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
+    func refresh()
+    func paging()
+    func createBookmark(of item: BookItem)
+    func undoBookmark(of item: BookItem)
+    func selectedBook(of item: BookItem)
 }
 
 final class NewBookViewController: UIViewController, NewBookPresentable, NewBookViewControllable {
@@ -22,6 +24,8 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
     var disposeBag = DisposeBag()
 
     weak var listener: NewBookPresentableListener?
+    
+    var booksStream = BehaviorRelay<[BookItem]>(value: [])
     
     private let refreshControl = UIRefreshControl()
     
@@ -36,6 +40,12 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        bindUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        listener?.refresh()
     }
     
     private func setupLayout() {
@@ -48,5 +58,24 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
         loadingIndicator.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+    }
+    
+    private func bindUI() {
+        booksStream
+            .skip(1)
+            .bind(to: self.tableView.rx.items(
+                cellIdentifier: NewBookTableViewCell.identifier,
+                cellType: NewBookTableViewCell.self)
+            ) { row, bookItem, cell in
+                cell.configureCell(by: bookItem)
+                cell.bookmarkTap
+                    .map { [weak self] isSelected in
+                        isSelected
+                        ? self?.listener?.undoBookmark(of: bookItem)
+                        : self?.listener?.createBookmark(of: bookItem)
+                    }
+                    .subscribe()
+                    .disposed(by: cell.disposeBag)
+            }.disposed(by: disposeBag)
     }
 }

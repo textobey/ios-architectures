@@ -11,10 +11,12 @@ import RxSwift
 
 final class AppComponent: Component<EmptyDependency>, RootDependency {
     
-    let service: ServiceProviderType
+    let network: Network
+    let services: ServiceProviderType
     
     init() {
-        self.service = ServiceProvider()
+        self.network = NetworkImpl()
+        self.services = ServiceProvider()
         super.init(dependency: EmptyComponent())
     }
 }

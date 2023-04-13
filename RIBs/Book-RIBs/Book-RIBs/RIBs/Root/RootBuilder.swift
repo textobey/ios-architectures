@@ -8,13 +8,21 @@
 import RIBs
 
 protocol RootDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var network: Network { get }
+    var services: ServiceProviderType { get }
 }
 
-final class RootComponent: Component<RootDependency>, NewBookDependency, SearchBookDependency {
+final class RootComponent: Component<RootDependency>,
+                           NewBookDependency,
+                           SearchBookDependency {
 
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var network: Network {
+        dependency.network
+    }
+    
+    var services: ServiceProviderType {
+        dependency.services
+    }
 }
 
 // MARK: - Builder
