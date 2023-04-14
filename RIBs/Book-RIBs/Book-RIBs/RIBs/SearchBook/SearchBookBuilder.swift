@@ -8,13 +8,18 @@
 import RIBs
 
 protocol SearchBookDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var network: Network { get }
+    var services: ServiceProviderType { get }
 }
 
 final class SearchBookComponent: Component<SearchBookDependency> {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var network: Network {
+        dependency.network
+    }
+    
+    var services: ServiceProviderType {
+        dependency.services
+    }
 }
 
 // MARK: - Builder
@@ -30,8 +35,13 @@ final class SearchBookBuilder: Builder<SearchBookDependency>, SearchBookBuildabl
     }
 
     func build(withListener listener: SearchBookListener) -> SearchBookRouting {
+        let component = SearchBookComponent(dependency: dependency)
         let viewController = SearchBookViewController()
-        let interactor = SearchBookInteractor(presenter: viewController)
+        let interactor = SearchBookInteractor(
+            presenter: viewController,
+            repository: BookRepositoryImpl(network: component.network),
+            serviceProvider: component.services
+        )
         interactor.listener = listener
         return SearchBookRouter(interactor: interactor, viewController: viewController)
     }

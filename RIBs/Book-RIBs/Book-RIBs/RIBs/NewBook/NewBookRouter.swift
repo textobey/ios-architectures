@@ -24,7 +24,8 @@ final class NewBookRouter: ViewableRouter<NewBookInteractable, NewBookViewContro
         interactor.router = self
     }
     
-    func routeToBookDetail() {
+    func routeToBookDetail(of isbn13: String) {
         
     }
 }
+ 

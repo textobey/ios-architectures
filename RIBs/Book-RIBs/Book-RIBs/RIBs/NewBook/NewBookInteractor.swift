@@ -11,13 +11,14 @@ import RxCocoa
 
 protocol NewBookRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-    func routeToBookDetail()
+    func routeToBookDetail(of isbn13: String)
 }
 
 protocol NewBookPresentable: Presentable {
     var listener: NewBookPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
     var booksStream: BehaviorRelay<[BookItem]> { get }
+    var isLoading: PublishRelay<Bool> { get }
 }
 
 protocol NewBookListener: AnyObject {
@@ -58,14 +59,15 @@ final class NewBookInteractor: PresentableInteractor<NewBookPresentable>, NewBoo
     }
     
     func refresh() {
-        fetchBookItems()
+        _ = fetchBookItems()
+            .delay(.seconds(Int(0.5)), scheduler: MainScheduler.instance)
             .compactMap { [weak self] items in
                 let slicedItem = self?.sliceBookItems(items)
                 self?.allBooks.removeFirst()
+                self?.presenter.isLoading.accept(false)
                 return slicedItem
             }
             .bind(to: presenter.booksStream)
-            .disposed(by: disposeBag)
     }
     
     func paging() {
@@ -73,31 +75,37 @@ final class NewBookInteractor: PresentableInteractor<NewBookPresentable>, NewBoo
         if let nextPageBooks = allBooks.first {
             var currentBooks = presenter.booksStream.value
             currentBooks.append(contentsOf: nextPageBooks)
+            allBooks.removeFirst()
             presenter.booksStream.accept(currentBooks)
-            print("남은 책 목록")
+            print("남은 책 목록", allBooks.count)
         } else {
             print("마지막 페이지 입니다.")
         }
     }
     
+    // Reactor에서 RxSwift 사용을 촉진하는 구조이기 때문에, RIBs 환경에서는 어떻게 쓰면 좋을지 고민해보아야함
     func createBookmark(of item: BookItem) {
         guard let isbn13 = item.isbn13 else { return }
         _ = serviceProvider.storageService.insert(isbn13: isbn13)
+            .subscribe()
     }
     
     func undoBookmark(of item: BookItem) {
         guard let isbn13 = item.isbn13 else { return }
         _ = serviceProvider.storageService.delete(isbn13: isbn13)
+            .subscribe()
     }
     
     func selectedBook(of item: BookItem) {
-        router?.routeToBookDetail()
+        guard let isbn13 = item.isbn13 else { return }
+        router?.routeToBookDetail(of: isbn13)
     }
     
     private func fetchBookItems() -> Observable<[BookItem]> {
         let result = repository.fetchBookItems()
         
-        return Observable<[BookItem]>.create { observer in
+        return Observable<[BookItem]>.create { [weak self] observer in
+            self?.presenter.isLoading.accept(true)
             result.sink { result in
                 switch result {
                 case .success(let bookModel):

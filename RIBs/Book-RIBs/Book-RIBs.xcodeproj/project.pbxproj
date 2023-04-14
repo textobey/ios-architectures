@@ -47,6 +47,7 @@
 		A66C69D029E6690300C1CCD9 /* BookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69CF29E6690300C1CCD9 /* BookAPI.swift */; };
 		A66C69D329E6758B00C1CCD9 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69D229E6758B00C1CCD9 /* BookRepository.swift */; };
 		A66C69D529E6760600C1CCD9 /* BookRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69D429E6760600C1CCD9 /* BookRepositoryImpl.swift */; };
+		A66C69DE29E7EABD00C1CCD9 /* SearchBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69DD29E7EABD00C1CCD9 /* SearchBookTableViewCell.swift */; };
 		A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEBFE29DE815700546D80 /* AppDelegate.swift */; };
 		A6CFEC0129DE815700546D80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEC0029DE815700546D80 /* SceneDelegate.swift */; };
 		A6CFEC0829DE815800546D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CFEC0729DE815800546D80 /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 		A66C69CF29E6690300C1CCD9 /* BookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPI.swift; sourceTree = "<group>"; };
 		A66C69D229E6758B00C1CCD9 /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
 		A66C69D429E6760600C1CCD9 /* BookRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepositoryImpl.swift; sourceTree = "<group>"; };
+		A66C69DD29E7EABD00C1CCD9 /* SearchBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookTableViewCell.swift; sourceTree = "<group>"; };
 		A6CFEBFB29DE815700546D80 /* Book-RIBs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-RIBs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6CFEBFE29DE815700546D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6CFEC0029DE815700546D80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				A62D7EC429E005E900CEFE90 /* SearchBookViewController.swift */,
 				A62D7EC529E005E900CEFE90 /* SearchBookBuilder.swift */,
 				A62D7EC629E005E900CEFE90 /* SearchBookInteractor.swift */,
+				A66C69DC29E7EAAA00C1CCD9 /* Views */,
 			);
 			path = SearchBook;
 			sourceTree = "<group>";
@@ -283,6 +286,14 @@
 				A66C69D429E6760600C1CCD9 /* BookRepositoryImpl.swift */,
 			);
 			path = Repositorys;
+			sourceTree = "<group>";
+		};
+		A66C69DC29E7EAAA00C1CCD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A66C69DD29E7EABD00C1CCD9 /* SearchBookTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A6CFEBF229DE815700546D80 = {
@@ -515,6 +526,7 @@
 				A66C69C629E64BD300C1CCD9 /* NetworkImpl.swift in Sources */,
 				A62D7EC729E005E900CEFE90 /* SearchBookRouter.swift in Sources */,
 				A62D7E9E29DFD23900CEFE90 /* ServiceProviderType.swift in Sources */,
+				A66C69DE29E7EABD00C1CCD9 /* SearchBookTableViewCell.swift in Sources */,
 				A62D7EC929E005E900CEFE90 /* SearchBookBuilder.swift in Sources */,
 				A66C69C829E64D1900C1CCD9 /* BaseAPI.swift in Sources */,
 				A62D7EA729DFD54C00CEFE90 /* Enums.swift in Sources */,

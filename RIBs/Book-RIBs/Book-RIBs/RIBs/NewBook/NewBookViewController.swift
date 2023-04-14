@@ -26,8 +26,13 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
     weak var listener: NewBookPresentableListener?
     
     var booksStream = BehaviorRelay<[BookItem]>(value: [])
+    var isLoading = PublishRelay<Bool>()
+    
+    // MARK: UI
     
     private let refreshControl = UIRefreshControl()
+    
+    private let loadingIndicator = UIActivityIndicatorView()
     
     lazy var tableView = UITableView().then {
         $0.separatorStyle = .none
@@ -35,12 +40,11 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
         $0.refreshControl = self.refreshControl
     }
     
-    lazy var loadingIndicator = UIActivityIndicatorView()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        bindUI()
+        bindAction()
+        bindState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,8 +63,10 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
             $0.center.equalToSuperview()
         }
     }
-    
-    private func bindUI() {
+}
+
+extension NewBookViewController {
+    private func bindState() {
         booksStream
             .skip(1)
             .bind(to: self.tableView.rx.items(
@@ -71,11 +77,52 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
                 cell.bookmarkTap
                     .map { [weak self] isSelected in
                         isSelected
-                        ? self?.listener?.undoBookmark(of: bookItem)
-                        : self?.listener?.createBookmark(of: bookItem)
+                        ? self?.listener?.createBookmark(of: bookItem)
+                        : self?.listener?.undoBookmark(of: bookItem)
                     }
                     .subscribe()
                     .disposed(by: cell.disposeBag)
             }.disposed(by: disposeBag)
+        
+        isLoading.distinctUntilChanged()
+            .bind(to: loadingIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        isLoading.distinctUntilChanged()
+            .map { !$0 }
+            .bind(to: loadingIndicator.rx.isHidden)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindAction() {
+        tableView.rx.modelSelected(BookItem.self)
+            .withUnretained(self)
+            .map { $0.0.listener?.selectedBook(of: $0.1) }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        tableView.rx.contentOffset
+            .withUnretained(self)
+            .filter { $0.0.tableView.isNearBottomEdge() }
+            .map { $0.0.listener?.paging() }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .withUnretained(self)
+            .do(onNext: { $0.0.stopLoadingIndicator() })
+            .map { $0.0.listener?.refresh() }
+            .subscribe()
+            .disposed(by: disposeBag)
+    }
+}
+
+extension NewBookViewController {
+    private func stopLoadingIndicator() {
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + 1,
+            execute: {
+            self.tableView.refreshControl?.endRefreshing()
+        })
     }
 }
