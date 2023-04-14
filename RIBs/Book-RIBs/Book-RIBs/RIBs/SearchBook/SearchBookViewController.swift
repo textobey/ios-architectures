@@ -8,7 +8,8 @@
 import UIKit
 import RIBs
 import RxSwift
-import RxCocoa
+import RxRelay
+import RxSwiftExt
 import SnapKit
 
 protocol SearchBookPresentableListener: AnyObject {
@@ -21,12 +22,13 @@ protocol SearchBookPresentableListener: AnyObject {
 }
 
 final class SearchBookViewController: UIViewController, SearchBookPresentable, SearchBookViewControllable {
-
+    
     private let disposeBag = DisposeBag()
 
     weak var listener: SearchBookPresentableListener?
     
-    var booksStream = PublishRelay<[BookItem]>()
+    var booksStream = BehaviorRelay<[BookItem]>(value: [])
+    var isLoading = BehaviorRelay<Bool>(value: false)
     
     // MARK: UI
     
@@ -39,7 +41,7 @@ final class SearchBookViewController: UIViewController, SearchBookPresentable, S
         $0.keyboardDismissMode = .interactive
         $0.register(SearchBookTableViewCell.self, forCellReuseIdentifier: SearchBookTableViewCell.identifier)
         // FIXME: 새로고침 시도중인 상태에서는 Paging 동작하지 않도록 수정
-        //$0.refreshControl = self.refreshControl
+        $0.refreshControl = self.refreshControl
     }
     
     override func viewDidLoad() {
@@ -88,10 +90,9 @@ extension SearchBookViewController {
             .subscribe()
             .disposed(by: disposeBag)
         
-        tableView.rx.contentOffset
+        tableView.rx.reachedBottom()
+            .skip(1)
             .withUnretained(self)
-            .do(onNext: { $0.0.searchController.searchBar.endEditing(true) })
-            .filter { $0.0.tableView.isNearBottomEdge() }
             .map { $0.0.listener?.paging(of: $0.0.searchController.searchBar.text ?? "") }
             .subscribe()
             .disposed(by: disposeBag)

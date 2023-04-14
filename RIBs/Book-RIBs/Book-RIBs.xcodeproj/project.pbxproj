@@ -10,7 +10,6 @@
 		A62D7E7929DFB8E400CEFE90 /* RIBs in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7E7829DFB8E400CEFE90 /* RIBs */; };
 		A62D7E7C29DFCFD400CEFE90 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A62D7E7B29DFCFD400CEFE90 /* SnapKit */; };
 		A62D7E8429DFD13700CEFE90 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8329DFD13700CEFE90 /* Then.swift */; };
-		A62D7E8A29DFD17F00CEFE90 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8629DFD17F00CEFE90 /* UIScrollView+.swift */; };
 		A62D7E8B29DFD17F00CEFE90 /* ReturnResultKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8729DFD17F00CEFE90 /* ReturnResultKit.swift */; };
 		A62D7E8C29DFD17F00CEFE90 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8829DFD17F00CEFE90 /* Array+.swift */; };
 		A62D7E8D29DFD17F00CEFE90 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D7E8929DFD17F00CEFE90 /* UITableView+.swift */; };
@@ -48,6 +47,7 @@
 		A66C69D329E6758B00C1CCD9 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69D229E6758B00C1CCD9 /* BookRepository.swift */; };
 		A66C69D529E6760600C1CCD9 /* BookRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69D429E6760600C1CCD9 /* BookRepositoryImpl.swift */; };
 		A66C69DE29E7EABD00C1CCD9 /* SearchBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C69DD29E7EABD00C1CCD9 /* SearchBookTableViewCell.swift */; };
+		A66C69E129E8F2FC00C1CCD9 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = A66C69E029E8F2FC00C1CCD9 /* RxSwiftExt */; };
 		A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEBFE29DE815700546D80 /* AppDelegate.swift */; };
 		A6CFEC0129DE815700546D80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFEC0029DE815700546D80 /* SceneDelegate.swift */; };
 		A6CFEC0829DE815800546D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CFEC0729DE815800546D80 /* Assets.xcassets */; };
@@ -76,7 +76,6 @@
 
 /* Begin PBXFileReference section */
 		A62D7E8329DFD13700CEFE90 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
-		A62D7E8629DFD17F00CEFE90 /* UIScrollView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+.swift"; path = "../../../../ReactorKit/Book-ReactorKit/Extension/UIScrollView+.swift"; sourceTree = "<group>"; };
 		A62D7E8729DFD17F00CEFE90 /* ReturnResultKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturnResultKit.swift; path = "../../../../ReactorKit/Book-ReactorKit/Extension/ReturnResultKit.swift"; sourceTree = "<group>"; };
 		A62D7E8829DFD17F00CEFE90 /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+.swift"; path = "../../../../ReactorKit/Book-ReactorKit/Extension/Array+.swift"; sourceTree = "<group>"; };
 		A62D7E8929DFD17F00CEFE90 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+.swift"; path = "../../../../ReactorKit/Book-ReactorKit/Extension/UITableView+.swift"; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 				A62D7EA129DFD4DE00CEFE90 /* RxCocoa in Frameworks */,
 				A62D7E7C29DFCFD400CEFE90 /* SnapKit in Frameworks */,
 				A66C69CB29E64E0100C1CCD9 /* Moya in Frameworks */,
+				A66C69E129E8F2FC00C1CCD9 /* RxSwiftExt in Frameworks */,
 				A66C69BC29E5323700C1CCD9 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,7 +187,6 @@
 			children = (
 				A62D7E8829DFD17F00CEFE90 /* Array+.swift */,
 				A62D7E8729DFD17F00CEFE90 /* ReturnResultKit.swift */,
-				A62D7E8629DFD17F00CEFE90 /* UIScrollView+.swift */,
 				A62D7E8929DFD17F00CEFE90 /* UITableView+.swift */,
 			);
 			path = Extensions;
@@ -373,6 +372,7 @@
 				A66C69BB29E5323700C1CCD9 /* Kingfisher */,
 				A66C69CA29E64E0100C1CCD9 /* Moya */,
 				A66C69CC29E64E0100C1CCD9 /* RxMoya */,
+				A66C69E029E8F2FC00C1CCD9 /* RxSwiftExt */,
 			);
 			productName = "Book-RIBs";
 			productReference = A6CFEBFB29DE815700546D80 /* Book-RIBs.app */;
@@ -452,6 +452,7 @@
 				A62D7E9F29DFD4DE00CEFE90 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				A66C69BA29E5323700C1CCD9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A66C69C929E64E0100C1CCD9 /* XCRemoteSwiftPackageReference "Moya" */,
+				A66C69DF29E8F2FC00C1CCD9 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 			);
 			productRefGroup = A6CFEBFC29DE815700546D80 /* Products */;
 			projectDirPath = "";
@@ -507,7 +508,6 @@
 				A62D7E8D29DFD17F00CEFE90 /* UITableView+.swift in Sources */,
 				A62D7EAA29DFE07100CEFE90 /* AppComponent.swift in Sources */,
 				A62D7ECA29E005E900CEFE90 /* SearchBookInteractor.swift in Sources */,
-				A62D7E8A29DFD17F00CEFE90 /* UIScrollView+.swift in Sources */,
 				A62D7E8B29DFD17F00CEFE90 /* ReturnResultKit.swift in Sources */,
 				A62D7E9D29DFD23900CEFE90 /* BaseService.swift in Sources */,
 				A6CFEBFF29DE815700546D80 /* AppDelegate.swift in Sources */,
@@ -907,6 +907,14 @@
 				kind = branch;
 			};
 		};
+		A66C69DF29E8F2FC00C1CCD9 /* XCRemoteSwiftPackageReference "RxSwiftExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -939,6 +947,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A66C69C929E64E0100C1CCD9 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		A66C69E029E8F2FC00C1CCD9 /* RxSwiftExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A66C69DF29E8F2FC00C1CCD9 /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
+			productName = RxSwiftExt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

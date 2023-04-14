@@ -9,6 +9,7 @@ import UIKit
 import RIBs
 import RxSwift
 import RxCocoa
+import RxSwiftExt
 import SnapKit
 
 protocol NewBookPresentableListener: AnyObject {
@@ -101,9 +102,9 @@ extension NewBookViewController {
             .subscribe()
             .disposed(by: disposeBag)
         
-        tableView.rx.contentOffset
+        tableView.rx.reachedBottom()
+            .skip(1)
             .withUnretained(self)
-            .filter { $0.0.tableView.isNearBottomEdge() }
             .map { $0.0.listener?.paging() }
             .subscribe()
             .disposed(by: disposeBag)

@@ -16,7 +16,8 @@ protocol SearchBookRouting: ViewableRouting {
 protocol SearchBookPresentable: Presentable {
     var listener: SearchBookPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
-    var booksStream: PublishRelay<[BookItem]> { get }
+    var booksStream: BehaviorRelay<[BookItem]> { get }
+    var isLoading: BehaviorRelay<Bool> { get }
 }
 
 protocol SearchBookListener: AnyObject {
@@ -55,17 +56,17 @@ final class SearchBookInteractor: PresentableInteractor<SearchBookPresentable>, 
     }
     
     func search(of word: String) {
-        print("search action \(word)")
         self.page = 1
         _ = fetchBookItemsResult(of: word)
+            .do(onNext: { [weak self] _ in self?.presenter.isLoading.accept(false) })
             .bind(to: presenter.booksStream)
     }
     
     func paging(of word: String) {
-        print("paging action \(word)")
         self.page += 1
         print("page \(page)")
         //_ = fetchBookItemsResult(of: word, page: self.page)
+        //    .do(onNext: { [weak self] _ in self?.presenter.isLoading.accept(false) })
         //    .bind(to: presenter.booksStream)
     }
     
@@ -75,7 +76,8 @@ final class SearchBookInteractor: PresentableInteractor<SearchBookPresentable>, 
     
     private func fetchBookItemsResult(of word: String, page: Int = 1) -> Observable<[BookItem]> {
         let fetchResult = repository.fetchSearchResults(of: word, page: page)
-        return Observable<[BookItem]>.create { observer in
+        return Observable<[BookItem]>.create { [weak self] observer in
+            self?.presenter.isLoading.accept(true)
             fetchResult.sink { result in
                 switch result {
                 case.success(let bookModel):
