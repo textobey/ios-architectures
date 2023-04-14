@@ -23,7 +23,7 @@ protocol NewBookPresentableListener: AnyObject {
 final class NewBookViewController: UIViewController, NewBookPresentable, NewBookViewControllable {
     
     var disposeBag = DisposeBag()
-
+    
     weak var listener: NewBookPresentableListener?
     
     var booksStream = BehaviorRelay<[BookItem]>(value: [])
@@ -63,6 +63,15 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
         loadingIndicator.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+    }
+    
+    func pushViewController(_ viewController: ViewControllable, animated: Bool) {
+        viewController.uiviewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(viewController.uiviewController, animated: animated)
+    }
+    
+    func popViewController(_ animated: Bool) {
+        self.navigationController?.popViewController(animated: animated)
     }
 }
 

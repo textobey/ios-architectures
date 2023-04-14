@@ -7,25 +7,42 @@
 
 import RIBs
 
-protocol NewBookInteractable: Interactable {
+protocol NewBookInteractable: Interactable, BookDetailListener {
     var router: NewBookRouting? { get set }
     var listener: NewBookListener? { get set }
 }
 
 protocol NewBookViewControllable: ViewControllable {
-    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func pushViewController(_ viewController: ViewControllable, animated: Bool)
+    func popViewController(_ animated: Bool)
 }
 
 final class NewBookRouter: ViewableRouter<NewBookInteractable, NewBookViewControllable>, NewBookRouting {
+    
+    private let bookDetailBuilder: BookDetailBuildable
+    private var bookDetailRouting: ViewableRouting?
 
-    // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: NewBookInteractable, viewController: NewBookViewControllable) {
+    init(
+        interactor: NewBookInteractable,
+        viewController: NewBookViewControllable,
+        bookDetailBuilder: BookDetailBuildable
+    ) {
+        self.bookDetailBuilder = bookDetailBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
     
     func routeToBookDetail(of isbn13: String) {
-        
+        let router = bookDetailBuilder.build(withListener: interactor)
+        self.bookDetailRouting = router
+        attachChild(router)
+        viewController.pushViewController(router.viewControllable, animated: true)
+    }
+    
+    func detachToBookDetail(_ animated: Bool) {
+        guard let router = bookDetailRouting else { return }
+        detachChild(router)
+        viewController.popViewController(animated)
+        bookDetailRouting = nil
     }
 }
- 
