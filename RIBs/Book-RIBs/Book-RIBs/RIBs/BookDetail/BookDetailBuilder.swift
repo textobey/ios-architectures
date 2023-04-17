@@ -25,7 +25,10 @@ final class BookDetailComponent: Component<BookDetailDependency> {
 // MARK: - Builder
 
 protocol BookDetailBuildable: Buildable {
-    func build(withListener listener: BookDetailListener) -> BookDetailRouting
+    func build(
+        withListener listener: BookDetailListener,
+        isbn13: String
+    ) -> BookDetailRouting
 }
 
 final class BookDetailBuilder: Builder<BookDetailDependency>, BookDetailBuildable {
@@ -33,14 +36,18 @@ final class BookDetailBuilder: Builder<BookDetailDependency>, BookDetailBuildabl
     override init(dependency: BookDetailDependency) {
         super.init(dependency: dependency)
     }
-
-    func build(withListener listener: BookDetailListener) -> BookDetailRouting {
+    
+    func build(
+        withListener listener: BookDetailListener,
+        isbn13: String
+    ) -> BookDetailRouting {
         let component = BookDetailComponent(dependency: dependency)
         let viewController = BookDetailViewController()
         let interactor = BookDetailInteractor(
             presenter: viewController,
             repository: BookRepositoryImpl(network: component.network),
-            serviceProvider: component.services
+            serviceProvider: component.services,
+            isbn13: isbn13
         )
         interactor.listener = listener
         return BookDetailRouter(interactor: interactor, viewController: viewController)

@@ -11,6 +11,8 @@ import RxCocoa
 
 protocol SearchBookRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func routeToBookDetail(of isbn13: String)
+    func detachToBookDetail(_ animated: Bool)
 }
 
 protocol SearchBookPresentable: Presentable {
@@ -71,7 +73,12 @@ final class SearchBookInteractor: PresentableInteractor<SearchBookPresentable>, 
     }
     
     func selectedBook(of item: BookItem) {
-        //routeToDetail
+        guard let isbn13 = item.isbn13 else { return }
+        router?.routeToBookDetail(of: isbn13)
+    }
+    
+    func detachBookDetailRIB(_ animated: Bool) {
+        router?.detachToBookDetail(animated)
     }
     
     private func fetchBookItemsResult(of word: String, page: Int = 1) -> Observable<[BookItem]> {

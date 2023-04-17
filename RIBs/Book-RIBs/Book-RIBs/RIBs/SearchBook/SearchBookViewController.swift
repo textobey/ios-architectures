@@ -70,6 +70,15 @@ final class SearchBookViewController: UIViewController, SearchBookPresentable, S
             $0.directionalEdges.equalToSuperview()
         }
     }
+    
+    func pushViewController(_ viewController: RIBs.ViewControllable, animated: Bool) {
+        viewController.uiviewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(viewController.uiviewController, animated: animated)
+    }
+    
+    func popViewController(_ animated: Bool) {
+        self.navigationController?.popViewController(animated: animated)
+    }
 }
 
 extension SearchBookViewController {

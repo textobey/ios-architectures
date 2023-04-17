@@ -33,7 +33,7 @@ final class NewBookRouter: ViewableRouter<NewBookInteractable, NewBookViewContro
     }
     
     func routeToBookDetail(of isbn13: String) {
-        let router = bookDetailBuilder.build(withListener: interactor)
+        let router = bookDetailBuilder.build(withListener: interactor, isbn13: isbn13)
         self.bookDetailRouting = router
         attachChild(router)
         viewController.pushViewController(router.viewControllable, animated: true)

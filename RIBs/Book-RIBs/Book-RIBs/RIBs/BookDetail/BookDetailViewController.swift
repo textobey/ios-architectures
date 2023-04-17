@@ -11,6 +11,9 @@ import RxRelay
 import UIKit
 
 protocol BookDetailPresentableListener: AnyObject {
+    func refresh()
+    func bookmared()
+    func unBookmakred()
     func popViewController(_ animated: Bool)
 }
 
@@ -19,10 +22,37 @@ final class BookDetailViewController: UIViewController, BookDetailPresentable, B
     private let disposeBag = DisposeBag()
     
     private let detachAction = PublishRelay<Void>()
-
+    
     weak var listener: BookDetailPresentableListener?
     
+    var bookStream = PublishRelay<BookModel>()
+    var isLoading = PublishRelay<Bool>()
+    var isBookmarked = BehaviorRelay<Bool>(value: false)
+    
+    // MARK: Deinitialize
+    
+    deinit {
+        print("BookDetailViewController DEINIT")
+    }
+    
     // MARK: UI
+    
+    private let loadingIndicator = UIActivityIndicatorView().then {
+        $0.isHidden = false
+    }
+    
+    lazy var bookmark = UIButton().then {
+        $0.setImage(UIImage(systemName: "star"), for: .normal)
+        $0.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        $0.tintColor = .black.withAlphaComponent(0.6)
+    }
+    
+    lazy var scrollView = UIScrollView().then {
+        $0.backgroundColor = .systemBackground
+        $0.alwaysBounceVertical = true
+    }
+    
+    lazy var scrollContainerView = UIView()
     
     lazy var boxView = UIView().then {
         $0.backgroundColor = .systemGray5
@@ -89,9 +119,12 @@ final class BookDetailViewController: UIViewController, BookDetailPresentable, B
         super.viewDidLoad()
         self.title = "Book Detail"
         view.backgroundColor = .systemBackground
+        setupNavigationBar()
         setupLayout()
         bindAction()
         bindState()
+        
+        listener?.refresh()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -102,10 +135,27 @@ final class BookDetailViewController: UIViewController, BookDetailPresentable, B
         detachAction.accept(Void())
     }
     
+    private func setupNavigationBar() {
+        let item = UIBarButtonItem(customView: bookmark)
+        navigationItem.rightBarButtonItem = item
+    }
+    
     private func setupLayout() {
-        view.addSubview(boxView)
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints {
+            $0.directionalEdges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        scrollView.addSubview(scrollContainerView)
+        scrollContainerView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.centerX.equalToSuperview()
+        }
+        
+        scrollContainerView.addSubview(boxView)
         boxView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(230)
         }
@@ -117,29 +167,60 @@ final class BookDetailViewController: UIViewController, BookDetailPresentable, B
             $0.width.equalTo(100)
         }
         
-        view.addSubview(stackView)
+        scrollContainerView.addSubview(stackView)
         stackView.snp.makeConstraints {
             $0.top.equalTo(boxView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
-        view.addSubview(textView)
+        scrollContainerView.addSubview(textView)
         textView.snp.makeConstraints {
             $0.top.equalTo(stackView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.bottom.equalToSuperview().offset(-20)
             $0.height.equalTo(230)
         }
         
         [titleLabel, subtitleLabel, isbn13Label, priceLabel, urlLinkLabel].forEach {
             stackView.addArrangedSubview($0)
         }
+        
+        view.addSubview(loadingIndicator)
+        loadingIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
 }
 
 extension BookDetailViewController {
     private func bindState() {
-
+        bookStream
+            .withUnretained(self)
+            .compactMap { $0.0.configureView(with: $0.1) }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        isBookmarked
+            .bind(to: bookmark.rx.isSelected)
+            .disposed(by: disposeBag)
+        
+        bookmark.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.bookmark.isSelected
+                ? owner.listener?.unBookmakred()
+                : owner.listener?.bookmared()
+            })
+            .disposed(by: disposeBag)
+        
+        isLoading.distinctUntilChanged()
+            .bind(to: loadingIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        isLoading.distinctUntilChanged()
+            .map { !$0 }
+            .bind(to: loadingIndicator.rx.isHidden)
+            .disposed(by: disposeBag)
     }
     
     private func bindAction() {
@@ -148,6 +229,24 @@ extension BookDetailViewController {
             .map { $0.0.listener?.popViewController(true) }
             .subscribe()
             .disposed(by: disposeBag)
+    }
+}
+
+extension BookDetailViewController {
+    private func configureView(with book: BookModel) {
+        self.imageView.kf.setImage(with: URL(string: book.image ?? ""))
+        
+        titleLabel.text = book.title ?? ""
+        subtitleLabel.text = book.subtitle ?? ""
+        isbn13Label.text = book.isbn13 ?? ""
+        priceLabel.text = book.price ?? ""
+        urlLinkLabel.text = book.url ?? ""
+        
+        guard let bookTitle = book.title, let bookContext = UserDefaults.standard.string(forKey: bookTitle) else {
+            return
+        }
+        textView.text = bookContext
+        textView.textColor = .black
     }
 }
 

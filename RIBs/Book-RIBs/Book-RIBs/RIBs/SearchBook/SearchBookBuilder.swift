@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol SearchBookDependency: Dependency {
+protocol SearchBookDependency: Dependency, BookDetailDependency {
     var network: Network { get }
     var services: ServiceProviderType { get }
 }
@@ -42,7 +42,15 @@ final class SearchBookBuilder: Builder<SearchBookDependency>, SearchBookBuildabl
             repository: BookRepositoryImpl(network: component.network),
             serviceProvider: component.services
         )
+        
+        let bookDetailBuilder = BookDetailBuilder(dependency: dependency)
+        
         interactor.listener = listener
-        return SearchBookRouter(interactor: interactor, viewController: viewController)
+        
+        return SearchBookRouter(
+            interactor: interactor,
+            viewController: viewController,
+            bookDetailBuilder: bookDetailBuilder
+        )
     }
 }
