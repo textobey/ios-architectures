@@ -60,7 +60,6 @@ final class BookDetailInteractor: PresentableInteractor<BookDetailPresentable>, 
 
     override func willResignActive() {
         super.willResignActive()
-        print("will resign active")
     }
     
     func refresh() {

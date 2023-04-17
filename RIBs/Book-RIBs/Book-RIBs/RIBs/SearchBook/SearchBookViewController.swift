@@ -16,7 +16,7 @@ protocol SearchBookPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
-    func search(of word: String)
+    func search(for word: String)
     func paging(of word: String)
     func selectedBook(of item: BookItem)
 }
@@ -52,7 +52,7 @@ final class SearchBookViewController: UIViewController, SearchBookPresentable, S
         bindAction()
         bindState()
         
-        listener?.search(of: "Apple")
+        listener?.search(for: "Apple")
     }
     
     private func setupNavigationBar() {
@@ -99,6 +99,12 @@ extension SearchBookViewController {
             .subscribe()
             .disposed(by: disposeBag)
         
+        searchController.searchBar.rx.text
+            .withUnretained(self)
+            .map { $0.0.listener?.search(for: $0.1 ?? "") }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
         tableView.rx.reachedBottom()
             .skip(1)
             .withUnretained(self)
@@ -109,7 +115,7 @@ extension SearchBookViewController {
         refreshControl.rx.controlEvent(.valueChanged)
             .withUnretained(self)
             .do(onNext: { $0.0.stopLoadingIndicator() })
-            .map { $0.0.listener?.search(of: $0.0.searchController.searchBar.text ?? "") }
+            .map { $0.0.listener?.search(for: $0.0.searchController.searchBar.text ?? "") }
             .subscribe()
             .disposed(by: disposeBag)
     }

@@ -23,4 +23,8 @@ final class BookDetailRouter: ViewableRouter<BookDetailInteractable, BookDetailV
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
+    
+    deinit {
+        print("BookDetailRouter DEINIT")
+    }
 }

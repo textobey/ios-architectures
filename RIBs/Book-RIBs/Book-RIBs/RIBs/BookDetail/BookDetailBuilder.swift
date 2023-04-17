@@ -35,6 +35,13 @@ final class BookDetailBuilder: Builder<BookDetailDependency>, BookDetailBuildabl
 
     override init(dependency: BookDetailDependency) {
         super.init(dependency: dependency)
+        print("BookDetailBuilder INIT")
+    }
+    
+    deinit {
+        // 다른 컴포넌트들이 모두 Deinit 되어도 Builder는 build method에서 Routing을
+        // 부모 Router에 반환하여 인스턴스가 할당 되어있는 상태라 해제되지 않는듯
+        print("BookDetailBuilder DEINIT")
     }
     
     func build(

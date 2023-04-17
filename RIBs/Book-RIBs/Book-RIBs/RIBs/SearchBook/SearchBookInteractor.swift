@@ -57,7 +57,7 @@ final class SearchBookInteractor: PresentableInteractor<SearchBookPresentable>, 
         // TODO: Pause any business logic.
     }
     
-    func search(of word: String) {
+    func search(for word: String) {
         self.page = 1
         _ = fetchBookItemsResult(of: word)
             .do(onNext: { [weak self] _ in self?.presenter.isLoading.accept(false) })
@@ -67,9 +67,15 @@ final class SearchBookInteractor: PresentableInteractor<SearchBookPresentable>, 
     func paging(of word: String) {
         self.page += 1
         print("page \(page)")
-        //_ = fetchBookItemsResult(of: word, page: self.page)
-        //    .do(onNext: { [weak self] _ in self?.presenter.isLoading.accept(false) })
-        //    .bind(to: presenter.booksStream)
+        _ = fetchBookItemsResult(of: word, page: self.page)
+            .withUnretained(self)
+            .do(onNext: { $0.0.presenter.isLoading.accept(false) })
+            .map {
+                var current = $0.0.presenter.booksStream.value
+                current.append(contentsOf: $0.1)
+                return current
+            }
+            .bind(to: presenter.booksStream)
     }
     
     func selectedBook(of item: BookItem) {
