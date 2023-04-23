@@ -58,6 +58,7 @@ Swift Package Manager
 
 ### Posts
 
+- [RIBs LaunchRouting을 구성하며 겪은 시행착오](https://textobey.github.io/ios/ribs-launch-routing-issue/)
 - [UINavigationController에서 자식 RIB를 detach 하는 방법](https://textobey.github.io/ios/how-to-detach-child-when-popviewcontroller/)
 
 ### Repos
