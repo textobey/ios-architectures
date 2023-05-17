@@ -29,6 +29,7 @@ struct NewBookView: View {
                         .listRowSeparator(.hidden)
                     }
                     .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.clear)
                 }
                 .listStyle(.plain)
             }

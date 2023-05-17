@@ -22,17 +22,30 @@ struct NewBookListRow: View {
                     .scaledToFill()
                     .frame(width: 100, height: 140)
                 
-                Button(action: {
-                    isBookmarked.toggle()
-                }, label: {
-                    Image(systemName: isBookmarked ? "star.fill" : "star")
-                        .resizable()
+                HStack {
+                    Spacer()
+
+                    VStack {
+                        Button(action: {
+                            isBookmarked.toggle()
+                        }, label: {
+                            Image(systemName: isBookmarked ? "star.fill" : "star")
+                                .resizable()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .foregroundColor(Color.black.opacity(0.6))
+                        })
+                        .buttonStyle(.plain)
                         .frame(width: 22, height: 20)
-                        .foregroundColor(Color.black.opacity(0.6))
-                })
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+
+                        Spacer()
+                    }
+                }
+                .frame(maxHeight: 140)
+                .padding(.top, 12)
+                .padding(.trailing, 12)
+                
             }
-            //.frame(maxWidth: .infinity, alignment: .center)
+            .frame(maxWidth: .infinity)
             .background(Color(.systemGray6))
             
             
