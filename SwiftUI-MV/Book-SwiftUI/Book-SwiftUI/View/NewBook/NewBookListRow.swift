@@ -40,12 +40,11 @@ struct NewBookListRow: View {
                         Spacer()
                     }
                 }
-                .frame(maxHeight: 140)
                 .padding(.top, 12)
                 .padding(.trailing, 12)
                 
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, idealHeight: 190)
             .background(Color(.systemGray6))
             
             
