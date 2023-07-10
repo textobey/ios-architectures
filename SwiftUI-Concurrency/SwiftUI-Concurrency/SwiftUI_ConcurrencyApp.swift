@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUI_ConcurrencyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ApodTabView()
         }
     }
 }
