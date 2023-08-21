@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct BookTabView: View {
+    
+    let networking: BookNetworking = DefaultBookNetworking()
+    
     var body: some View {
         TabView {
-            NewBookView()
+            NewBookView(networking: networking)
                 .tabItem {
                     Image(systemName: "book")
                     Text("New")
                 }
             
-            SearchBookView()
+            SearchBookView(networking: networking)
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")

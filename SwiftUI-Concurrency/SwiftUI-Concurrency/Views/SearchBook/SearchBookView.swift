@@ -8,13 +8,35 @@
 import SwiftUI
 
 struct SearchBookView: View {
+    
+    let networking: BookNetworking
+    
+    @State var bookModel: BookModel?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct SearchBookView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBookView()
+        NavigationView {
+            List {
+                ForEach(bookModel?.books ?? [], id: \.id) { book in
+                    ZStack {
+                        SearchBookListRow(bookItem: book)
+                    }
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .listRowSeparator(.hidden)
+                }
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
+            }
+            .listStyle(.plain)
+            .navigationTitle("Search Books")
+        }
+        .onAppear {
+            Task {
+                let books = try await networking.searchBook(at: "Apple", page: 1)
+                await MainActor.run {
+                    self.bookModel = books
+                }
+            }
+        }
     }
 }

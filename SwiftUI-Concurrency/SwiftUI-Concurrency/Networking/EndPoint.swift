@@ -33,9 +33,9 @@ enum BookAPI: EndPoint {
         case .book:
             return "/new"
         case .detail(let isbn13):
-            return "/1.0/books/\(isbn13)"
+            return "/books/\(isbn13)"
         case .search(let word, let page):
-            return "/1.0/search/\(word)/\(page)"
+            return "/search/\(word)/\(page)"
         }
     }
 }

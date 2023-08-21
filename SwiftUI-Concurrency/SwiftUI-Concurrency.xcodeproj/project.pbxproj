@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6CBD39D2A935D9700ED3B1F /* NewBookListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBD39C2A935D9700ED3B1F /* NewBookListRow.swift */; };
+		A6CBD3A52A9360A000ED3B1F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A6CBD3A42A9360A000ED3B1F /* Kingfisher */; };
+		A6CBD3A72A93612500ED3B1F /* SearchBookListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBD3A62A93612500ED3B1F /* SearchBookListRow.swift */; };
 		A6FB4E2D2A6E35900035FDD4 /* SwiftUI_ConcurrencyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FB4E2C2A6E35900035FDD4 /* SwiftUI_ConcurrencyApp.swift */; };
 		A6FB4E312A6E35920035FDD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FB4E302A6E35920035FDD4 /* Assets.xcassets */; };
 		A6FB4E342A6E35920035FDD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FB4E332A6E35920035FDD4 /* Preview Assets.xcassets */; };
@@ -21,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6CBD39C2A935D9700ED3B1F /* NewBookListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookListRow.swift; sourceTree = "<group>"; };
+		A6CBD3A62A93612500ED3B1F /* SearchBookListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookListRow.swift; sourceTree = "<group>"; };
 		A6FB4E292A6E35900035FDD4 /* SwiftUI-Concurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Concurrency.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FB4E2C2A6E35900035FDD4 /* SwiftUI_ConcurrencyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ConcurrencyApp.swift; sourceTree = "<group>"; };
 		A6FB4E302A6E35920035FDD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6CBD3A52A9360A000ED3B1F /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A6FB4E3F2A6E366D0035FDD4 /* NewBookView.swift */,
+				A6CBD39C2A935D9700ED3B1F /* NewBookListRow.swift */,
 			);
 			path = NewBook;
 			sourceTree = "<group>";
@@ -104,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				A6FB4E412A6E36790035FDD4 /* SearchBookView.swift */,
+				A6CBD3A62A93612500ED3B1F /* SearchBookListRow.swift */,
 			);
 			path = SearchBook;
 			sourceTree = "<group>";
@@ -152,6 +160,9 @@
 			dependencies = (
 			);
 			name = "SwiftUI-Concurrency";
+			packageProductDependencies = (
+				A6CBD3A42A9360A000ED3B1F /* Kingfisher */,
+			);
 			productName = "SwiftUI-Concurrency";
 			productReference = A6FB4E292A6E35900035FDD4 /* SwiftUI-Concurrency.app */;
 			productType = "com.apple.product-type.application";
@@ -180,6 +191,9 @@
 				Base,
 			);
 			mainGroup = A6FB4E202A6E35900035FDD4;
+			packageReferences = (
+				A6CBD3A32A9360A000ED3B1F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A6FB4E2A2A6E35900035FDD4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -208,10 +222,12 @@
 			files = (
 				A6FB4E462A6E37AD0035FDD4 /* BookModel.swift in Sources */,
 				A6FB4E482A6E37D90035FDD4 /* BookItem.swift in Sources */,
+				A6CBD39D2A935D9700ED3B1F /* NewBookListRow.swift in Sources */,
 				A6FB4E4B2A6E38410035FDD4 /* BookNetworking.swift in Sources */,
 				A6FB4E4F2A6E3B510035FDD4 /* EndPoint.swift in Sources */,
 				A6FB4E2D2A6E35900035FDD4 /* SwiftUI_ConcurrencyApp.swift in Sources */,
 				A6FB4E3B2A6E35FF0035FDD4 /* BookTabView.swift in Sources */,
+				A6CBD3A72A93612500ED3B1F /* SearchBookListRow.swift in Sources */,
 				A6FB4E4D2A6E39960035FDD4 /* URLRequestBuilder.swift in Sources */,
 				A6FB4E402A6E366D0035FDD4 /* NewBookView.swift in Sources */,
 				A6FB4E422A6E36790035FDD4 /* SearchBookView.swift in Sources */,
@@ -415,6 +431,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A6CBD3A32A9360A000ED3B1F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A6CBD3A42A9360A000ED3B1F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A6CBD3A32A9360A000ED3B1F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A6FB4E212A6E35900035FDD4 /* Project object */;
 }
