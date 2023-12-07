@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A646F81B2B21C46D00D9CA9A /* NavigationSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646F81A2B21C46D00D9CA9A /* NavigationSearchBar.swift */; };
 		A6EC73432B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EC73422B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift */; };
 		A6EC73452B1DDDAD0086FEDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EC73442B1DDDAD0086FEDC /* ContentView.swift */; };
 		A6EC73472B1DDDAE0086FEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6EC73462B1DDDAE0086FEDC /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A646F81A2B21C46D00D9CA9A /* NavigationSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSearchBar.swift; sourceTree = "<group>"; };
 		A6EC733F2B1DDDAD0086FEDC /* SwiftUI-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6EC73422B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_MVVMApp.swift; sourceTree = "<group>"; };
 		A6EC73442B1DDDAD0086FEDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				A6EC73722B1DE4110086FEDC /* NewBookListRow.swift */,
 				A6EC736E2B1DDE730086FEDC /* SearchBookView.swift */,
 				A6EC73702B1DE1CB0086FEDC /* BookDetailView.swift */,
+				A646F81A2B21C46D00D9CA9A /* NavigationSearchBar.swift */,
 				A6EC73462B1DDDAE0086FEDC /* Assets.xcassets */,
 				A6EC73482B1DDDAE0086FEDC /* Preview Content */,
 			);
@@ -271,6 +274,7 @@
 			files = (
 				A6EC73452B1DDDAD0086FEDC /* ContentView.swift in Sources */,
 				A6EC73432B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift in Sources */,
+				A646F81B2B21C46D00D9CA9A /* NavigationSearchBar.swift in Sources */,
 				A6EC73732B1DE4110086FEDC /* NewBookListRow.swift in Sources */,
 				A6EC73712B1DE1CB0086FEDC /* BookDetailView.swift in Sources */,
 				A6EC736D2B1DDE670086FEDC /* NewBookView.swift in Sources */,

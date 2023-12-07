@@ -9,12 +9,14 @@ import SwiftUI
 
 struct NewBookListRow: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ZStack {
                 Image(systemName: "book")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 140)
+                    .padding(.top, 15)
+                    .padding(.bottom, 15)
             }
             .frame(maxWidth: .infinity, idealHeight: 190)
             .background(Color(.systemGray6))

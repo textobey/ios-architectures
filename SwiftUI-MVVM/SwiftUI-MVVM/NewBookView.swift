@@ -18,14 +18,14 @@ struct NewBookView: View {
         Ocean(name: "Pacific"),
         Ocean(name: "Atlantic"),
         Ocean(name: "India"),
-        Ocean(name: "Southern"),
+        Ocean(name: "Southern"), 
         Ocean(name: "East Sea"),
     ]
     
     var body: some View {
         NavigationView {
             ZStack {
-                List(oceans) {_ in
+                List(oceans) { _ in
                     ZStack {
                         NavigationLink(
                             destination: BookDetailView()
@@ -33,19 +33,17 @@ struct NewBookView: View {
                             NewBookListRow()
                         }
                         .opacity(0.0)
-                        .buttonStyle(.plain)
                         
                         NewBookListRow()
                     }
+                    .buttonStyle(.plain)
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
                 }
                 .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.clear)
             }
             .listStyle(.plain)
             .navigationTitle("New Book")
-        }
-        .onAppear {
-            UITableView.appearance().separatorStyle = .none
         }
     }
 }
