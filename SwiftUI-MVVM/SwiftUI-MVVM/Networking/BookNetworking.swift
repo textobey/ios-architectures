@@ -19,8 +19,6 @@ protocol BookNetworkingType {
 
 final class BookNetworking: BookNetworkingType {
     
-    private var cancellable = Set<AnyCancellable>()
-    
     func request<T: Decodable>(_ api: BookAPI) -> Future<T, Error> {
         let endPoint = BookEndPoint(api: api)
         
@@ -33,8 +31,9 @@ final class BookNetworking: BookNetworkingType {
             var request = URLRequest(url: url)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-            // FIXME: AnyCancellable을 cancel 처리하고, 메모리에서 해제해주는 방법
-            URLSession.shared.dataTaskPublisher(for: request)
+            // Future는 한번의 이벤트 발생이후 시퀀스의 종료(생명주기의 끝)이 보장되어 있기 때문에,
+            // AnyCancellable에 대한 생명주기 관리를 직접 할 필요가 없을것으로 보임
+            _ = URLSession.shared.dataTaskPublisher(for: request)
                 .tryMap { output in
                     guard let httpResponse = output.response as? HTTPURLResponse,
                           httpResponse.statusCode > 400 else {
@@ -58,4 +57,35 @@ final class BookNetworking: BookNetworkingType {
                 )
         }
     }
+    
+    /*
+     
+     TODO: 에러 발생시에 Alert을 표시하고, API Request를 다시 시도하는(fallBack?)
+     
+    func request<T: Decodable>(_ api: BookAPI) -> AnyPublisher<T, Error> {
+        let endPoint = BookEndPoint(api: api)
+        
+        guard let url = endPoint.url else {
+            return Fail(
+                outputType: T.self,
+                failure: URLError(.badURL)
+            ).eraseToAnyPublisher()
+        }
+        
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { element in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                      httpResponse.statusCode > 400 else {
+                    throw URLError(.badServerResponse)
+                }
+                return element.data
+            }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    */
 }
