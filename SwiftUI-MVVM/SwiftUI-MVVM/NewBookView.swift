@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct Ocean: Identifiable {
     let id = UUID()
@@ -21,6 +22,9 @@ struct NewBookView: View {
         Ocean(name: "Southern"), 
         Ocean(name: "East Sea"),
     ]
+    
+    let network = BookNetworking()
+    @State private var cancellables = Set<AnyCancellable>()
     
     var body: some View {
         NavigationView {
@@ -44,6 +48,20 @@ struct NewBookView: View {
             }
             .listStyle(.plain)
             .navigationTitle("New Book")
+        }
+        .onAppear {
+            network.request(.new)
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        print("❎ Failed with error: \(error)")
+                    case .finished:
+                        print("✅ Request completed successfully.")
+                    }
+                }, receiveValue: { (bookModel: BookModel) in
+                    print(bookModel)
+                })
+                .store(in: &cancellables)
         }
     }
 }

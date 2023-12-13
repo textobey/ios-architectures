@@ -14,11 +14,43 @@ protocol BookNetworkingType {
         // 이 경우에 reuqest 메서드에서 발생한 AnyCancellable의 메모리 해제는 어떻게 해야할까?
     
     // AnyPublisher: 여러번 실행될 수 있는 작업에 적합함
-    func request<T: Decodable>(_ api: BookAPI)  -> Future<T, Error>
+        // AnyPublisher의 경우 각 단계가 체인 형태로 연결되어 있어 가독성면에서 이점이 있음
+        // eraseToAnyPublisher로 인해 AnyPublisher로 반환되기 때문에, request 이후에 더 연산자 활용이 가능함
+    func request<T: Decodable>(_ api: BookAPI) -> AnyPublisher<T, Error>
 }
 
 final class BookNetworking: BookNetworkingType {
     
+    // TODO: 에러 발생시에 Alert을 표시하고, API Request를 다시 시도하는(fallBack?)
+     
+    func request<T: Decodable>(_ api: BookAPI) -> AnyPublisher<T, Error> {
+        let endPoint = BookEndPoint(api: api)
+        
+        guard let url = endPoint.url else {
+            return Fail(
+                outputType: T.self,
+                failure: URLError(.badURL)
+            ).eraseToAnyPublisher()
+        }
+        
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { element in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                      httpResponse.statusCode <= 400 else {
+                    throw URLError(.badServerResponse)
+                }
+                return element.data
+            }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    /*
+     
     func request<T: Decodable>(_ api: BookAPI) -> Future<T, Error> {
         let endPoint = BookEndPoint(api: api)
         
@@ -57,35 +89,6 @@ final class BookNetworking: BookNetworkingType {
                 )
         }
     }
-    
-    /*
      
-     TODO: 에러 발생시에 Alert을 표시하고, API Request를 다시 시도하는(fallBack?)
-     
-    func request<T: Decodable>(_ api: BookAPI) -> AnyPublisher<T, Error> {
-        let endPoint = BookEndPoint(api: api)
-        
-        guard let url = endPoint.url else {
-            return Fail(
-                outputType: T.self,
-                failure: URLError(.badURL)
-            ).eraseToAnyPublisher()
-        }
-        
-        var request = URLRequest(url: url)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        return URLSession.shared.dataTaskPublisher(for: request)
-            .tryMap { element in
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                      httpResponse.statusCode > 400 else {
-                    throw URLError(.badServerResponse)
-                }
-                return element.data
-            }
-            .decode(type: T.self, decoder: JSONDecoder())
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-    }
-    */
+     */
 }
