@@ -28,11 +28,11 @@ struct SearchBookView: View {
                         NavigationLink(
                             destination: BookDetailView()
                         ) {
-                            NewBookListRow()
+                            //NewBookListRow(bookItem: bookItem)
                         }
                         .opacity(0.0)
                         
-                        NewBookListRow()
+                        //NewBookListRow(bookItem: bookItem)
                     }
                     .buttonStyle(.plain)
                     .listRowSeparator(.hidden)

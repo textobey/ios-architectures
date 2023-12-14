@@ -14,31 +14,22 @@ struct Ocean: Identifiable {
 }
 
 struct NewBookView: View {
-    
-    private var oceans = [
-        Ocean(name: "Pacific"),
-        Ocean(name: "Atlantic"),
-        Ocean(name: "India"),
-        Ocean(name: "Southern"), 
-        Ocean(name: "East Sea"),
-    ]
-    
-    let network = BookNetworking()
-    @State private var cancellables = Set<AnyCancellable>()
+    @ObservedObject var viewModel: NewBookViewModel
     
     var body: some View {
         NavigationView {
             ZStack {
-                List(oceans) { _ in
+                List(viewModel.books) { bookItem in
                     ZStack {
+                        // 트러블슈팅: NavigationLink에 의해 표시되는 arrrow symbol(icon)을 제거하는 방법이에요.
                         NavigationLink(
                             destination: BookDetailView()
                         ) {
-                            NewBookListRow()
+                            EmptyView()
                         }
                         .opacity(0.0)
                         
-                        NewBookListRow()
+                        NewBookListRow(bookItem: bookItem)
                     }
                     .buttonStyle(.plain)
                     .listRowSeparator(.hidden)
@@ -50,24 +41,13 @@ struct NewBookView: View {
             .navigationTitle("New Book")
         }
         .onAppear {
-            network.request(.new)
-                .sink(receiveCompletion: { completion in
-                    switch completion {
-                    case .failure(let error):
-                        print("❎ Failed with error: \(error)")
-                    case .finished:
-                        print("✅ Request completed successfully.")
-                    }
-                }, receiveValue: { (bookModel: BookModel) in
-                    print(bookModel)
-                })
-                .store(in: &cancellables)
+            self.viewModel.transform(.refresh)
         }
     }
 }
 
 struct NewBookView_Previews: PreviewProvider {
     static var previews: some View {
-        NewBookView()
+        NewBookView(viewModel: NewBookViewModel())
     }
 }

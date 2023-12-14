@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct NewBookListRow: View {
+    
+    @State var bookItem: BookItem
+    
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
@@ -22,9 +25,9 @@ struct NewBookListRow: View {
             .background(Color(.systemGray6))
             
             VStack {
-                Text("Book Name")
+                Text(bookItem.title ?? "")
                 
-                Text("Book Description")
+                Text(bookItem.subtitle ?? "")
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .multilineTextAlignment(.center)
@@ -38,6 +41,16 @@ struct NewBookListRow: View {
 
 struct NewBookListRow_Previews: PreviewProvider {
     static var previews: some View {
-        NewBookListRow()
+        NewBookListRow(
+            bookItem: BookItem(
+                //id: "9781803242002",
+                isbn13: "9781803242002",
+                title: "Test-Driven Development with Swift",
+                subtitle: "A simple guide to writing bug-free Agile code",
+                price: "$44.99",
+                image: "https://itbook.store/img/books/9781803242002.png",
+                url: "https://itbook.store/books/9781803242002"
+            )
+        )
     }
 }
