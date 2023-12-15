@@ -9,6 +9,10 @@ import SwiftUI
 
 struct BookDetailView: View {
     
+    let isbn13: String
+    
+    @ObservedObject var viewModel: BookDetailViewModel
+    
     @State private var text: String = ""
     @State private var placeholder: String = "Write down how you feel about the book."
     
@@ -77,7 +81,6 @@ struct BookDetailView: View {
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 .frame(maxHeight: 230)
-                
             }
         }
         .navigationTitle("Detail Book")
@@ -85,11 +88,14 @@ struct BookDetailView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         // 트러블슈팅: VStack이 SafeArea 영역을 무시하고 침범하여 꽉채우는 문제가 있어서 설정해줬어요.
         .padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
+        .onAppear {
+            self.viewModel.transform(.load(self.isbn13))
+        }
     }
 }
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView()
+        BookDetailView(isbn13: "", viewModel: BookDetailViewModel())
     }
 }

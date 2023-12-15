@@ -26,7 +26,8 @@ struct SearchBookView: View {
                 List(oceans) { _ in
                     ZStack {
                         NavigationLink(
-                            destination: BookDetailView()
+                            destination: EmptyView()
+                            //destination: BookDetailView()
                         ) {
                             //NewBookListRow(bookItem: bookItem)
                         }

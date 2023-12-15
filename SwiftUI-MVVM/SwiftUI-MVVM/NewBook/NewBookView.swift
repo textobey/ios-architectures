@@ -23,7 +23,10 @@ struct NewBookView: View {
                     ZStack {
                         // 트러블슈팅: NavigationLink에 의해 표시되는 arrrow symbol(icon)을 제거하는 방법이에요.
                         NavigationLink(
-                            destination: BookDetailView()
+                            destination: BookDetailView(
+                                isbn13: bookItem.isbn13 ?? "",
+                                viewModel: BookDetailViewModel()
+                            )
                         ) {
                             EmptyView()
                         }
