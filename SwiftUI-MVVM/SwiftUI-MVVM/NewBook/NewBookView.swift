@@ -24,7 +24,7 @@ struct NewBookView: View {
                         // 트러블슈팅: NavigationLink에 의해 표시되는 arrrow symbol(icon)을 제거하는 방법이에요.
                         NavigationLink(
                             destination: BookDetailView(
-                                isbn13: bookItem.isbn13 ?? "",
+                                isbn13: bookItem.id ?? "",
                                 viewModel: BookDetailViewModel()
                             )
                         ) {

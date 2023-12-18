@@ -32,21 +32,28 @@ struct BookDetailView: View {
                 .background(Color(.systemGray5))
                 
                 VStack(spacing: 6) {
-                    Text("Book Name")
+                    Text(viewModel.bookItem?.title ?? "")
                         .font(.system(size: 16, weight: .bold))
                         .padding(.top, 20)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .multilineTextAlignment(.center)
                     
-                    Text("Book SubTitle")
+                    Text(viewModel.bookItem?.subtitle ?? "")
                         .font(.system(size: 14, weight: .medium))
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .multilineTextAlignment(.center)
                     
-                    Text("Book id(number)")
+                    Text(viewModel.bookItem?.isbn13 ?? "")
                         .font(.system(size: 12, weight: .light))
+                        .frame(maxWidth: .infinity, alignment: .center)
                     
-                    Text("Book Price")
+                    Text(viewModel.bookItem?.price ?? "")
                         .font(.system(size: 12, weight: .medium))
+                        .frame(maxWidth: .infinity, alignment: .center)
                     
-                    Text("Book link")
+                    Text(viewModel.bookItem?.url ?? "")
                         .font(.system(size: 12, weight: .medium))
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)

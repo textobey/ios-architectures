@@ -45,6 +45,9 @@ final class BookNetworking: BookNetworkingType {
                 return element.data
             }
             .decode(type: T.self, decoder: JSONDecoder())
+            .handleEvents(receiveOutput: { output in
+                print("✅ \(#line) \(#function), API Request Response: \(output)")
+            })
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }

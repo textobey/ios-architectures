@@ -43,8 +43,7 @@ struct NewBookListRow_Previews: PreviewProvider {
     static var previews: some View {
         NewBookListRow(
             bookItem: BookItem(
-                //id: "9781803242002",
-                isbn13: "9781803242002",
+                id: "9781803242002",
                 title: "Test-Driven Development with Swift",
                 subtitle: "A simple guide to writing bug-free Agile code",
                 price: "$44.99",

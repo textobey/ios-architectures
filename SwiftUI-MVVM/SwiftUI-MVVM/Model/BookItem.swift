@@ -9,7 +9,6 @@ import Foundation
 
 struct BookItem: Decodable, Identifiable {
     var id: String? // isbn13
-    var isbn13: String?
     var title: String?
     var subtitle: String?
     var price: String?
