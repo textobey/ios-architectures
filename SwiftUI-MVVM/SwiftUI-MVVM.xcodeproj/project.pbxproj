@@ -14,6 +14,8 @@
 		A667B8062B285A9000FBB7F3 /* BookEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667B8052B285A9000FBB7F3 /* BookEndPoint.swift */; };
 		A667B8092B28752E00FBB7F3 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667B8082B28752E00FBB7F3 /* BookModel.swift */; };
 		A667B80B2B28753300FBB7F3 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667B80A2B28753300FBB7F3 /* BookItem.swift */; };
+		A6A802D92B305DCA00692494 /* URLImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A802D82B305DCA00692494 /* URLImageLoader.swift */; };
+		A6A802DC2B3060CC00692494 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A802DB2B3060CC00692494 /* AsyncImageView.swift */; };
 		A6E616A72B2A752800529651 /* NewBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E616A62B2A752800529651 /* NewBookViewModel.swift */; };
 		A6E616A92B2A756400529651 /* UnidirectionalDataFlowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E616A82B2A756400529651 /* UnidirectionalDataFlowType.swift */; };
 		A6EC73432B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EC73422B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift */; };
@@ -54,6 +56,8 @@
 		A667B8052B285A9000FBB7F3 /* BookEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEndPoint.swift; sourceTree = "<group>"; };
 		A667B8082B28752E00FBB7F3 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		A667B80A2B28753300FBB7F3 /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
+		A6A802D82B305DCA00692494 /* URLImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageLoader.swift; sourceTree = "<group>"; };
+		A6A802DB2B3060CC00692494 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		A6E616A62B2A752800529651 /* NewBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewModel.swift; sourceTree = "<group>"; };
 		A6E616A82B2A756400529651 /* UnidirectionalDataFlowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnidirectionalDataFlowType.swift; sourceTree = "<group>"; };
 		A6EC733F2B1DDDAD0086FEDC /* SwiftUI-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +129,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A6A802D72B305DA400692494 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A6A802D82B305DCA00692494 /* URLImageLoader.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A6A802DA2B3060B600692494 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				A6A802DB2B3060CC00692494 /* AsyncImageView.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		A6E616A52B2A750900529651 /* NewBook */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +180,7 @@
 				A6EC73422B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift */,
 				A6EC73442B1DDDAD0086FEDC /* ContentView.swift */,
 				A6E616A82B2A756400529651 /* UnidirectionalDataFlowType.swift */,
+				A6A802DA2B3060B600692494 /* Foundation */,
 				A6E616A52B2A750900529651 /* NewBook */,
 				A60FF49E2B2C78270005B995 /* BookDetail */,
 				A6EC73722B1DE4110086FEDC /* NewBookListRow.swift */,
@@ -167,6 +188,7 @@
 				A646F81A2B21C46D00D9CA9A /* NavigationSearchBar.swift */,
 				A667B8072B28750E00FBB7F3 /* Model */,
 				A622F5922B27246D00D4A593 /* Networking */,
+				A6A802D72B305DA400692494 /* Service */,
 				A6EC73462B1DDDAE0086FEDC /* Assets.xcassets */,
 				A6EC73482B1DDDAE0086FEDC /* Preview Content */,
 			);
@@ -340,6 +362,8 @@
 				A667B80B2B28753300FBB7F3 /* BookItem.swift in Sources */,
 				A622F5942B27247D00D4A593 /* BookAPI.swift in Sources */,
 				A60FF4A02B2C78590005B995 /* BookDetailViewModel.swift in Sources */,
+				A6A802D92B305DCA00692494 /* URLImageLoader.swift in Sources */,
+				A6A802DC2B3060CC00692494 /* AsyncImageView.swift in Sources */,
 				A667B8062B285A9000FBB7F3 /* BookEndPoint.swift in Sources */,
 				A6EC736D2B1DDE670086FEDC /* NewBookView.swift in Sources */,
 				A6EC736F2B1DDE730086FEDC /* SearchBookView.swift in Sources */,

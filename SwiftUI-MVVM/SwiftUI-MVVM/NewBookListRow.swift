@@ -14,12 +14,11 @@ struct NewBookListRow: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
-                Image(systemName: "book")
-                    .resizable()
+                AsyncImageView(urlString: bookItem.image)
                     .scaledToFill()
-                    .frame(width: 100, height: 140)
-                    .padding(.top, 15)
-                    .padding(.bottom, 15)
+                    .frame(width: 150, height: 170)
+                    //.padding(.top, 30)
+                    //.padding(.bottom, 30)
             }
             .frame(maxWidth: .infinity, idealHeight: 190)
             .background(Color(.systemGray6))

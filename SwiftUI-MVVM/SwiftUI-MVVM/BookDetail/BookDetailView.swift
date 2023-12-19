@@ -21,12 +21,10 @@ struct BookDetailView: View {
         ScrollView {
             VStack(spacing: 0) {
                 ZStack(alignment: .top) {
-                    Image(systemName: "book")
-                        .resizable()
-                        .frame(width: 100, height: 170)
+                    AsyncImageView(urlString: viewModel.bookItem?.image)
+                        .frame(width: 150, height: 170)
                         .padding(.top, 30)
                         .padding(.bottom, 30)
-                        .frame(width: 100)
                 }
                 .frame(maxWidth: .infinity, maxHeight: 230)
                 .background(Color(.systemGray5))
@@ -103,6 +101,9 @@ struct BookDetailView: View {
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView(isbn13: "", viewModel: BookDetailViewModel())
+        BookDetailView(
+            isbn13: "9781912047451",
+            viewModel: BookDetailViewModel()
+        )
     }
 }
