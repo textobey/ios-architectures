@@ -15,6 +15,7 @@ import SwiftUI
 @MainActor
 class URLImageLoader: ObservableObject {
     @Published var image: UIImage?
+    @Published var isLoading: Bool = true
     
     private var imageCache: NSCache<NSString, UIImage>?
     
@@ -25,8 +26,11 @@ class URLImageLoader: ObservableObject {
     private func loadImage(urlString: String?) {
         guard let urlString = urlString else { return }
         
+        isLoading = true
+        
         if let imageFromCache = getImageFromCache(from: urlString) {
             self.image = imageFromCache
+            isLoading = false
             return
         }
         loadImageFromURL(urlString: urlString)
@@ -52,6 +56,7 @@ class URLImageLoader: ObservableObject {
             } catch {
                 print("❎ Failed \(#function) Error: \(error)")
             }
+            self.isLoading = false
         }
     }
     

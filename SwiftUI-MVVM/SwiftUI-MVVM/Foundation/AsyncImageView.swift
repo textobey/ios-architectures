@@ -15,8 +15,14 @@ struct AsyncImageView: View {
     }
     
     var body: some View {
-        Image(uiImage: imageLoader.image ?? UIImage())
-            .resizable()
+        Group {
+            if imageLoader.isLoading {
+                ProgressView()
+            } else {
+                Image(uiImage: imageLoader.image ?? UIImage())
+                    .resizable()
+            }
+        }
     }
 }
 
