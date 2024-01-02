@@ -1,3 +1,4 @@
+
 //
 //  NewBookListRow.swift
 //  SwiftUI-MVVM
@@ -24,24 +25,38 @@ struct NewBookListRow: View {
                         Image(systemName: "book")
                             .resizable()
                             .scaledToFill()
+                    //case .empty:
+                        // 이미지를 로드하기 이전의 상태
                     default:
                         ProgressView()
                     }
                 }
                 .frame(width: 150, height: 170)
             }
+            .padding(.top, 25)
+            .padding(.bottom, 25)
             .frame(maxWidth: .infinity, idealHeight: 190)
             .background(Color(.systemGray6))
             
-            VStack {
+            VStack(spacing: 5) {
                 Text(bookItem.title ?? "")
+                    .font(.system(size: 16, weight: .bold))
                 
                 Text(bookItem.subtitle ?? "")
+                    .font(.system(size: 14, weight: .medium))
+                
+                Text(bookItem.id ?? "")
+                    .font(.system(size: 12, weight: .light))
+                
+                Text(bookItem.price ?? "")
+                    .font(.system(size: 12, weight: .medium))
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .multilineTextAlignment(.center)
             .padding(.top, 15)
             .padding(.bottom, 15)
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
             .background(Color(.systemGray5))
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
