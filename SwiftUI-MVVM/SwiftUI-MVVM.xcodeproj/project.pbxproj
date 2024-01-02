@@ -148,6 +148,7 @@
 		A6E616A52B2A750900529651 /* NewBook */ = {
 			isa = PBXGroup;
 			children = (
+				A6EC73722B1DE4110086FEDC /* NewBookListRow.swift */,
 				A6EC736C2B1DDE670086FEDC /* NewBookView.swift */,
 				A6E616A62B2A752800529651 /* NewBookViewModel.swift */,
 			);
@@ -183,7 +184,6 @@
 				A6A802DA2B3060B600692494 /* Foundation */,
 				A6E616A52B2A750900529651 /* NewBook */,
 				A60FF49E2B2C78270005B995 /* BookDetail */,
-				A6EC73722B1DE4110086FEDC /* NewBookListRow.swift */,
 				A6EC736E2B1DDE730086FEDC /* SearchBookView.swift */,
 				A646F81A2B21C46D00D9CA9A /* NavigationSearchBar.swift */,
 				A667B8072B28750E00FBB7F3 /* Model */,

@@ -14,6 +14,7 @@ final class NewBookViewModel: ObservableObject, UnidirectionalDataFlowType {
     private var cancellables: [AnyCancellable] = []
     
     private let refreshSubject = PassthroughSubject<Void, Never>()
+    private let pagingSubject = PassthroughSubject<Void, Never>()
     
     @Published private(set) var books: [BookItem] = []
     
@@ -22,12 +23,15 @@ final class NewBookViewModel: ObservableObject, UnidirectionalDataFlowType {
     
     enum Input {
         case refresh
+        case paging
     }
     
     func transform(_ input: Input) {
         switch input {
         case .refresh:
             refreshSubject.send(())
+        case .paging:
+            print("✅ Itbooks New API Paging Parameter 지원하지 않음")
         }
     }
     
