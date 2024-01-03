@@ -67,6 +67,8 @@ struct NewBookView: View {
         .onAppear {
             self.viewModel.transform(.refresh)
         }
+        // 트러블슈팅: StackNavigationViewStyle modifier를 추가하지 않으면 제약조건 오류 발생
+        .navigationViewStyle(.stack)
     }
 }
 
