@@ -6,41 +6,27 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SearchBookView: View {
+    @ObservedObject var viewModel: SearchBookViewModel
     
     @State var text: String = ""
     @State var scopeSelection: Int = 0
     
-    private var oceans = [
-        Ocean(name: "Pacific"),
-        Ocean(name: "Atlantic"),
-        Ocean(name: "India"),
-        Ocean(name: "Southern"),
-        Ocean(name: "East Sea"),
-    ]
+    public init(viewModel: SearchBookViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {
-            ZStack {
-                List(oceans) { _ in
-                    ZStack {
-                        NavigationLink(
-                            destination: EmptyView()
-                            //destination: BookDetailView()
-                        ) {
-                            //NewBookListRow(bookItem: bookItem)
-                        }
-                        .opacity(0.0)
-                        
-                        //NewBookListRow(bookItem: bookItem)
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.bookItems.indices, id: \.self) { index in
+                        let bookItem = viewModel.bookItems[index]
+                        SearchBookRow(bookItem: bookItem)
                     }
-                    .buttonStyle(.plain)
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
                 }
-                .listRowInsets(EdgeInsets())
-                .listStyle(.plain)
             }
             .navigationTitle("Search Book")
             .navigationSearchBar(
@@ -65,11 +51,16 @@ struct SearchBookView: View {
         }
         // 트러블슈팅: StackNavigationViewStyle modifier를 추가하지 않으면 제약조건 오류 발생
         .navigationViewStyle(.stack)
+        .overlay {
+            if viewModel.bookItems.isEmpty {
+                ContentEmptyView(message: "No Articles for \(text)")
+            }
+        }
     }
 }
 
 struct SearchBookView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBookView()
+        SearchBookView(viewModel: SearchBookViewModel())
     }
 }

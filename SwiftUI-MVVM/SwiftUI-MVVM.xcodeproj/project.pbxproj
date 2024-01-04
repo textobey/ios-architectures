@@ -17,6 +17,8 @@
 		A667B80B2B28753300FBB7F3 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667B80A2B28753300FBB7F3 /* BookItem.swift */; };
 		A6A802D92B305DCA00692494 /* URLImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A802D82B305DCA00692494 /* URLImageLoader.swift */; };
 		A6A802DC2B3060CC00692494 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A802DB2B3060CC00692494 /* AsyncImageView.swift */; };
+		A6B03E672B46260D0016E535 /* SearchBookRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03E662B46260D0016E535 /* SearchBookRow.swift */; };
+		A6B03E6B2B4637C20016E535 /* ContentEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03E6A2B4637C20016E535 /* ContentEmptyView.swift */; };
 		A6E616A72B2A752800529651 /* NewBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E616A62B2A752800529651 /* NewBookViewModel.swift */; };
 		A6E616A92B2A756400529651 /* UnidirectionalDataFlowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E616A82B2A756400529651 /* UnidirectionalDataFlowType.swift */; };
 		A6EC73432B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EC73422B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift */; };
@@ -60,6 +62,8 @@
 		A667B80A2B28753300FBB7F3 /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		A6A802D82B305DCA00692494 /* URLImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageLoader.swift; sourceTree = "<group>"; };
 		A6A802DB2B3060CC00692494 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		A6B03E662B46260D0016E535 /* SearchBookRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookRow.swift; sourceTree = "<group>"; };
+		A6B03E6A2B4637C20016E535 /* ContentEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEmptyView.swift; sourceTree = "<group>"; };
 		A6E616A62B2A752800529651 /* NewBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewModel.swift; sourceTree = "<group>"; };
 		A6E616A82B2A756400529651 /* UnidirectionalDataFlowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnidirectionalDataFlowType.swift; sourceTree = "<group>"; };
 		A6EC733F2B1DDDAD0086FEDC /* SwiftUI-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +129,7 @@
 		A65D2A992B44DBB700127EF2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				A6B03E662B46260D0016E535 /* SearchBookRow.swift */,
 				A6EC736E2B1DDE730086FEDC /* SearchBookView.swift */,
 				A65D2A9C2B44DC0200127EF2 /* SearchBookViewModel.swift */,
 			);
@@ -152,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				A6A802DB2B3060CC00692494 /* AsyncImageView.swift */,
+				A6B03E6A2B4637C20016E535 /* ContentEmptyView.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				A6EC73432B1DDDAD0086FEDC /* SwiftUI_MVVMApp.swift in Sources */,
 				A622F5982B27255400D4A593 /* BookNetworking.swift in Sources */,
 				A6E616A72B2A752800529651 /* NewBookViewModel.swift in Sources */,
+				A6B03E672B46260D0016E535 /* SearchBookRow.swift in Sources */,
 				A646F81B2B21C46D00D9CA9A /* NavigationSearchBar.swift in Sources */,
 				A667B8092B28752E00FBB7F3 /* BookModel.swift in Sources */,
 				A6E616A92B2A756400529651 /* UnidirectionalDataFlowType.swift in Sources */,
@@ -379,6 +386,7 @@
 				A667B8062B285A9000FBB7F3 /* BookEndPoint.swift in Sources */,
 				A6EC736D2B1DDE670086FEDC /* NewBookView.swift in Sources */,
 				A6EC736F2B1DDE730086FEDC /* SearchBookView.swift in Sources */,
+				A6B03E6B2B4637C20016E535 /* ContentEmptyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
