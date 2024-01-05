@@ -10,7 +10,6 @@
 		A60FF4A02B2C78590005B995 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60FF49F2B2C78590005B995 /* BookDetailViewModel.swift */; };
 		A622F5942B27247D00D4A593 /* BookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A622F5932B27247D00D4A593 /* BookAPI.swift */; };
 		A622F5982B27255400D4A593 /* BookNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A622F5972B27255400D4A593 /* BookNetworking.swift */; };
-		A646F81B2B21C46D00D9CA9A /* NavigationSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646F81A2B21C46D00D9CA9A /* NavigationSearchBar.swift */; };
 		A65D2A9D2B44DC0200127EF2 /* SearchBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65D2A9C2B44DC0200127EF2 /* SearchBookViewModel.swift */; };
 		A667B8062B285A9000FBB7F3 /* BookEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667B8052B285A9000FBB7F3 /* BookEndPoint.swift */; };
 		A667B8092B28752E00FBB7F3 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667B8082B28752E00FBB7F3 /* BookModel.swift */; };
@@ -55,7 +54,6 @@
 		A60FF49F2B2C78590005B995 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		A622F5932B27247D00D4A593 /* BookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPI.swift; sourceTree = "<group>"; };
 		A622F5972B27255400D4A593 /* BookNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNetworking.swift; sourceTree = "<group>"; };
-		A646F81A2B21C46D00D9CA9A /* NavigationSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSearchBar.swift; sourceTree = "<group>"; };
 		A65D2A9C2B44DC0200127EF2 /* SearchBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewModel.swift; sourceTree = "<group>"; };
 		A667B8052B285A9000FBB7F3 /* BookEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEndPoint.swift; sourceTree = "<group>"; };
 		A667B8082B28752E00FBB7F3 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				A6E616A52B2A750900529651 /* NewBook */,
 				A65D2A992B44DBB700127EF2 /* Search */,
 				A60FF49E2B2C78270005B995 /* BookDetail */,
-				A646F81A2B21C46D00D9CA9A /* NavigationSearchBar.swift */,
 				A667B8072B28750E00FBB7F3 /* Model */,
 				A622F5922B27246D00D4A593 /* Networking */,
 				A6A802D72B305DA400692494 /* Service */,
@@ -372,7 +369,6 @@
 				A622F5982B27255400D4A593 /* BookNetworking.swift in Sources */,
 				A6E616A72B2A752800529651 /* NewBookViewModel.swift in Sources */,
 				A6B03E672B46260D0016E535 /* SearchBookRow.swift in Sources */,
-				A646F81B2B21C46D00D9CA9A /* NavigationSearchBar.swift in Sources */,
 				A667B8092B28752E00FBB7F3 /* BookModel.swift in Sources */,
 				A6E616A92B2A756400529651 /* UnidirectionalDataFlowType.swift in Sources */,
 				A6EC73732B1DE4110086FEDC /* NewBookListRow.swift in Sources */,
