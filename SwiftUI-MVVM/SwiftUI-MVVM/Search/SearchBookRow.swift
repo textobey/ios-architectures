@@ -14,12 +14,12 @@ struct SearchBookRow: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: bookItem.url ?? "")) { phase in
+            AsyncImage(url: URL(string: bookItem.image ?? "")) { phase in
                 switch phase {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                 case .failure:
                     Image(systemName: "book")
                         .resizable()
@@ -29,18 +29,35 @@ struct SearchBookRow: View {
                 }
             }
             .frame(width: 100, height: 130)
-            .padding(.top, 10)
-            .padding(.bottom, 10)
+            .padding(.leading, 20)
             
-            Spacer()
+            //Spacer()
             
-            VStack {
-                Text("제목")
+            VStack(alignment: .leading, spacing: 5) {
+                Text(bookItem.title ?? "")
+                    .font(.system(size: 16, weight: .bold))
+                    .lineLimit(1)
                 
-                Text("서브타이틀")
+                Text(bookItem.subtitle ?? "")
+                    .font(.system(size: 14, weight: .medium))
+                    .lineLimit(1)
+                
+                Text(bookItem.id ?? "")
+                    .font(.system(size: 12, weight: .light))
+                
+                Text(bookItem.price ?? "")
+                    .font(.system(size: 12, weight: .medium))
+                
+                Text(bookItem.url ?? "")
+                    .font(.system(size: 12, weight: .medium))
+                    .lineLimit(1)
+                    .foregroundColor(Color.blue)
             }
+            .padding(.leading, 40)
+            .padding(.trailing, 20)
         }
-        .frame(maxWidth: .infinity, idealHeight: 150)
+        //.background(Color.purple)
+        .frame(maxWidth: .infinity, minHeight: 150)
     }
 }
 

@@ -23,7 +23,17 @@ struct SearchBookView: View {
                 LazyVStack {
                     ForEach(viewModel.bookItems.indices, id: \.self) { index in
                         let bookItem = viewModel.bookItems[index]
-                        SearchBookRow(bookItem: bookItem)
+                        NavigationLink(
+                            destination: {
+                                BookDetailView(
+                                    isbn13: bookItem.id ?? "",
+                                    viewModel: BookDetailViewModel()
+                                )
+                            }, label: {
+                                SearchBookRow(bookItem: bookItem)
+                            }
+                        )
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -44,14 +54,16 @@ struct SearchBookView: View {
             .onChange(of: searchText) { newValue in
                 viewModel.transform(.search(newValue))
             }
+            //iOS16부터는 .scrollDismissesKeyboard(.automatic)로 간단하게 처리 가능
+            .resignKeyboardOnDragGesture()
         }
         // 트러블슈팅: StackNavigationViewStyle modifier를 추가하지 않으면 제약조건 오류 발생
         .navigationViewStyle(.stack)
         .overlay {
             if viewModel.bookItems.isEmpty && searchText.isEmpty {
-                ContentEmptyView(message: "No Results")
+                ContentEmptyView(message: .constant(""))
             } else if viewModel.bookItems.isEmpty {
-                ContentEmptyView(message: "No Articles for '\(searchText)' ")
+                ContentEmptyView(message: $searchText)
             }
         }
     }
