@@ -36,12 +36,12 @@ struct SearchBookView: View {
                         .buttonStyle(.plain)
                     }
                     
-                    if !viewModel.bookItems.isEmpty {
+                    if !viewModel.bookItems.isEmpty, viewModel.isPagable {
                         HStack {
                             Spacer()
                             ProgressView()
                                 .onAppear {
-                                    self.viewModel.transform(.paging)
+                                    viewModel.transform(.paging(searchText))
                                 }
                             Spacer()
                         }

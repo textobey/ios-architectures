@@ -13,25 +13,33 @@ class SearchBookViewModel: ObservableObject, UnidirectionalDataFlowType {
     
     private var cancellables: [AnyCancellable] = []
     
-    private let searchSubject = PassthroughSubject<String, Never>()
+    private let searchSubject = PassthroughSubject<(String, String), Never>()
     
     @Published private(set) var bookItems: [BookItem] = []
+    @Published private(set) var isPagable: Bool = true
     
-    private let responseSubject = PassthroughSubject<BookModel, Never>()
+    private let responseSubject = CurrentValueSubject<BookModel?, Never>(nil)
     private let errorSubject = PassthroughSubject<Error, Never>()
+    
+    private enum Const {
+        static let defaultPage: String = "1"
+    }
     
     func transform(_ input: InputType) {
         switch input {
         case .search(let word):
-            searchSubject.send(word)
-        case .paging:
-            print("paging")
+            bookItems = []
+            searchSubject.send((word, Const.defaultPage))
+        case .paging(let word):
+            guard isValidPaging() else { return }
+            let nextPage = getNextPage()
+            searchSubject.send((word, nextPage))
         }
     }
     
     enum Input {
         case search(String)
-        case paging
+        case paging(String)
     }
     
     private let network: BookNetworkingType
@@ -45,23 +53,28 @@ class SearchBookViewModel: ObservableObject, UnidirectionalDataFlowType {
     
     private func bindInputs() {
         searchSubject
-            .flatMap { word in
-                self.requestSearchBookAPI(of: word)
+            .flatMap { word, page in
+                self.requestSearchBookAPI(of: word, page: page)
             }
+            .compactMap { $0 }
             .subscribe(responseSubject)
             .store(in: &cancellables)
     }
     
     private func bindOutputs() {
         responseSubject
-            .map { $0.books ?? [] }
+            .compactMap {
+                let newBookItems = self.bookItems + ($0?.books ?? [])
+                self.isPagable = newBookItems.count < Int($0?.total ?? "0") ?? 0
+                return newBookItems
+            }
             .assign(to: \.bookItems, on: self)
             .store(in: &cancellables)
     }
 }
 
 extension SearchBookViewModel {
-    private func requestSearchBookAPI(of word: String, page: String = "1") -> AnyPublisher<BookModel, Never> {
+    private func requestSearchBookAPI(of word: String, page: String = Const.defaultPage) -> AnyPublisher<BookModel, Never> {
         return network.request(.search(word, page))
             .catch { error in
                 print("❎ SearchBookViewModel \(#line) Error: \(error)")
@@ -69,5 +82,24 @@ extension SearchBookViewModel {
                 return Empty<BookModel, Never>()
             }
             .eraseToAnyPublisher()
+    }
+}
+
+extension SearchBookViewModel {
+    private func isValidPaging() -> Bool {
+        guard let stringTotal = responseSubject.value?.total, let total = Int(stringTotal) else {
+            return false
+        }
+        return bookItems.count < total
+    }
+    
+    private func getNextPage() -> String {
+        let currentPage = responseSubject.value?.page ?? Const.defaultPage
+        
+        if let intCurrentPage = Int(currentPage) {
+            return String(intCurrentPage + 1)
+        } else {
+            return currentPage
+        }
     }
 }
