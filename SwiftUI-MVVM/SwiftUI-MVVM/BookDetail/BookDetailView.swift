@@ -13,9 +13,6 @@ struct BookDetailView: View {
     
     @ObservedObject var viewModel: BookDetailViewModel
     
-    @State private var text: String = ""
-    @State private var placeholder: String = "Write down how you feel about the book."
-    
     var body: some View {
         // Depth로 들어가는 화면이기 때문에, 여기서 NavigationView를 또 만들지 않음.
         ScrollView {
@@ -61,34 +58,16 @@ struct BookDetailView: View {
                     .frame(maxHeight: 0.1)
                     .padding(20)// 트러블슈팅: 디바이더를 VStack 안쪽에 넣으니까, Spacing으로 인해 늘어나는 문제가 있어서 VStack 바깥 블록으로 빼냈어요.
                 
-                ZStack(alignment: .topLeading) {
-                    TextEditor(text: $text)
-                        .font(.system(size: 14, weight: .regular))
-                        .foregroundColor(Color.black)
-                        .frame(height: 230)
-                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                        // 트러블슈팅
-                        // SwiftUI의 ZStack은 자체적으로 cornerRadius를 갖지 않기 때문에, 각 뷰에 직접 적용해야해요.
-                        // 하지만, TextEditor cornerRadius를 지원하지 않아서 아래의 방법을 사용해요.
-                        .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(.systemGray5), lineWidth: 1))
-                    
-                    if text.isEmpty {
-                        Text(placeholder)
-                            .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(Color.primary.opacity(0.2))
-                            .padding(EdgeInsets(top: 18, leading: 15, bottom: 10, trailing: 10))
-                            .lineSpacing(0)
-                    }
-                        
-                }
-                .padding(.top, 20)
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
-                .frame(maxHeight: 230)
+                // 트러블슈팅
+                // 내부의 text가 @State 어트리뷰트이기 때문에, 변경시마다 body 내부가 모두 다시 그려지는데,
+                // TextEditor 영역에 해당하는곳만 다시 그려지길 원하기 때문에, 하위뷰로 분리했어요.
+                BookMemoView()
+                    .padding(.top, 20)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .frame(maxHeight: 230)
             }
         }
-        .navigationTitle("Detail Book")
         .navigationTitle("Detail Book")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         // 트러블슈팅: VStack이 SafeArea 영역을 무시하고 침범하여 꽉채우는 문제가 있어서 설정해줬어요.
@@ -98,8 +77,9 @@ struct BookDetailView: View {
         }
         // 트러블슈팅: UIKit의 hidesbottombarwhenpushed를 구현하기 위해서는
         // iOS16미만: TabView보다 NavigationView를 상위 계층으로 두기
-        // iOS16이상: .toolbar(.hidden, .tabBar)를 사용 -> 문제는 hidesbottombarwhenpushed만큼 부드럽지못함.
+        // iOS16이상: .toolbar(.hidden, .tabBar)를 사용 -> 문제는 hidesbottombarwhenpushed만큼 부드럽지 못해요.
         .toolbar(.hidden, for: .tabBar)
+        .scrollDismissesKeyboard(.immediately)
     }
 }
 
