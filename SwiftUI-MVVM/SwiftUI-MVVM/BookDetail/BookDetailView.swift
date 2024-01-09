@@ -96,6 +96,10 @@ struct BookDetailView: View {
         .onAppear {
             self.viewModel.transform(.load(self.isbn13))
         }
+        // 트러블슈팅: UIKit의 hidesbottombarwhenpushed를 구현하기 위해서는
+        // iOS16미만: TabView보다 NavigationView를 상위 계층으로 두기
+        // iOS16이상: .toolbar(.hidden, .tabBar)를 사용 -> 문제는 hidesbottombarwhenpushed만큼 부드럽지못함.
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

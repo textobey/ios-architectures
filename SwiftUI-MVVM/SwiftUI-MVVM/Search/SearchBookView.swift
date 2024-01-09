@@ -35,6 +35,17 @@ struct SearchBookView: View {
                         )
                         .buttonStyle(.plain)
                     }
+                    
+                    if !viewModel.bookItems.isEmpty {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                                .onAppear {
+                                    self.viewModel.transform(.paging)
+                                }
+                            Spacer()
+                        }
+                    }
                 }
             }
             .navigationTitle("Search Book")
@@ -54,8 +65,9 @@ struct SearchBookView: View {
             .onChange(of: searchText) { newValue in
                 viewModel.transform(.search(newValue))
             }
-            //iOS16부터는 .scrollDismissesKeyboard(.automatic)로 간단하게 처리 가능
-            .resignKeyboardOnDragGesture()
+            //iOS16부터는 .scrollDismissesKeyboard()로 간단하게 처리 가능
+            .scrollDismissesKeyboard(.immediately)
+            //.resignKeyboardOnDragGesture()
         }
         // 트러블슈팅: StackNavigationViewStyle modifier를 추가하지 않으면 제약조건 오류 발생
         .navigationViewStyle(.stack)

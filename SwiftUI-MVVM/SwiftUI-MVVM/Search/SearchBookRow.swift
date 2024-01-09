@@ -53,10 +53,9 @@ struct SearchBookRow: View {
                     .lineLimit(1)
                     .foregroundColor(Color.blue)
             }
-            .padding(.leading, 40)
+            .padding(.leading, 20)
             .padding(.trailing, 20)
         }
-        //.background(Color.purple)
         .frame(maxWidth: .infinity, minHeight: 150)
     }
 }

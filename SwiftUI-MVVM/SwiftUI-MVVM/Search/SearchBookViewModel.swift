@@ -24,11 +24,14 @@ class SearchBookViewModel: ObservableObject, UnidirectionalDataFlowType {
         switch input {
         case .search(let word):
             searchSubject.send(word)
+        case .paging:
+            print("paging")
         }
     }
     
     enum Input {
         case search(String)
+        case paging
     }
     
     private let network: BookNetworkingType
