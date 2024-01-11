@@ -53,6 +53,7 @@ class SearchBookViewModel: ObservableObject, UnidirectionalDataFlowType {
     
     private func bindInputs() {
         searchSubject
+            .throttle(for: .seconds(0.5), scheduler: RunLoop.main, latest: true)
             .flatMap { word, page in
                 self.requestSearchBookAPI(of: word, page: page)
             }
