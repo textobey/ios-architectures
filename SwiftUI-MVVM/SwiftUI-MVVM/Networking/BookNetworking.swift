@@ -16,14 +16,21 @@ protocol BookNetworkingType {
     // AnyPublisher: 여러번 실행될 수 있는 작업에 적합함
         // AnyPublisher의 경우 각 단계가 체인 형태로 연결되어 있어 가독성면에서 이점이 있음
         // eraseToAnyPublisher로 인해 AnyPublisher로 반환되기 때문에, request 이후에 더 연산자 활용이 가능함
-    func request<T: Decodable>(_ api: BookAPI) -> AnyPublisher<T, Error>
+    func request<T: Decodable>(_ api: BookAPI, retryCount: Int) -> AnyPublisher<T, Error>
+}
+
+extension BookNetworkingType {
+    func request<T: Decodable>(_ api: BookAPI, retryCount: Int = 0) -> AnyPublisher<T, Error> {
+        return request(api, retryCount: retryCount)
+    }
 }
 
 final class BookNetworking: BookNetworkingType {
     
     // TODO: 에러 발생시에 Alert을 표시하고, API Request를 다시 시도하는(fallBack?)
+    private var retryTrigger = PassthroughSubject<Int, Never>()
      
-    func request<T: Decodable>(_ api: BookAPI) -> AnyPublisher<T, Error> {
+    func request<T: Decodable>(_ api: BookAPI, retryCount: Int = 0) -> AnyPublisher<T, Error> {
         let endPoint = BookEndPoint(api: api)
         
         guard let url = endPoint.url else {
@@ -40,7 +47,20 @@ final class BookNetworking: BookNetworkingType {
             .tryMap { element in
                 guard let httpResponse = element.response as? HTTPURLResponse,
                       httpResponse.statusCode <= 400 else {
-                    throw URLError(.badServerResponse)
+                    throw BookError(
+                        api: api,
+                        reason: BookErrorReason.badServerResponse,
+                        retryCount: retryCount
+                    )
+                }
+                let randomError = Int.random(in: 1 ... 10)
+                
+                if let errorReason = BookErrorReason(rawValue: randomError) {
+                    throw BookError(
+                        api: api,
+                        reason: errorReason,
+                        retryCount: retryCount
+                    )
                 }
                 return element.data
             }

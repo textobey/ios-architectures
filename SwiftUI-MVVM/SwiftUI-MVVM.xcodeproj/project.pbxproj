@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A60A85112B47F87F00EDAE40 /* ResignKeyboardOnDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A85102B47F87F00EDAE40 /* ResignKeyboardOnDragGesture.swift */; };
+		A60B778E2B4FB4220006ECCD /* BookError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B778D2B4FB4220006ECCD /* BookError.swift */; };
 		A60FF4A02B2C78590005B995 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60FF49F2B2C78590005B995 /* BookDetailViewModel.swift */; };
 		A622F5942B27247D00D4A593 /* BookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A622F5932B27247D00D4A593 /* BookAPI.swift */; };
 		A622F5982B27255400D4A593 /* BookNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A622F5972B27255400D4A593 /* BookNetworking.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		A60A85102B47F87F00EDAE40 /* ResignKeyboardOnDragGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignKeyboardOnDragGesture.swift; sourceTree = "<group>"; };
+		A60B778D2B4FB4220006ECCD /* BookError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookError.swift; sourceTree = "<group>"; };
 		A60FF49F2B2C78590005B995 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		A622F5932B27247D00D4A593 /* BookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPI.swift; sourceTree = "<group>"; };
 		A622F5972B27255400D4A593 /* BookNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNetworking.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				A622F5932B27247D00D4A593 /* BookAPI.swift */,
+				A60B778D2B4FB4220006ECCD /* BookError.swift */,
 				A667B8052B285A9000FBB7F3 /* BookEndPoint.swift */,
 				A622F5972B27255400D4A593 /* BookNetworking.swift */,
 			);
@@ -399,6 +402,7 @@
 				A63377552B4D181F001117DD /* BookMemoView.swift in Sources */,
 				A6EC736F2B1DDE730086FEDC /* SearchBookView.swift in Sources */,
 				A6B03E6B2B4637C20016E535 /* ContentEmptyView.swift in Sources */,
+				A60B778E2B4FB4220006ECCD /* BookError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
