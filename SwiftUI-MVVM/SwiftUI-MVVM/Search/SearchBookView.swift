@@ -78,6 +78,22 @@ struct SearchBookView: View {
                 ContentEmptyView(message: $searchText)
             }
         }
+        .alert(
+            "Search failed.",
+            isPresented: Binding<Bool>(
+                get: { self.viewModel.error != nil },
+                set: { _ in }
+            ),
+            presenting: self.viewModel.error) { detail in
+                Button(role: .destructive) {
+                    print("Handle the api")
+                } label: {
+                    Text("Detail")
+                }
+                Button("Retry") {
+                    print("Handle the api")
+                }
+            }
     }
 }
 

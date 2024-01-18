@@ -17,6 +17,7 @@ class SearchBookViewModel: ObservableObject, UnidirectionalDataFlowType {
     
     @Published private(set) var bookItems: [BookItem] = []
     @Published private(set) var isPagable: Bool = true
+    @Published private(set) var error: BookError?
     
     private let responseSubject = CurrentValueSubject<BookModel?, Never>(nil)
     private let errorSubject = PassthroughSubject<Error, Never>()
@@ -70,6 +71,11 @@ class SearchBookViewModel: ObservableObject, UnidirectionalDataFlowType {
                 return newBookItems
             }
             .assign(to: \.bookItems, on: self)
+            .store(in: &cancellables)
+        
+        errorSubject
+            .compactMap { $0 as? BookError }
+            .assign(to: \.error, on: self)
             .store(in: &cancellables)
     }
 }

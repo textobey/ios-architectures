@@ -31,6 +31,14 @@ final class BookNetworking: BookNetworkingType {
     private var retryTrigger = PassthroughSubject<Int, Never>()
      
     func request<T: Decodable>(_ api: BookAPI, retryCount: Int = 0) -> AnyPublisher<T, Error> {
+        guard retryCount < 3 else {
+            return Fail(error: BookError(
+                api: api,
+                reason: BookErrorReason.retryExceeded,
+                retryCount: retryCount
+            )).eraseToAnyPublisher()
+        }
+        
         let endPoint = BookEndPoint(api: api)
         
         guard let url = endPoint.url else {
