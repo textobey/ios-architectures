@@ -14,6 +14,7 @@
 		A6C986202B67B4E600D07D0B /* MyOceanTestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9861F2B67B4E600D07D0B /* MyOceanTestsTests.swift */; };
 		A6C9862A2B67B4E600D07D0B /* MyOceanTestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986292B67B4E600D07D0B /* MyOceanTestsUITests.swift */; };
 		A6C9862C2B67B4E600D07D0B /* MyOceanTestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9862B2B67B4E600D07D0B /* MyOceanTestsUITestsLaunchTests.swift */; };
+		A6C986392B67B8B800D07D0B /* DeepOceanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		A6C986252B67B4E600D07D0B /* MyOceanTestsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyOceanTestsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C986292B67B4E600D07D0B /* MyOceanTestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanTestsUITests.swift; sourceTree = "<group>"; };
 		A6C9862B2B67B4E600D07D0B /* MyOceanTestsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanTestsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepOceanViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */,
 				A6C986102B67B4E400D07D0B /* ContentView.swift */,
+				A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */,
 				A6C986122B67B4E500D07D0B /* Assets.xcassets */,
 				A6C986142B67B4E500D07D0B /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C986392B67B8B800D07D0B /* DeepOceanViewModel.swift in Sources */,
 				A6C986112B67B4E400D07D0B /* ContentView.swift in Sources */,
 				A6C9860F2B67B4E400D07D0B /* MyOceanTestsApp.swift in Sources */,
 			);
