@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A66DE62B2B6D08EB0053D9AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66DE62A2B6D08EB0053D9AB /* DetailView.swift */; };
 		A6C9860F2B67B4E400D07D0B /* MyOceanTestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */; };
 		A6C986112B67B4E400D07D0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986102B67B4E400D07D0B /* ContentView.swift */; };
 		A6C986132B67B4E500D07D0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C986122B67B4E500D07D0B /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A66DE62A2B6D08EB0053D9AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A6C9860B2B67B4E400D07D0B /* MyOceanTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyOceanTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanTestsApp.swift; sourceTree = "<group>"; };
 		A6C986102B67B4E400D07D0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */,
 				A6C986102B67B4E400D07D0B /* ContentView.swift */,
+				A66DE62A2B6D08EB0053D9AB /* DetailView.swift */,
 				A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */,
 				A6C986122B67B4E500D07D0B /* Assets.xcassets */,
 				A6C986142B67B4E500D07D0B /* Preview Content */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6C986392B67B8B800D07D0B /* DeepOceanViewModel.swift in Sources */,
+				A66DE62B2B6D08EB0053D9AB /* DetailView.swift in Sources */,
 				A6C986112B67B4E400D07D0B /* ContentView.swift in Sources */,
 				A6C9860F2B67B4E400D07D0B /* MyOceanTestsApp.swift in Sources */,
 			);
