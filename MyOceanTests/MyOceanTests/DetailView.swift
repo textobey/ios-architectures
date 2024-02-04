@@ -17,5 +17,6 @@ struct DetailView: View {
                 .fontWeight(.bold)
                 .navigationBarTitleDisplayMode(.large)
         }
+        .navigationBarTitle("Welcome", displayMode: .large)
     }
 }
