@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A625FC502B7F739D00B8F8D8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */; };
+		A625FC532B7F76BB00B8F8D8 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625FC522B7F76BB00B8F8D8 /* MockNetworkService.swift */; };
 		A66DE62B2B6D08EB0053D9AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66DE62A2B6D08EB0053D9AB /* DetailView.swift */; };
 		A6C9860F2B67B4E400D07D0B /* MyOceanTestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */; };
 		A6C986112B67B4E400D07D0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986102B67B4E400D07D0B /* ContentView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A625FC522B7F76BB00B8F8D8 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		A66DE62A2B6D08EB0053D9AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A6C9860B2B67B4E400D07D0B /* MyOceanTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyOceanTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanTestsApp.swift; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A625FC512B7F76B000B8F8D8 /* MockServices */ = {
+			isa = PBXGroup;
+			children = (
+				A625FC522B7F76BB00B8F8D8 /* MockNetworkService.swift */,
+			);
+			path = MockServices;
+			sourceTree = "<group>";
+		};
 		A6C986022B67B4E400D07D0B = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +114,7 @@
 				A6C986102B67B4E400D07D0B /* ContentView.swift */,
 				A66DE62A2B6D08EB0053D9AB /* DetailView.swift */,
 				A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */,
+				A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */,
 				A6C986122B67B4E500D07D0B /* Assets.xcassets */,
 				A6C986142B67B4E500D07D0B /* Preview Content */,
 			);
@@ -119,6 +132,7 @@
 		A6C9861E2B67B4E600D07D0B /* MyOceanTestsTests */ = {
 			isa = PBXGroup;
 			children = (
+				A625FC512B7F76B000B8F8D8 /* MockServices */,
 				A6C9861F2B67B4E600D07D0B /* MyOceanTestsTests.swift */,
 			);
 			path = MyOceanTestsTests;
@@ -263,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A625FC502B7F739D00B8F8D8 /* NetworkService.swift in Sources */,
 				A6C986392B67B8B800D07D0B /* DeepOceanViewModel.swift in Sources */,
 				A66DE62B2B6D08EB0053D9AB /* DetailView.swift in Sources */,
 				A6C986112B67B4E400D07D0B /* ContentView.swift in Sources */,
@@ -274,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A625FC532B7F76BB00B8F8D8 /* MockNetworkService.swift in Sources */,
 				A6C986202B67B4E600D07D0B /* MyOceanTestsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

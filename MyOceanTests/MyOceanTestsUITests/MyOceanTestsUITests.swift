@@ -9,6 +9,11 @@ import MyOceanTests
 import XCTest
 
 final class MyOceanTestsUITests: XCTestCase {
+    
+    // given-when-then 패턴은 테스트를 할때 많이 사용되는 패턴중 하나
+    // given(준비): 이 단계에서는 테스트의 사전 조건을 설정한다. 예를 들어, 특정 객체를 초기화하거나 mock데이터를 준비하는 작업을 수행
+    // when(실행): 이 단계에서는 실제로 테스트하려는 동작을 수행한다. 예를 들어, 특정 메서드를 호출하거나 UI 인터랙션을 시뮬레이션하는 작업을 수행
+    // then(확인): 이 단계에서는 테스트의 결과를 검증한다. 예를 들어, 특정 메서드가 예상대로 return 되었는지, 특정 상태가 업데이트 되었는지 확인
 
     override func setUp() {
         super.setUp()
