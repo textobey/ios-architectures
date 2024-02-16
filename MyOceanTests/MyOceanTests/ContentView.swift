@@ -25,18 +25,23 @@ struct ContentView: View {
                     .cornerRadius(10)
                     .padding(.bottom, 50)
                 
-                NavigationLink(destination: {
-                    DetailView(userName: $userName)
-                }, label: {
-                    Text("Sign Up")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                })
+                NavigationLink(
+                    destination: {
+                        DetailView(userName: $userName)
+                    },
+                    label: {
+                        Text("Sign Up")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                )
+                .disabled(userName.isEmpty)
+                .opacity(userName.isEmpty ? 0.6 : 1)
             }
             .padding()
         }

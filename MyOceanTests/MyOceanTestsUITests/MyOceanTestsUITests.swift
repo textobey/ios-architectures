@@ -95,9 +95,6 @@ final class MyOceanTestsUITests: XCTestCase {
         XCTAssertTrue(helloWorldStaticText.exists, "Welcome exists")
     }
     
-    // TODO: UserName이 입력되지 않았을경우, 가입 버튼을 비활성화시키고 화면이동이 되지 않음을 확인하는 테스트
-    //func test_shallowOceanView_singupButton_didNotMakeNavigation() { }
-    
     func test_shallowOceanView_backButton_didNavigationBack() {
         // given
         let app = XCUIApplication()
@@ -125,5 +122,20 @@ final class MyOceanTestsUITests: XCTestCase {
         // then
         let registrationStaticText = app.staticTexts["Registration"]
         XCTAssertTrue(registrationStaticText.exists, "Text exists")
+    }
+    
+    // TODO: UserName이 입력되지 않았을경우, 가입 버튼을 비활성화시키고 화면이동이 되지 않음을 확인하는 테스트(완료)
+    // 궁금한점. push/pop 동작이 이루어지지 않았음을 특정 UI의 존재유무에 의존하는게 맞을까?
+    func test_shallowOceanView_singupButton_didNotMakeNavigation() {
+        // given
+        let app = XCUIApplication()
+        app.launch()
+        
+        // when
+        app.buttons["Sign Up"].tap()
+        
+        // then
+        let welcomeStaticText = app.staticTexts["Welcome"]
+        XCTAssertFalse(welcomeStaticText.exists, "Welcome not exists")
     }
 }
