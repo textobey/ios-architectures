@@ -11,10 +11,13 @@ class DeepOceanViewModel {
     @Published var uiImage: UIImage?
     @Published var error: Error?
     
+    @Published var jokeList: [String] = []
+    
     private let networkService: AnyNetworkService
     
     init(networkService: AnyNetworkService) {
         self.networkService = networkService
+        self.getJokeList()
     }
     
     func downloadWallPaper() {
@@ -30,6 +33,10 @@ class DeepOceanViewModel {
                 self.error = failure
             }
         }
+    }
+    
+    func getJokeList() {
+        jokeList = networkService.fetchJokeList()
     }
     
     func sum(_ a: Int, _ b: Int) -> Int {

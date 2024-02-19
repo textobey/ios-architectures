@@ -30,6 +30,10 @@ final class MockNetworkService: AnyNetworkService {
             completionHandler(.failure(MockError.failure))
         }
     }
+    
+    func fetchJokeList() -> [String] {
+        return []
+    }
 }
 
 enum MockError: Error {
