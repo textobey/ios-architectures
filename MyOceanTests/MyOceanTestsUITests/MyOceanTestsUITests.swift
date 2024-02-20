@@ -5,7 +5,6 @@
 //  Created by 이서준 on 1/29/24.
 //
 
-import MyOceanTests
 import XCTest
 
 final class MyOceanTestsUITests: XCTestCase {

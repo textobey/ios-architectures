@@ -10,11 +10,12 @@
 		A625FC502B7F739D00B8F8D8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */; };
 		A625FC532B7F76BB00B8F8D8 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625FC522B7F76BB00B8F8D8 /* MockNetworkService.swift */; };
 		A66DE62B2B6D08EB0053D9AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66DE62A2B6D08EB0053D9AB /* DetailView.swift */; };
-		A69ED6182B836606000B9D8F /* MyOceanSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED6172B836606000B9D8F /* MyOceanSnapshotTests.swift */; };
-		A69ED61A2B836606000B9D8F /* MyOceanSnapshotTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED6192B836606000B9D8F /* MyOceanSnapshotTestsLaunchTests.swift */; };
+		A68153CC2B841D1300BA4010 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A68153CB2B841D1300BA4010 /* InlineSnapshotTesting */; };
+		A68153CE2B841D1300BA4010 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A68153CD2B841D1300BA4010 /* SnapshotTesting */; };
+		A68153D62B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68153D52B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift */; };
+		A68153DE2B841F1F00BA4010 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68153DD2B841F1F00BA4010 /* MockNetworkService.swift */; };
 		A69ED6262B83681C000B9D8F /* JokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED6252B83681C000B9D8F /* JokeView.swift */; };
 		A69ED6282B836821000B9D8F /* JokeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED6272B836821000B9D8F /* JokeDetailView.swift */; };
-		A6BEA8072B837096001E1782 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8062B837096001E1782 /* MockNetworkService.swift */; };
 		A6C9860F2B67B4E400D07D0B /* MyOceanTestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */; };
 		A6C986112B67B4E400D07D0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986102B67B4E400D07D0B /* ContentView.swift */; };
 		A6C986132B67B4E500D07D0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C986122B67B4E500D07D0B /* Assets.xcassets */; };
@@ -23,11 +24,10 @@
 		A6C9862A2B67B4E600D07D0B /* MyOceanTestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986292B67B4E600D07D0B /* MyOceanTestsUITests.swift */; };
 		A6C9862C2B67B4E600D07D0B /* MyOceanTestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9862B2B67B4E600D07D0B /* MyOceanTestsUITestsLaunchTests.swift */; };
 		A6C986392B67B8B800D07D0B /* DeepOceanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */; };
-		A6EFED772B8372D900440FC5 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A6EFED762B8372D900440FC5 /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A69ED61B2B836606000B9D8F /* PBXContainerItemProxy */ = {
+		A68153D72B841E8B00BA4010 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A6C986032B67B4E400D07D0B /* Project object */;
 			proxyType = 1;
@@ -54,12 +54,11 @@
 		A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A625FC522B7F76BB00B8F8D8 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		A66DE62A2B6D08EB0053D9AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		A69ED6152B836606000B9D8F /* MyOceanSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyOceanSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A69ED6172B836606000B9D8F /* MyOceanSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanSnapshotTests.swift; sourceTree = "<group>"; };
-		A69ED6192B836606000B9D8F /* MyOceanSnapshotTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanSnapshotTestsLaunchTests.swift; sourceTree = "<group>"; };
+		A68153D32B841E8B00BA4010 /* MyOceanSanpshotRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyOceanSanpshotRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A68153D52B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanSanpshotRecordTests.swift; sourceTree = "<group>"; };
+		A68153DD2B841F1F00BA4010 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		A69ED6252B83681C000B9D8F /* JokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeView.swift; sourceTree = "<group>"; };
 		A69ED6272B836821000B9D8F /* JokeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeDetailView.swift; sourceTree = "<group>"; };
-		A6BEA8062B837096001E1782 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		A6C9860B2B67B4E400D07D0B /* MyOceanTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyOceanTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanTestsApp.swift; sourceTree = "<group>"; };
 		A6C986102B67B4E400D07D0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,11 +73,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A69ED6122B836606000B9D8F /* Frameworks */ = {
+		A68153D02B841E8B00BA4010 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6EFED772B8372D900440FC5 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68153CC2B841D1300BA4010 /* InlineSnapshotTesting in Frameworks */,
+				A68153CE2B841D1300BA4010 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,20 +114,19 @@
 			path = MockServices;
 			sourceTree = "<group>";
 		};
-		A69ED6162B836606000B9D8F /* MyOceanSnapshotTests */ = {
+		A68153D42B841E8B00BA4010 /* MyOceanSanpshotRecordTests */ = {
 			isa = PBXGroup;
 			children = (
-				A6BEA8052B837082001E1782 /* MockService */,
-				A69ED6172B836606000B9D8F /* MyOceanSnapshotTests.swift */,
-				A69ED6192B836606000B9D8F /* MyOceanSnapshotTestsLaunchTests.swift */,
+				A68153DC2B841F0A00BA4010 /* MockService */,
+				A68153D52B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift */,
 			);
-			path = MyOceanSnapshotTests;
+			path = MyOceanSanpshotRecordTests;
 			sourceTree = "<group>";
 		};
-		A6BEA8052B837082001E1782 /* MockService */ = {
+		A68153DC2B841F0A00BA4010 /* MockService */ = {
 			isa = PBXGroup;
 			children = (
-				A6BEA8062B837096001E1782 /* MockNetworkService.swift */,
+				A68153DD2B841F1F00BA4010 /* MockNetworkService.swift */,
 			);
 			path = MockService;
 			sourceTree = "<group>";
@@ -138,7 +137,7 @@
 				A6C9860D2B67B4E400D07D0B /* MyOceanTests */,
 				A6C9861E2B67B4E600D07D0B /* MyOceanTestsTests */,
 				A6C986282B67B4E600D07D0B /* MyOceanTestsUITests */,
-				A69ED6162B836606000B9D8F /* MyOceanSnapshotTests */,
+				A68153D42B841E8B00BA4010 /* MyOceanSanpshotRecordTests */,
 				A6C9860C2B67B4E400D07D0B /* Products */,
 				A6EFED752B8372D900440FC5 /* Frameworks */,
 			);
@@ -150,7 +149,7 @@
 				A6C9860B2B67B4E400D07D0B /* MyOceanTests.app */,
 				A6C9861B2B67B4E600D07D0B /* MyOceanTestsTests.xctest */,
 				A6C986252B67B4E600D07D0B /* MyOceanTestsUITests.xctest */,
-				A69ED6152B836606000B9D8F /* MyOceanSnapshotTests.xctest */,
+				A68153D32B841E8B00BA4010 /* MyOceanSanpshotRecordTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,26 +206,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A69ED6142B836606000B9D8F /* MyOceanSnapshotTests */ = {
+		A68153D22B841E8B00BA4010 /* MyOceanSanpshotRecordTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A69ED61F2B836606000B9D8F /* Build configuration list for PBXNativeTarget "MyOceanSnapshotTests" */;
+			buildConfigurationList = A68153D92B841E8B00BA4010 /* Build configuration list for PBXNativeTarget "MyOceanSanpshotRecordTests" */;
 			buildPhases = (
-				A69ED6112B836606000B9D8F /* Sources */,
-				A69ED6122B836606000B9D8F /* Frameworks */,
-				A69ED6132B836606000B9D8F /* Resources */,
+				A68153CF2B841E8B00BA4010 /* Sources */,
+				A68153D02B841E8B00BA4010 /* Frameworks */,
+				A68153D12B841E8B00BA4010 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A69ED61C2B836606000B9D8F /* PBXTargetDependency */,
+				A68153D82B841E8B00BA4010 /* PBXTargetDependency */,
 			);
-			name = MyOceanSnapshotTests;
-			packageProductDependencies = (
-				A6EFED762B8372D900440FC5 /* SnapshotTesting */,
-			);
-			productName = MyOceanSnapshotTests;
-			productReference = A69ED6152B836606000B9D8F /* MyOceanSnapshotTests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = MyOceanSanpshotRecordTests;
+			productName = MyOceanSanpshotRecordTests;
+			productReference = A68153D32B841E8B00BA4010 /* MyOceanSanpshotRecordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A6C9860A2B67B4E400D07D0B /* MyOceanTests */ = {
 			isa = PBXNativeTarget;
@@ -242,6 +238,8 @@
 			);
 			name = MyOceanTests;
 			packageProductDependencies = (
+				A68153CB2B841D1300BA4010 /* InlineSnapshotTesting */,
+				A68153CD2B841D1300BA4010 /* SnapshotTesting */,
 			);
 			productName = MyOceanTests;
 			productReference = A6C9860B2B67B4E400D07D0B /* MyOceanTests.app */;
@@ -293,7 +291,7 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					A69ED6142B836606000B9D8F = {
+					A68153D22B841E8B00BA4010 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = A6C9860A2B67B4E400D07D0B;
 					};
@@ -320,7 +318,7 @@
 			);
 			mainGroup = A6C986022B67B4E400D07D0B;
 			packageReferences = (
-				A6EFED742B83728000440FC5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = A6C9860C2B67B4E400D07D0B /* Products */;
 			projectDirPath = "";
@@ -329,13 +327,13 @@
 				A6C9860A2B67B4E400D07D0B /* MyOceanTests */,
 				A6C9861A2B67B4E600D07D0B /* MyOceanTestsTests */,
 				A6C986242B67B4E600D07D0B /* MyOceanTestsUITests */,
-				A69ED6142B836606000B9D8F /* MyOceanSnapshotTests */,
+				A68153D22B841E8B00BA4010 /* MyOceanSanpshotRecordTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A69ED6132B836606000B9D8F /* Resources */ = {
+		A68153D12B841E8B00BA4010 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -368,13 +366,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A69ED6112B836606000B9D8F /* Sources */ = {
+		A68153CF2B841E8B00BA4010 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6BEA8072B837096001E1782 /* MockNetworkService.swift in Sources */,
-				A69ED6182B836606000B9D8F /* MyOceanSnapshotTests.swift in Sources */,
-				A69ED61A2B836606000B9D8F /* MyOceanSnapshotTestsLaunchTests.swift in Sources */,
+				A68153D62B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift in Sources */,
+				A68153DE2B841F1F00BA4010 /* MockNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,10 +410,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A69ED61C2B836606000B9D8F /* PBXTargetDependency */ = {
+		A68153D82B841E8B00BA4010 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A6C9860A2B67B4E400D07D0B /* MyOceanTests */;
-			targetProxy = A69ED61B2B836606000B9D8F /* PBXContainerItemProxy */;
+			targetProxy = A68153D72B841E8B00BA4010 /* PBXContainerItemProxy */;
 		};
 		A6C9861D2B67B4E600D07D0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -431,37 +428,41 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		A69ED61D2B836606000B9D8F /* Debug */ = {
+		A68153DA2B841E8B00BA4010 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HU8RMC793N;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.textobey.MyOceanSnapshotTests;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.textobey.MyOceanSanpshotRecordTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyOceanTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyOceanTests.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyOceanTests";
 			};
 			name = Debug;
 		};
-		A69ED61E2B836606000B9D8F /* Release */ = {
+		A68153DB2B841E8B00BA4010 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HU8RMC793N;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.textobey.MyOceanSnapshotTests;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.textobey.MyOceanSanpshotRecordTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyOceanTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyOceanTests.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyOceanTests";
 			};
 			name = Release;
 		};
@@ -502,6 +503,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -563,6 +565,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -574,6 +577,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -724,11 +728,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A69ED61F2B836606000B9D8F /* Build configuration list for PBXNativeTarget "MyOceanSnapshotTests" */ = {
+		A68153D92B841E8B00BA4010 /* Build configuration list for PBXNativeTarget "MyOceanSanpshotRecordTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A69ED61D2B836606000B9D8F /* Debug */,
-				A69ED61E2B836606000B9D8F /* Release */,
+				A68153DA2B841E8B00BA4010 /* Debug */,
+				A68153DB2B841E8B00BA4010 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -772,7 +776,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A6EFED742B83728000440FC5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+		A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
 			requirement = {
@@ -783,9 +787,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A6EFED762B8372D900440FC5 /* SnapshotTesting */ = {
+		A68153CB2B841D1300BA4010 /* InlineSnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A6EFED742B83728000440FC5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			package = A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		A68153CD2B841D1300BA4010 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
