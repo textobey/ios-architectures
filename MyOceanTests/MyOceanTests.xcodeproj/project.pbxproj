@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		A625FC502B7F739D00B8F8D8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */; };
 		A625FC532B7F76BB00B8F8D8 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625FC522B7F76BB00B8F8D8 /* MockNetworkService.swift */; };
+		A6465A382B847D0500C0441B /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6465A372B847D0500C0441B /* LoadingButton.swift */; };
+		A6465A3E2B847ED600C0441B /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A6465A3D2B847ED600C0441B /* InlineSnapshotTesting */; };
+		A6465A402B847ED600C0441B /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A6465A3F2B847ED600C0441B /* SnapshotTesting */; };
+		A6465A422B847EDA00C0441B /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A6465A412B847EDA00C0441B /* InlineSnapshotTesting */; };
+		A6465A442B847EDA00C0441B /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A6465A432B847EDA00C0441B /* SnapshotTesting */; };
+		A6465A462B847EDF00C0441B /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A6465A452B847EDF00C0441B /* InlineSnapshotTesting */; };
+		A6465A482B847EDF00C0441B /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A6465A472B847EDF00C0441B /* SnapshotTesting */; };
 		A66DE62B2B6D08EB0053D9AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66DE62A2B6D08EB0053D9AB /* DetailView.swift */; };
-		A68153CC2B841D1300BA4010 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A68153CB2B841D1300BA4010 /* InlineSnapshotTesting */; };
-		A68153CE2B841D1300BA4010 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A68153CD2B841D1300BA4010 /* SnapshotTesting */; };
 		A68153D62B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68153D52B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift */; };
 		A68153DE2B841F1F00BA4010 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68153DD2B841F1F00BA4010 /* MockNetworkService.swift */; };
 		A69ED6262B83681C000B9D8F /* JokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED6252B83681C000B9D8F /* JokeView.swift */; };
@@ -53,6 +58,7 @@
 /* Begin PBXFileReference section */
 		A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A625FC522B7F76BB00B8F8D8 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		A6465A372B847D0500C0441B /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		A66DE62A2B6D08EB0053D9AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A68153D32B841E8B00BA4010 /* MyOceanSanpshotRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyOceanSanpshotRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68153D52B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanSanpshotRecordTests.swift; sourceTree = "<group>"; };
@@ -77,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6465A462B847EDF00C0441B /* InlineSnapshotTesting in Frameworks */,
+				A6465A482B847EDF00C0441B /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,8 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A68153CC2B841D1300BA4010 /* InlineSnapshotTesting in Frameworks */,
-				A68153CE2B841D1300BA4010 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6465A3E2B847ED600C0441B /* InlineSnapshotTesting in Frameworks */,
+				A6465A402B847ED600C0441B /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6465A422B847EDA00C0441B /* InlineSnapshotTesting in Frameworks */,
+				A6465A442B847EDA00C0441B /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +174,7 @@
 				A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */,
 				A69ED6252B83681C000B9D8F /* JokeView.swift */,
 				A69ED6272B836821000B9D8F /* JokeDetailView.swift */,
+				A6465A372B847D0500C0441B /* LoadingButton.swift */,
 				A6C986122B67B4E500D07D0B /* Assets.xcassets */,
 				A6C986142B67B4E500D07D0B /* Preview Content */,
 			);
@@ -220,6 +231,10 @@
 				A68153D82B841E8B00BA4010 /* PBXTargetDependency */,
 			);
 			name = MyOceanSanpshotRecordTests;
+			packageProductDependencies = (
+				A6465A452B847EDF00C0441B /* InlineSnapshotTesting */,
+				A6465A472B847EDF00C0441B /* SnapshotTesting */,
+			);
 			productName = MyOceanSanpshotRecordTests;
 			productReference = A68153D32B841E8B00BA4010 /* MyOceanSanpshotRecordTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -238,8 +253,6 @@
 			);
 			name = MyOceanTests;
 			packageProductDependencies = (
-				A68153CB2B841D1300BA4010 /* InlineSnapshotTesting */,
-				A68153CD2B841D1300BA4010 /* SnapshotTesting */,
 			);
 			productName = MyOceanTests;
 			productReference = A6C9860B2B67B4E400D07D0B /* MyOceanTests.app */;
@@ -259,6 +272,10 @@
 				A6C9861D2B67B4E600D07D0B /* PBXTargetDependency */,
 			);
 			name = MyOceanTestsTests;
+			packageProductDependencies = (
+				A6465A3D2B847ED600C0441B /* InlineSnapshotTesting */,
+				A6465A3F2B847ED600C0441B /* SnapshotTesting */,
+			);
 			productName = MyOceanTestsTests;
 			productReference = A6C9861B2B67B4E600D07D0B /* MyOceanTestsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -277,6 +294,10 @@
 				A6C986272B67B4E600D07D0B /* PBXTargetDependency */,
 			);
 			name = MyOceanTestsUITests;
+			packageProductDependencies = (
+				A6465A412B847EDA00C0441B /* InlineSnapshotTesting */,
+				A6465A432B847EDA00C0441B /* SnapshotTesting */,
+			);
 			productName = MyOceanTestsUITests;
 			productReference = A6C986252B67B4E600D07D0B /* MyOceanTestsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -379,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6465A382B847D0500C0441B /* LoadingButton.swift in Sources */,
 				A69ED6282B836821000B9D8F /* JokeDetailView.swift in Sources */,
 				A625FC502B7F739D00B8F8D8 /* NetworkService.swift in Sources */,
 				A69ED6262B83681C000B9D8F /* JokeView.swift in Sources */,
@@ -787,12 +809,32 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A68153CB2B841D1300BA4010 /* InlineSnapshotTesting */ = {
+		A6465A3D2B847ED600C0441B /* InlineSnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = InlineSnapshotTesting;
 		};
-		A68153CD2B841D1300BA4010 /* SnapshotTesting */ = {
+		A6465A3F2B847ED600C0441B /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+		A6465A412B847EDA00C0441B /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		A6465A432B847EDA00C0441B /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+		A6465A452B847EDF00C0441B /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		A6465A472B847EDF00C0441B /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A68153CA2B841D1300BA4010 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;

@@ -9,6 +9,7 @@ import XCTest
 import SnapshotTesting
 
 @testable import MyOceanTests
+import SwiftUI
 
 final class MyOceanSanpshotRecordTests: XCTestCase {
 
@@ -48,5 +49,40 @@ final class MyOceanSanpshotRecordTests: XCTestCase {
         let view = JokeDetailView(joke: "Hello friend!")
         
         assertSnapshot(of: view, as: .image)
+    }
+    
+    func test_buttonDefaultState() {
+        let button = LoadingButton()
+        
+        // 이미지 저장이 "testName.named" 포맷으로 저장됨
+        let result = verifySnapshot(of: button, as: .image, named: "Default", testName: "Button")
+        
+        XCTAssertNil(result)
+    }
+    
+    func test_buttonLoadingState() {
+        let button = LoadingButton(isLoading: true)
+
+        let result = verifySnapshot(of: button, as: .image, named: "isLoading", testName: "Button")
+        
+        XCTAssertNil(result)
+    }
+    
+    // 장치별 스냅샷 확인
+    func test_contentViewDefaultState() {
+        // given
+        let view = UIHostingController(rootView: ContentView())
+        
+        let divices: [String: ViewImageConfig] = [
+            "iPhoneX": .iPhoneX,
+            "iPhone8": .iPhone8,
+            "iPhoneSE": .iPhoneSe
+        ]
+        
+        let results = divices.map { device in
+            verifySnapshot(of: view, as: .image(on: device.value))
+        }
+        
+        results.forEach { XCTAssertNil($0) }
     }
 }

@@ -142,4 +142,44 @@ final class MyOceanTestsUITests: XCTestCase {
         let welcomeStaticText = app.staticTexts["Welcome"]
         XCTAssertFalse(welcomeStaticText.exists, "Welcome not exists")
     }
+    
+    func test_contentView_loadingButton_startIndicator() {
+        // given
+        let app = XCUIApplication()
+        app.launch()
+        
+        let loadingButton = app.otherElements["LoadingButton"].firstMatch
+        let progressView = app/*@START_MENU_TOKEN@*/.buttons["LoadingButton_ProgressView"]/*[[".otherElements[\"LoadingButton\"]",".buttons[\"In progress\"]",".buttons[\"LoadingButton_ProgressView\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+            .children(matching: .activityIndicator)["In progress"]
+        
+        // when
+        XCTAssertTrue(loadingButton.waitForExistence(timeout: 1))
+        
+        loadingButton.tap()
+        
+        // then
+        XCTAssertTrue(progressView.exists)
+    }
+    
+    func test_contentView_loadingButton_stopIndicator() {
+        // given
+        let app = XCUIApplication()
+        app.launch()
+        
+        let loadingButton = app.otherElements["LoadingButton"].firstMatch
+        let progressView = app/*@START_MENU_TOKEN@*/.buttons["LoadingButton_ProgressView"]/*[[".otherElements[\"LoadingButton\"]",".buttons[\"In progress\"]",".buttons[\"LoadingButton_ProgressView\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+            .children(matching: .activityIndicator)["In progress"]
+        
+        // when
+        XCTAssertTrue(loadingButton.waitForExistence(timeout: 1))
+        
+        loadingButton.tap()
+        
+        XCTAssertTrue(progressView.exists)
+        
+        progressView.tap()
+        
+        // then
+        XCTAssert(app.staticTexts["Button Title"].exists)
+    }
 }

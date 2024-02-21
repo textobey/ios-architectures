@@ -33,6 +33,10 @@ struct ContentView: View {
                     .frame(alignment: .bottom)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
+                    
+                    LoadingButton()
+                        .accessibilityElement(children: .contain)
+                        .accessibilityIdentifier("LoadingButton")
                 }
             }
         }
