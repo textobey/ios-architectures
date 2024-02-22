@@ -18,6 +18,8 @@ class DeepOceanViewModel {
     let networkService: AnyNetworkService
     let cloudService: AnyService
     
+    var measureCount: Int = 0
+    
     init(networkService: AnyNetworkService, cloudService: AnyService) {
         self.networkService = networkService
         self.cloudService = cloudService
@@ -62,6 +64,12 @@ class DeepOceanViewModel {
     
     func callAsyncAwaitCloudSerivce() async throws -> UIImage? {
         return UIImage(data: try await cloudService.asyncAwaitCall())
+    }
+    
+    func heavyCalculration() {
+        (0 ..< 2_000_000).forEach { _ in
+            measureCount += 1
+        }
     }
     
     func sum(_ a: Int, _ b: Int) -> Int {

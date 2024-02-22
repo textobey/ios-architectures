@@ -156,4 +156,27 @@ final class MyOceanTestsTests: XCTestCase {
         // then
         XCTAssertNotNil(image)
     }
+    
+    func test_viewModel_heavyCalculation_isPerformanceSatisfing() {
+        // metric: time
+        // average(평균): 0.43 s
+        // baseline(비교 기준점): No baselin
+        // max stddev(최대 표준편차): 10%
+        
+        //measure {
+        //    sut.heavyCalculration()
+        //}
+        
+        // metrics: XCTClockMetric(기본값)
+        // options: XCTMeasureOptions.default의 iterationCount는 10이 기본값
+        let metrics: [XCTMetric] = [XCTMemoryMetric(), XCTCPUMetric(), XCTClockMetric()]
+        let measureOptions = XCTMeasureOptions.default
+        measureOptions.iterationCount = 5
+        
+        // 각 metrics
+        
+        measure(metrics: metrics, options: measureOptions, block: {
+            sut.heavyCalculration()
+        })
+    }
 }
