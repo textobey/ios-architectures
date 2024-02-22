@@ -31,7 +31,7 @@ final class MyOceanSanpshotRecordTests: XCTestCase {
     // SnapshotTesting은 모든 Swift 플랫폼에서 UIView의 포맷으로 작동 가능
     func test_JokeView_isSame() {
         // given
-        let viewModel = DeepOceanViewModel(networkService: MockNetworkService())
+        let viewModel = DeepOceanViewModel(networkService: MockNetworkService(), cloudService: CloudService())
         let view = JokeView(viewModel: viewModel)
         
         // kaleidoscope라는 compare앱에 실패 로그를 출력하도록 구성할수있나봄

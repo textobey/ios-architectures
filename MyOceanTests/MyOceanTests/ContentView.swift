@@ -14,7 +14,10 @@ struct ContentView: View {
         // Joke TestView
         NavigationView {
             ZStack {
-                JokeView(viewModel: DeepOceanViewModel(networkService: NetworkService()))
+                JokeView(viewModel: DeepOceanViewModel(
+                    networkService: NetworkService(),
+                    cloudService: CloudService()
+                ))
                 
                 VStack {
                     Spacer()

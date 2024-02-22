@@ -29,6 +29,9 @@
 		A6C9862A2B67B4E600D07D0B /* MyOceanTestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986292B67B4E600D07D0B /* MyOceanTestsUITests.swift */; };
 		A6C9862C2B67B4E600D07D0B /* MyOceanTestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9862B2B67B4E600D07D0B /* MyOceanTestsUITestsLaunchTests.swift */; };
 		A6C986392B67B8B800D07D0B /* DeepOceanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */; };
+		A6EB5EC62B85E406005C49E4 /* CloudSerivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EB5EC52B85E406005C49E4 /* CloudSerivce.swift */; };
+		A6EB5EC82B85E5BA005C49E4 /* MockCloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EB5EC72B85E5BA005C49E4 /* MockCloudService.swift */; };
+		A6EB5ECA2B85F529005C49E4 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EB5EC92B85F529005C49E4 /* Debouncer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		A6C986292B67B4E600D07D0B /* MyOceanTestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanTestsUITests.swift; sourceTree = "<group>"; };
 		A6C9862B2B67B4E600D07D0B /* MyOceanTestsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanTestsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepOceanViewModel.swift; sourceTree = "<group>"; };
+		A6EB5EC52B85E406005C49E4 /* CloudSerivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSerivce.swift; sourceTree = "<group>"; };
+		A6EB5EC72B85E5BA005C49E4 /* MockCloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCloudService.swift; sourceTree = "<group>"; };
+		A6EB5EC92B85F529005C49E4 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				A625FC522B7F76BB00B8F8D8 /* MockNetworkService.swift */,
+				A6EB5EC72B85E5BA005C49E4 /* MockCloudService.swift */,
 			);
 			path = MockServices;
 			sourceTree = "<group>";
@@ -172,9 +179,11 @@
 				A66DE62A2B6D08EB0053D9AB /* DetailView.swift */,
 				A6C986382B67B8B800D07D0B /* DeepOceanViewModel.swift */,
 				A625FC4F2B7F739D00B8F8D8 /* NetworkService.swift */,
+				A6EB5EC52B85E406005C49E4 /* CloudSerivce.swift */,
 				A69ED6252B83681C000B9D8F /* JokeView.swift */,
 				A69ED6272B836821000B9D8F /* JokeDetailView.swift */,
 				A6465A372B847D0500C0441B /* LoadingButton.swift */,
+				A6EB5EC92B85F529005C49E4 /* Debouncer.swift */,
 				A6C986122B67B4E500D07D0B /* Assets.xcassets */,
 				A6C986142B67B4E500D07D0B /* Preview Content */,
 			);
@@ -403,9 +412,11 @@
 				A6465A382B847D0500C0441B /* LoadingButton.swift in Sources */,
 				A69ED6282B836821000B9D8F /* JokeDetailView.swift in Sources */,
 				A625FC502B7F739D00B8F8D8 /* NetworkService.swift in Sources */,
+				A6EB5ECA2B85F529005C49E4 /* Debouncer.swift in Sources */,
 				A69ED6262B83681C000B9D8F /* JokeView.swift in Sources */,
 				A6C986392B67B8B800D07D0B /* DeepOceanViewModel.swift in Sources */,
 				A66DE62B2B6D08EB0053D9AB /* DetailView.swift in Sources */,
+				A6EB5EC62B85E406005C49E4 /* CloudSerivce.swift in Sources */,
 				A6C986112B67B4E400D07D0B /* ContentView.swift in Sources */,
 				A6C9860F2B67B4E400D07D0B /* MyOceanTestsApp.swift in Sources */,
 			);
@@ -416,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A625FC532B7F76BB00B8F8D8 /* MockNetworkService.swift in Sources */,
+				A6EB5EC82B85E5BA005C49E4 /* MockCloudService.swift in Sources */,
 				A6C986202B67B4E600D07D0B /* MyOceanTestsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

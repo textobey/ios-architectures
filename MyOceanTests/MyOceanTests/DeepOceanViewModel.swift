@@ -13,10 +13,14 @@ class DeepOceanViewModel {
     
     @Published var jokeList: [String] = []
     
-    private let networkService: AnyNetworkService
+    let debouncer = Debouncer(timeInterval: 0.3)
     
-    init(networkService: AnyNetworkService) {
+    let networkService: AnyNetworkService
+    let cloudService: AnyService
+    
+    init(networkService: AnyNetworkService, cloudService: AnyService) {
         self.networkService = networkService
+        self.cloudService = cloudService
         self.getJokeList()
     }
     
@@ -37,6 +41,27 @@ class DeepOceanViewModel {
     
     func getJokeList() {
         jokeList = networkService.fetchJokeList()
+    }
+    
+    func callSomeAsyncOperation() {
+        cloudService.someAsyncOperation()
+    }
+    
+    func anotherAsyncOperation(completionHandler: @escaping () -> Void) {
+        cloudService.anotherAsyncOperation(completionHandler: completionHandler)
+    }
+    
+    func searchWithDebouncer(_ value: String, completionHandler: @escaping () -> Void) {
+        debouncer.renewInterval()
+        
+        debouncer.handler = {
+            print("try Search: \(value)")
+            completionHandler()
+        }
+    }
+    
+    func callAsyncAwaitCloudSerivce() async throws -> UIImage? {
+        return UIImage(data: try await cloudService.asyncAwaitCall())
     }
     
     func sum(_ a: Int, _ b: Int) -> Int {
