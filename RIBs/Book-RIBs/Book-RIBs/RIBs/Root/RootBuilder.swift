@@ -28,7 +28,7 @@ final class RootComponent: Component<RootDependency>,
 // MARK: - Builder
 
 protocol RootBuildable: Buildable {
-    func build() -> LaunchRouting
+    func build() -> (launchRouter: LaunchRouting, urlHandler: UrlHandler)
 }
 
 final class RootBuilder: Builder<RootDependency>, RootBuildable {
@@ -37,7 +37,7 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         super.init(dependency: dependency)
     }
     
-    func build() -> LaunchRouting {
+    func build() -> (launchRouter: LaunchRouting, urlHandler: UrlHandler) {
         let component = RootComponent(dependency: dependency)
         let tabBar = RootTabBarViewController()
         let interactor = RootInteractor(presenter: tabBar)
@@ -45,11 +45,13 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let newBookBuilder = NewBookBuilder(dependency: component)
         let searchBookBuilder = SearchBookBuilder(dependency: component)
         
-        return RootRouter(
+        let router = RootRouter(
             interactor: interactor,
             viewController: tabBar,
             newBookBuilder: newBookBuilder,
             searchBookBuilder: searchBookBuilder
         )
+        
+        return (router, interactor)
     }
 }

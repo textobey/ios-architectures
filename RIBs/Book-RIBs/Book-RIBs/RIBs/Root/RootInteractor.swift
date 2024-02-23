@@ -5,12 +5,14 @@
 //  Created by 이서준 on 2023/04/11.
 //
 
+import Foundation
 import RIBs
 import RxSwift
 
 protocol RootRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func attachTabs()
+    func routeNewBook() -> NewBookActionableItem
 }
 
 protocol RootPresentable: Presentable {
@@ -22,10 +24,19 @@ protocol RootListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
+final class RootInteractor:
+    PresentableInteractor<RootPresentable>,
+    RootInteractable,
+    RootPresentableListener,
+    RootActionableItem,
+    UrlHandler {
 
     weak var router: RootRouting?
     weak var listener: RootListener?
+    
+    // MARK: Deeplink
+    
+    //private let newBookActionableItemSubject = ReplaySubject<NewBookActionableItem>.create(bufferSize: 1)
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -43,5 +54,23 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    func handle(_ url: URL) {
+        let workflow = LoadPopularBookWorkflow(url: url)
+        
+        workflow
+            .subscribe(self)
+            .disposeOnDeactivate(interactor: self)
+    }
+    
+    func waitForRequest() -> Observable<(NewBookActionableItem, String)> {
+        if let newBookActionableItem = router?.routeNewBook() {
+            return Observable.just(newBookActionableItem)
+                .map { newBookActionableItem -> (NewBookActionableItem, String) in
+                    (newBookActionableItem, "Load PopularBook Request")
+                }
+        }
+        return Observable.empty()
     }
 }

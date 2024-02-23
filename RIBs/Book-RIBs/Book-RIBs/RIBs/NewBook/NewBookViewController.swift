@@ -73,6 +73,21 @@ final class NewBookViewController: UIViewController, NewBookPresentable, NewBook
     func popViewController(_ animated: Bool) {
         self.navigationController?.popViewController(animated: animated)
     }
+    
+    func showLoadAlertForPopularBookConfirm() {
+        let alert = UIAlertController(title: nil, message: "새로운 인기 책 목록을 불러올까요?", preferredStyle: .alert)
+        
+        let actionYes = UIAlertAction(title: "네", style: .default) { _ in
+            print("TODO: 새로운 책 목록 불러오기")
+        }
+        
+        let actionNo = UIAlertAction(title: "아니요", style: .cancel, handler: nil)
+        
+        alert.addAction(actionYes)
+        alert.addAction(actionNo)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension NewBookViewController {

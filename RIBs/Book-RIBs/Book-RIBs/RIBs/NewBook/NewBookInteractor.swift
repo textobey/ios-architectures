@@ -20,13 +20,14 @@ protocol NewBookPresentable: Presentable {
     // TODO: Declare methods the interactor can invoke the presenter to present data.
     var booksStream: BehaviorRelay<[BookItem]> { get }
     var isLoading: PublishRelay<Bool> { get }
+    func showLoadAlertForPopularBookConfirm()
 }
 
 protocol NewBookListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class NewBookInteractor: PresentableInteractor<NewBookPresentable>, NewBookInteractable, NewBookPresentableListener {
+final class NewBookInteractor: PresentableInteractor<NewBookPresentable>, NewBookInteractable, NewBookPresentableListener, NewBookActionableItem {
     
     private let disposeBag = DisposeBag()
     
@@ -104,6 +105,11 @@ final class NewBookInteractor: PresentableInteractor<NewBookPresentable>, NewBoo
     
     func detachBookDetailRIB(_ animated: Bool) {
         router?.detachToBookDetail(animated)
+    }
+    
+    func loadPopularBooks() -> Observable<(NewBookActionableItem, ())> {
+        presenter.showLoadAlertForPopularBookConfirm()
+        return Observable.just((self, ()))
     }
     
     private func fetchBookItems() -> Observable<[BookItem]> {

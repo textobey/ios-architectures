@@ -23,7 +23,8 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
 
     private let newBookBuilder: NewBookBuildable
     // ViewableRouting? RIB의 View 역할을 하는 ViewControllable이 정의되어 있다. router에서 UIViewController로 접근시 사용하는 프로토콜
-    private var newBookRouter: ViewableRouting?
+    //private var newBookRouter: ViewableRouting?
+    private var newBookRouter: (ViewableRouting?, NewBookActionableItem?)
     
     private let searchBookBuilder: SearchBookBuildable
     private var searchBookRouter: ViewableRouting?
@@ -55,10 +56,10 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     private func attachNewBookRIB() -> ViewControllable {
         // listener로 interactor를 전달하는 이유?
-        let router = newBookBuilder.build(withListener: interactor)
-        self.newBookRouter = router
-        attachChild(router)
-        return router.viewControllable
+        let newBook = newBookBuilder.build(withListener: interactor)
+        self.newBookRouter = newBook
+        attachChild(newBook.router)
+        return newBook.router.viewControllable
     }
     
     private func attachSearchBookRIB() -> ViewControllable {
@@ -66,5 +67,10 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         self.searchBookRouter = router
         attachChild(router)
         return router.viewControllable
+    }
+    
+    // FIXME: 이미 존재하고 있는 RootView이기 때문에, route라는 네이밍이 이상하고 강제언래핑을 수정해야함
+    func routeNewBook() -> NewBookActionableItem {
+        return newBookRouter.1!
     }
 }

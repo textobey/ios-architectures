@@ -25,7 +25,7 @@ final class NewBookComponent: Component<NewBookDependency> {
 // MARK: - Builder
 
 protocol NewBookBuildable: Buildable {
-    func build(withListener listener: NewBookListener) -> NewBookRouting
+    func build(withListener listener: NewBookListener) -> (router: NewBookRouting, actionableItem: NewBookActionableItem)
 }
 
 final class NewBookBuilder: Builder<NewBookDependency>, NewBookBuildable {
@@ -34,7 +34,7 @@ final class NewBookBuilder: Builder<NewBookDependency>, NewBookBuildable {
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: NewBookListener) -> NewBookRouting {
+    func build(withListener listener: NewBookListener) -> (router: NewBookRouting, actionableItem: NewBookActionableItem) {
         let component = NewBookComponent(dependency: dependency)
         let viewController = NewBookViewController()
         let interactor = NewBookInteractor(
@@ -47,10 +47,12 @@ final class NewBookBuilder: Builder<NewBookDependency>, NewBookBuildable {
         
         interactor.listener = listener
         
-        return NewBookRouter(
+        let router = NewBookRouter(
             interactor: interactor,
             viewController: viewController,
             bookDetailBuilder: bookDetailBuilder
         )
+        
+        return (router, interactor)
     }
 }
