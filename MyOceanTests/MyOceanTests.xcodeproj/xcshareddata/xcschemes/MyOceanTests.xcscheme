@@ -73,6 +73,17 @@
                ReferencedContainer = "container:MyOceanTests.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A68207112B8C1FA400FA3E0E"
+               BuildableName = "MyOceanDataRaceTests.xctest"
+               BlueprintName = "MyOceanDataRaceTests"
+               ReferencedContainer = "container:MyOceanTests.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

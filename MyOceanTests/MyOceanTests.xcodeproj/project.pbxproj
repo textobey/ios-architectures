@@ -19,6 +19,10 @@
 		A66DE62B2B6D08EB0053D9AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66DE62A2B6D08EB0053D9AB /* DetailView.swift */; };
 		A68153D62B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68153D52B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift */; };
 		A68153DE2B841F1F00BA4010 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68153DD2B841F1F00BA4010 /* MockNetworkService.swift */; };
+		A682070B2B8C1F3000FA3E0E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A682070A2B8C1F3000FA3E0E /* Counter.swift */; };
+		A68207152B8C1FA400FA3E0E /* MyOceanDataRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68207142B8C1FA400FA3E0E /* MyOceanDataRaceTests.swift */; };
+		A682071C2B8C2C9A00FA3E0E /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A682071B2B8C2C9A00FA3E0E /* BankAccount.swift */; };
+		A682071E2B8C4B3300FA3E0E /* BankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A682071D2B8C4B3300FA3E0E /* BankViewModel.swift */; };
 		A69ED6262B83681C000B9D8F /* JokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED6252B83681C000B9D8F /* JokeView.swift */; };
 		A69ED6282B836821000B9D8F /* JokeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED6272B836821000B9D8F /* JokeDetailView.swift */; };
 		A6C9860F2B67B4E400D07D0B /* MyOceanTestsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C9860E2B67B4E400D07D0B /* MyOceanTestsApp.swift */; };
@@ -36,6 +40,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		A68153D72B841E8B00BA4010 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6C986032B67B4E400D07D0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6C9860A2B67B4E400D07D0B;
+			remoteInfo = MyOceanTests;
+		};
+		A68207162B8C1FA400FA3E0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A6C986032B67B4E400D07D0B /* Project object */;
 			proxyType = 1;
@@ -66,6 +77,11 @@
 		A68153D32B841E8B00BA4010 /* MyOceanSanpshotRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyOceanSanpshotRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68153D52B841E8B00BA4010 /* MyOceanSanpshotRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanSanpshotRecordTests.swift; sourceTree = "<group>"; };
 		A68153DD2B841F1F00BA4010 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		A682070A2B8C1F3000FA3E0E /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		A68207122B8C1FA400FA3E0E /* MyOceanDataRaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyOceanDataRaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A68207142B8C1FA400FA3E0E /* MyOceanDataRaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOceanDataRaceTests.swift; sourceTree = "<group>"; };
+		A682071B2B8C2C9A00FA3E0E /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
+		A682071D2B8C4B3300FA3E0E /* BankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewModel.swift; sourceTree = "<group>"; };
 		A69ED6252B83681C000B9D8F /* JokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeView.swift; sourceTree = "<group>"; };
 		A69ED6272B836821000B9D8F /* JokeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeDetailView.swift; sourceTree = "<group>"; };
 		A6C9860B2B67B4E400D07D0B /* MyOceanTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyOceanTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +107,13 @@
 			files = (
 				A6465A462B847EDF00C0441B /* InlineSnapshotTesting in Frameworks */,
 				A6465A482B847EDF00C0441B /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A682070F2B8C1FA400FA3E0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +171,14 @@
 			path = MockService;
 			sourceTree = "<group>";
 		};
+		A68207132B8C1FA400FA3E0E /* MyOceanDataRaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				A68207142B8C1FA400FA3E0E /* MyOceanDataRaceTests.swift */,
+			);
+			path = MyOceanDataRaceTests;
+			sourceTree = "<group>";
+		};
 		A6C986022B67B4E400D07D0B = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +186,7 @@
 				A6C9861E2B67B4E600D07D0B /* MyOceanTestsTests */,
 				A6C986282B67B4E600D07D0B /* MyOceanTestsUITests */,
 				A68153D42B841E8B00BA4010 /* MyOceanSanpshotRecordTests */,
+				A68207132B8C1FA400FA3E0E /* MyOceanDataRaceTests */,
 				A6C9860C2B67B4E400D07D0B /* Products */,
 				A6EFED752B8372D900440FC5 /* Frameworks */,
 			);
@@ -167,6 +199,7 @@
 				A6C9861B2B67B4E600D07D0B /* MyOceanTestsTests.xctest */,
 				A6C986252B67B4E600D07D0B /* MyOceanTestsUITests.xctest */,
 				A68153D32B841E8B00BA4010 /* MyOceanSanpshotRecordTests.xctest */,
+				A68207122B8C1FA400FA3E0E /* MyOceanDataRaceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,7 +216,10 @@
 				A69ED6252B83681C000B9D8F /* JokeView.swift */,
 				A69ED6272B836821000B9D8F /* JokeDetailView.swift */,
 				A6465A372B847D0500C0441B /* LoadingButton.swift */,
+				A682070A2B8C1F3000FA3E0E /* Counter.swift */,
 				A6EB5EC92B85F529005C49E4 /* Debouncer.swift */,
+				A682071B2B8C2C9A00FA3E0E /* BankAccount.swift */,
+				A682071D2B8C4B3300FA3E0E /* BankViewModel.swift */,
 				A6C986122B67B4E500D07D0B /* Assets.xcassets */,
 				A6C986142B67B4E500D07D0B /* Preview Content */,
 			);
@@ -246,6 +282,24 @@
 			);
 			productName = MyOceanSanpshotRecordTests;
 			productReference = A68153D32B841E8B00BA4010 /* MyOceanSanpshotRecordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A68207112B8C1FA400FA3E0E /* MyOceanDataRaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A68207182B8C1FA400FA3E0E /* Build configuration list for PBXNativeTarget "MyOceanDataRaceTests" */;
+			buildPhases = (
+				A682070E2B8C1FA400FA3E0E /* Sources */,
+				A682070F2B8C1FA400FA3E0E /* Frameworks */,
+				A68207102B8C1FA400FA3E0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A68207172B8C1FA400FA3E0E /* PBXTargetDependency */,
+			);
+			name = MyOceanDataRaceTests;
+			productName = MyOceanDataRaceTests;
+			productReference = A68207122B8C1FA400FA3E0E /* MyOceanDataRaceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A6C9860A2B67B4E400D07D0B /* MyOceanTests */ = {
@@ -325,6 +379,10 @@
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = A6C9860A2B67B4E400D07D0B;
 					};
+					A68207112B8C1FA400FA3E0E = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = A6C9860A2B67B4E400D07D0B;
+					};
 					A6C9860A2B67B4E400D07D0B = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -358,12 +416,20 @@
 				A6C9861A2B67B4E600D07D0B /* MyOceanTestsTests */,
 				A6C986242B67B4E600D07D0B /* MyOceanTestsUITests */,
 				A68153D22B841E8B00BA4010 /* MyOceanSanpshotRecordTests */,
+				A68207112B8C1FA400FA3E0E /* MyOceanDataRaceTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A68153D12B841E8B00BA4010 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A68207102B8C1FA400FA3E0E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -405,12 +471,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A682070E2B8C1FA400FA3E0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A68207152B8C1FA400FA3E0E /* MyOceanDataRaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6C986072B67B4E400D07D0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A682071E2B8C4B3300FA3E0E /* BankViewModel.swift in Sources */,
 				A6465A382B847D0500C0441B /* LoadingButton.swift in Sources */,
+				A682071C2B8C2C9A00FA3E0E /* BankAccount.swift in Sources */,
 				A69ED6282B836821000B9D8F /* JokeDetailView.swift in Sources */,
+				A682070B2B8C1F3000FA3E0E /* Counter.swift in Sources */,
 				A625FC502B7F739D00B8F8D8 /* NetworkService.swift in Sources */,
 				A6EB5ECA2B85F529005C49E4 /* Debouncer.swift in Sources */,
 				A69ED6262B83681C000B9D8F /* JokeView.swift in Sources */,
@@ -448,6 +525,11 @@
 			isa = PBXTargetDependency;
 			target = A6C9860A2B67B4E400D07D0B /* MyOceanTests */;
 			targetProxy = A68153D72B841E8B00BA4010 /* PBXContainerItemProxy */;
+		};
+		A68207172B8C1FA400FA3E0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6C9860A2B67B4E400D07D0B /* MyOceanTests */;
+			targetProxy = A68207162B8C1FA400FA3E0E /* PBXContainerItemProxy */;
 		};
 		A6C9861D2B67B4E600D07D0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -493,6 +575,50 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.textobey.MyOceanSanpshotRecordTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyOceanTests.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyOceanTests";
+			};
+			name = Release;
+		};
+		A68207192B8C1FA400FA3E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HU8RMC793N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.textobey.MyOceanDataRaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyOceanTests.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyOceanTests";
+			};
+			name = Debug;
+		};
+		A682071A2B8C1FA400FA3E0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HU8RMC793N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.textobey.MyOceanDataRaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -767,6 +893,15 @@
 			buildConfigurations = (
 				A68153DA2B841E8B00BA4010 /* Debug */,
 				A68153DB2B841E8B00BA4010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A68207182B8C1FA400FA3E0E /* Build configuration list for PBXNativeTarget "MyOceanDataRaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A68207192B8C1FA400FA3E0E /* Debug */,
+				A682071A2B8C1FA400FA3E0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
