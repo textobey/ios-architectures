@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A63182692BA3150D000592A7 /* NetworkSerivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63182682BA3150D000592A7 /* NetworkSerivce.swift */; };
 		A6392A1D2BA1812400E94EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A1C2BA1812400E94EFA /* AppDelegate.swift */; };
 		A6392A1F2BA1812400E94EFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A1E2BA1812400E94EFA /* SceneDelegate.swift */; };
 		A6392A212BA1812400E94EFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A202BA1812400E94EFA /* ViewController.swift */; };
@@ -17,6 +18,9 @@
 		A6392A402BA1812500E94EFA /* Clean_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A3F2BA1812500E94EFA /* Clean_MVVMUITestsLaunchTests.swift */; };
 		A6392A4F2BA1831700E94EFA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = A6392A4E2BA1831700E94EFA /* Then */; };
 		A6392A532BA1838100E94EFA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A6392A522BA1838100E94EFA /* SnapKit */; };
+		A6392A572BA184C100E94EFA /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A562BA184C100E94EFA /* Book.swift */; };
+		A6392A5A2BA1862400E94EFA /* FetchNewBooksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A592BA1862400E94EFA /* FetchNewBooksUseCase.swift */; };
+		A646313F2BA839DB00FE67ED /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646313E2BA839DB00FE67ED /* BookRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A63182682BA3150D000592A7 /* NetworkSerivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSerivce.swift; sourceTree = "<group>"; };
 		A6392A192BA1812400E94EFA /* Clean-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clean-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6392A1C2BA1812400E94EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6392A1E2BA1812400E94EFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,9 @@
 		A6392A392BA1812500E94EFA /* Clean-MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clean-MVVMUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6392A3D2BA1812500E94EFA /* Clean_MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clean_MVVMUITests.swift; sourceTree = "<group>"; };
 		A6392A3F2BA1812500E94EFA /* Clean_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clean_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A6392A562BA184C100E94EFA /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		A6392A592BA1862400E94EFA /* FetchNewBooksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNewBooksUseCase.swift; sourceTree = "<group>"; };
+		A646313E2BA839DB00FE67ED /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A63182672BA314EF000592A7 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				A63182682BA3150D000592A7 /* NetworkSerivce.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		A6392A102BA1812400E94EFA = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +118,8 @@
 		A6392A1B2BA1812400E94EFA /* Clean-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				A6392A542BA1847500E94EFA /* Domain */,
+				A63182672BA314EF000592A7 /* Infrastructure */,
 				A6392A1C2BA1812400E94EFA /* AppDelegate.swift */,
 				A6392A1E2BA1812400E94EFA /* SceneDelegate.swift */,
 				A6392A202BA1812400E94EFA /* ViewController.swift */,
@@ -134,6 +152,40 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6392A542BA1847500E94EFA /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A6392A552BA1848000E94EFA /* Entities */,
+				A6392A582BA1857000E94EFA /* UseCases */,
+				A646313D2BA8399000FE67ED /* Interfaces */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A6392A552BA1848000E94EFA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A6392A562BA184C100E94EFA /* Book.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		A6392A582BA1857000E94EFA /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				A6392A592BA1862400E94EFA /* FetchNewBooksUseCase.swift */,
+			);
+			name = UseCases;
+			sourceTree = "<group>";
+		};
+		A646313D2BA8399000FE67ED /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				A646313E2BA839DB00FE67ED /* BookRepository.swift */,
+			);
+			name = Interfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,8 +326,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6392A5A2BA1862400E94EFA /* FetchNewBooksUseCase.swift in Sources */,
+				A6392A572BA184C100E94EFA /* Book.swift in Sources */,
+				A63182692BA3150D000592A7 /* NetworkSerivce.swift in Sources */,
 				A6392A212BA1812400E94EFA /* ViewController.swift in Sources */,
 				A6392A1D2BA1812400E94EFA /* AppDelegate.swift in Sources */,
+				A646313F2BA839DB00FE67ED /* BookRepository.swift in Sources */,
 				A6392A1F2BA1812400E94EFA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
