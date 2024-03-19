@@ -20,6 +20,9 @@
 		A6392A532BA1838100E94EFA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A6392A522BA1838100E94EFA /* SnapKit */; };
 		A6392A572BA184C100E94EFA /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A562BA184C100E94EFA /* Book.swift */; };
 		A6392A5A2BA1862400E94EFA /* FetchNewBooksUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A592BA1862400E94EFA /* FetchNewBooksUseCase.swift */; };
+		A6442DA02BA9A25C008C9BE9 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6442D9F2BA9A25C008C9BE9 /* NetworkConfig.swift */; };
+		A6442DA52BA9A73A008C9BE9 /* BookAPIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6442DA42BA9A73A008C9BE9 /* BookAPIEndPoint.swift */; };
+		A6442DA72BA9A7BB008C9BE9 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6442DA62BA9A7BB008C9BE9 /* EndPoint.swift */; };
 		A646313F2BA839DB00FE67ED /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646313E2BA839DB00FE67ED /* BookRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		A6392A3F2BA1812500E94EFA /* Clean_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clean_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A6392A562BA184C100E94EFA /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		A6392A592BA1862400E94EFA /* FetchNewBooksUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNewBooksUseCase.swift; sourceTree = "<group>"; };
+		A6442D9F2BA9A25C008C9BE9 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		A6442DA42BA9A73A008C9BE9 /* BookAPIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPIEndPoint.swift; sourceTree = "<group>"; };
+		A6442DA62BA9A7BB008C9BE9 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A646313E2BA839DB00FE67ED /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +95,7 @@
 		A63182672BA314EF000592A7 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				A63182682BA3150D000592A7 /* NetworkSerivce.swift */,
+				A6442D9E2BA9A249008C9BE9 /* Network */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -118,14 +124,12 @@
 		A6392A1B2BA1812400E94EFA /* Clean-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				A6442D9B2BA9A1A1008C9BE9 /* Application */,
+				A6442DA22BA9A708008C9BE9 /* Presentation */,
 				A6392A542BA1847500E94EFA /* Domain */,
+				A6442DA12BA9A6FD008C9BE9 /* Data */,
 				A63182672BA314EF000592A7 /* Infrastructure */,
-				A6392A1C2BA1812400E94EFA /* AppDelegate.swift */,
-				A6392A1E2BA1812400E94EFA /* SceneDelegate.swift */,
-				A6392A202BA1812400E94EFA /* ViewController.swift */,
-				A6392A252BA1812500E94EFA /* Assets.xcassets */,
-				A6392A272BA1812500E94EFA /* LaunchScreen.storyboard */,
-				A6392A2A2BA1812500E94EFA /* Info.plist */,
+				A6442D9C2BA9A1D9008C9BE9 /* Resources */,
 			);
 			path = "Clean-MVVM";
 			sourceTree = "<group>";
@@ -178,6 +182,61 @@
 				A6392A592BA1862400E94EFA /* FetchNewBooksUseCase.swift */,
 			);
 			name = UseCases;
+			sourceTree = "<group>";
+		};
+		A6442D9B2BA9A1A1008C9BE9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A6392A1C2BA1812400E94EFA /* AppDelegate.swift */,
+				A6392A1E2BA1812400E94EFA /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A6442D9C2BA9A1D9008C9BE9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6392A252BA1812500E94EFA /* Assets.xcassets */,
+				A6392A272BA1812500E94EFA /* LaunchScreen.storyboard */,
+				A6392A2A2BA1812500E94EFA /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A6442D9E2BA9A249008C9BE9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A6442DA62BA9A7BB008C9BE9 /* EndPoint.swift */,
+				A63182682BA3150D000592A7 /* NetworkSerivce.swift */,
+				A6442D9F2BA9A25C008C9BE9 /* NetworkConfig.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A6442DA12BA9A6FD008C9BE9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A6442DA32BA9A71E008C9BE9 /* Network */,
+			);
+			name = Data;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A6442DA22BA9A708008C9BE9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A6392A202BA1812400E94EFA /* ViewController.swift */,
+			);
+			name = Presentation;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A6442DA32BA9A71E008C9BE9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A6442DA42BA9A73A008C9BE9 /* BookAPIEndPoint.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		A646313D2BA8399000FE67ED /* Interfaces */ = {
@@ -328,10 +387,13 @@
 			files = (
 				A6392A5A2BA1862400E94EFA /* FetchNewBooksUseCase.swift in Sources */,
 				A6392A572BA184C100E94EFA /* Book.swift in Sources */,
+				A6442DA72BA9A7BB008C9BE9 /* EndPoint.swift in Sources */,
 				A63182692BA3150D000592A7 /* NetworkSerivce.swift in Sources */,
 				A6392A212BA1812400E94EFA /* ViewController.swift in Sources */,
 				A6392A1D2BA1812400E94EFA /* AppDelegate.swift in Sources */,
+				A6442DA52BA9A73A008C9BE9 /* BookAPIEndPoint.swift in Sources */,
 				A646313F2BA839DB00FE67ED /* BookRepository.swift in Sources */,
+				A6442DA02BA9A25C008C9BE9 /* NetworkConfig.swift in Sources */,
 				A6392A1F2BA1812400E94EFA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
