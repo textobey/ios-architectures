@@ -24,6 +24,7 @@
 		A6442DA52BA9A73A008C9BE9 /* BookAPIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6442DA42BA9A73A008C9BE9 /* BookAPIEndPoint.swift */; };
 		A6442DA72BA9A7BB008C9BE9 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6442DA62BA9A7BB008C9BE9 /* EndPoint.swift */; };
 		A646313F2BA839DB00FE67ED /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646313E2BA839DB00FE67ED /* BookRepository.swift */; };
+		A6C4E05A2BAAFCFA001486EA /* DefaultBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4E0592BAAFCFA001486EA /* DefaultBookRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		A6442DA42BA9A73A008C9BE9 /* BookAPIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPIEndPoint.swift; sourceTree = "<group>"; };
 		A6442DA62BA9A7BB008C9BE9 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A646313E2BA839DB00FE67ED /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
+		A6C4E0592BAAFCFA001486EA /* DefaultBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBookRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				A6442DA32BA9A71E008C9BE9 /* Network */,
+				A6C4E0582BAAFCD2001486EA /* Repositories */,
 			);
 			name = Data;
 			path = Domain;
@@ -245,6 +248,14 @@
 				A646313E2BA839DB00FE67ED /* BookRepository.swift */,
 			);
 			name = Interfaces;
+			sourceTree = "<group>";
+		};
+		A6C4E0582BAAFCD2001486EA /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A6C4E0592BAAFCFA001486EA /* DefaultBookRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +400,7 @@
 				A6392A572BA184C100E94EFA /* Book.swift in Sources */,
 				A6442DA72BA9A7BB008C9BE9 /* EndPoint.swift in Sources */,
 				A63182692BA3150D000592A7 /* NetworkSerivce.swift in Sources */,
+				A6C4E05A2BAAFCFA001486EA /* DefaultBookRepository.swift in Sources */,
 				A6392A212BA1812400E94EFA /* ViewController.swift in Sources */,
 				A6392A1D2BA1812400E94EFA /* AppDelegate.swift in Sources */,
 				A6442DA52BA9A73A008C9BE9 /* BookAPIEndPoint.swift in Sources */,

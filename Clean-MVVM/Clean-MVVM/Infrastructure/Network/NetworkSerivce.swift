@@ -8,10 +8,18 @@
 import Foundation
 import Combine
 
+enum NetworkError: Error {
+    case error(statusCode: Int, data: Data?)
+    case notConnected
+    case cancelled
+    case generic(Error)
+    case urlGeneration
+}
+
 protocol NetworkSerivce {
     typealias CompletionHandler = (Result<Data?, Error>) -> Void
     
-    func request(endPoint: EndPoint) -> AnyPublisher<Data, Error>
+    func request(endPoint: Requestable) -> AnyPublisher<Data, Error>
 }
 
 final class DefaultNetworkSerivce {
@@ -24,21 +32,34 @@ final class DefaultNetworkSerivce {
     
     private func request(request: URLRequest) -> AnyPublisher<Data, Error> {
         return URLSession.shared.dataTaskPublisher(for: request)
+            .mapError { error in
+                let code = URLError.Code(rawValue: (error as NSError).code)
+                switch code {
+                case .notConnectedToInternet: return NetworkError.notConnected
+                case .cancelled: return NetworkError.cancelled
+                default: return NetworkError.generic(error)
+                }
+            }
             .tryMap { element -> Data in
-                return element.data
+                guard let httpResponse = element.response as? HTTPURLResponse else {
+                    throw NetworkError.generic(URLError(.badServerResponse))
+                }
+                if (200 ..< 300).contains(httpResponse.statusCode) {
+                    return element.data
+                }
+                throw NetworkError.error(statusCode: httpResponse.statusCode, data: element.data)
             }
             .eraseToAnyPublisher()
     }
 }
 
 extension DefaultNetworkSerivce: NetworkSerivce {
-    func request(endPoint: EndPoint) -> AnyPublisher<Data, Error> { //Cancellable? {
-        let baseURL = config.baseURL.absoluteString
-        let uri = baseURL.appending(endPoint.path)
-        
-        var urlRequest = URLRequest(url: URL(string: uri)!)
-        urlRequest.httpMethod = endPoint.method.rawValue
-        
-        return request(request: urlRequest)
+    func request(endPoint: Requestable) -> AnyPublisher<Data, Error> {
+        do {
+            let urlRequest = try endPoint.urlRequest(with: config)
+            return request(request: urlRequest)
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct BookAPIEndPoint {
-    static func fetchBooks() -> EndPoint {
+    static func fetchBooks() -> EndPoint<BooksPage> {
         return EndPoint(
             path: "/1.0/new",
             method: .get
