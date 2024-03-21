@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A608BB302BAC0D8200F9F2E3 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608BB2F2BAC0D8200F9F2E3 /* DataTransferService.swift */; };
 		A63182692BA3150D000592A7 /* NetworkSerivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63182682BA3150D000592A7 /* NetworkSerivce.swift */; };
 		A6392A1D2BA1812400E94EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A1C2BA1812400E94EFA /* AppDelegate.swift */; };
 		A6392A1F2BA1812400E94EFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A1E2BA1812400E94EFA /* SceneDelegate.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A608BB2F2BAC0D8200F9F2E3 /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
 		A63182682BA3150D000592A7 /* NetworkSerivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSerivce.swift; sourceTree = "<group>"; };
 		A6392A192BA1812400E94EFA /* Clean-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clean-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6392A1C2BA1812400E94EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				A6442DA62BA9A7BB008C9BE9 /* EndPoint.swift */,
 				A63182682BA3150D000592A7 /* NetworkSerivce.swift */,
 				A6442D9F2BA9A25C008C9BE9 /* NetworkConfig.swift */,
+				A608BB2F2BAC0D8200F9F2E3 /* DataTransferService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A608BB302BAC0D8200F9F2E3 /* DataTransferService.swift in Sources */,
 				A6392A5A2BA1862400E94EFA /* FetchNewBooksUseCase.swift in Sources */,
 				A6392A572BA184C100E94EFA /* Book.swift in Sources */,
 				A6442DA72BA9A7BB008C9BE9 /* EndPoint.swift in Sources */,

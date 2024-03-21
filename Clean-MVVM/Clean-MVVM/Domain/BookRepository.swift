@@ -8,8 +8,5 @@
 import Combine
 
 protocol BookRepository {
-    @discardableResult
-    func fetchNewBooks(
-        completion: @escaping (Result<BooksPage, Error>) -> Void
-    ) -> Cancellable?
+    func fetchNewBook() -> AnyPublisher<BooksPage, Error>
 }

@@ -10,27 +10,35 @@ import Combine
 
 class ViewController: UIViewController {
     
-    var cancellable: [AnyCancellable] = []
+    var cancellable: Set<AnyCancellable> = []
     
-    lazy var networkConfig: NetworkConfigurable = BookAPINetworkConfig(
-        baseURL: URL(string: "https://api.itbook.store")!,
-        headers: [:],
-        queryParameters: [:]
+    lazy var fetchNewBookUseCase: FetchNewBooksUseCase = DefaultFetchNewBooksUseCase(
+        bookRepository: DefaultBookRepository(
+            dataTransferSerivce: DefaultDataTransferService(
+                networkSerivce: DefaultNetworkSerivce(
+                    config: BookAPINetworkConfig(
+                        baseURL: URL(string: "https://api.itbook.store")!,
+                        headers: [:],
+                        queryParameters: [:]
+                    )
+                )
+            )
+        )
     )
-    
-    lazy var networkSerivce: NetworkSerivce = DefaultNetworkSerivce(config: networkConfig)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let endPoint = BookAPIEndPoint.fetchBooks()
-        
-        networkSerivce.request(endPoint: endPoint)
-            .sink(receiveCompletion: { _ in
-                
-            }, receiveValue: { data in
-                // JSONDecoder().decode(BooksPage.self, from: data)
-                print(data)
+        fetchNewBookUseCase.execute()
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let failure):
+                    print("⚠️ error: \(failure.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print(response)
             })
             .store(in: &cancellable)
     }

@@ -9,9 +9,7 @@ import Foundation
 import Combine
 
 protocol FetchNewBooksUseCase {
-    func execute(
-        completion: @escaping (Result<BooksPage, Error>) -> Void
-    ) -> Cancellable?
+    func execute() -> AnyPublisher<BooksPage, Error>
 }
 
 // TODO: Default? Impl? 무엇이 더 괜찮은 네이밍 컨벤션?
@@ -31,11 +29,7 @@ final class DefaultFetchNewBooksUseCase: FetchNewBooksUseCase {
         self.bookRepository = bookRepository
     }
     
-    func execute(
-        completion: @escaping (Result<BooksPage, Error>) -> Void
-    ) -> Cancellable? {
-        return bookRepository.fetchNewBooks(completion: { result in
-            completion(result)
-        })
+    func execute() -> AnyPublisher<BooksPage, Error> {
+        return bookRepository.fetchNewBook()
     }
 }
