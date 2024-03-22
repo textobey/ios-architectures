@@ -9,6 +9,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    let coreDIContainer = CoreDIContainer()
     var window: UIWindow?
 
     func scene(
@@ -18,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = ViewController(
+            bookDIContainer: BookDIContainer(coreDIContainer: coreDIContainer)
+        )
         window?.makeKeyAndVisible()
     }
 }

@@ -10,26 +10,23 @@ import Combine
 
 class ViewController: UIViewController {
     
+    let bookDIContainer: BookDIContainer
+    
     var cancellable: Set<AnyCancellable> = []
     
-    lazy var fetchNewBookUseCase: FetchNewBooksUseCase = DefaultFetchNewBooksUseCase(
-        bookRepository: DefaultBookRepository(
-            dataTransferSerivce: DefaultDataTransferService(
-                networkSerivce: DefaultNetworkSerivce(
-                    config: BookAPINetworkConfig(
-                        baseURL: URL(string: "https://api.itbook.store")!,
-                        headers: [:],
-                        queryParameters: [:]
-                    )
-                )
-            )
-        )
-    )
-
+    init(bookDIContainer: BookDIContainer) {
+        self.bookDIContainer = bookDIContainer
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchNewBookUseCase.execute()
+        bookDIContainer.fetchNewBookUseCase.execute()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:

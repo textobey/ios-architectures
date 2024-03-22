@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A608BB302BAC0D8200F9F2E3 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608BB2F2BAC0D8200F9F2E3 /* DataTransferService.swift */; };
+		A608BB352BAD4EA900F9F2E3 /* CoreDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608BB342BAD4EA900F9F2E3 /* CoreDIContainer.swift */; };
+		A608BB372BAD502400F9F2E3 /* BookDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608BB362BAD502400F9F2E3 /* BookDIContainer.swift */; };
 		A63182692BA3150D000592A7 /* NetworkSerivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63182682BA3150D000592A7 /* NetworkSerivce.swift */; };
 		A6392A1D2BA1812400E94EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A1C2BA1812400E94EFA /* AppDelegate.swift */; };
 		A6392A1F2BA1812400E94EFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6392A1E2BA1812400E94EFA /* SceneDelegate.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		A608BB2F2BAC0D8200F9F2E3 /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
+		A608BB342BAD4EA900F9F2E3 /* CoreDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDIContainer.swift; sourceTree = "<group>"; };
+		A608BB362BAD502400F9F2E3 /* BookDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDIContainer.swift; sourceTree = "<group>"; };
 		A63182682BA3150D000592A7 /* NetworkSerivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSerivce.swift; sourceTree = "<group>"; };
 		A6392A192BA1812400E94EFA /* Clean-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clean-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6392A1C2BA1812400E94EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A608BB312BAC4FFD00F9F2E3 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				A608BB342BAD4EA900F9F2E3 /* CoreDIContainer.swift */,
+				A608BB362BAD502400F9F2E3 /* BookDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
 		A63182672BA314EF000592A7 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +206,7 @@
 			children = (
 				A6392A1C2BA1812400E94EFA /* AppDelegate.swift */,
 				A6392A1E2BA1812400E94EFA /* SceneDelegate.swift */,
+				A608BB312BAC4FFD00F9F2E3 /* DIContainer */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -405,12 +419,14 @@
 				A6442DA72BA9A7BB008C9BE9 /* EndPoint.swift in Sources */,
 				A63182692BA3150D000592A7 /* NetworkSerivce.swift in Sources */,
 				A6C4E05A2BAAFCFA001486EA /* DefaultBookRepository.swift in Sources */,
+				A608BB372BAD502400F9F2E3 /* BookDIContainer.swift in Sources */,
 				A6392A212BA1812400E94EFA /* ViewController.swift in Sources */,
 				A6392A1D2BA1812400E94EFA /* AppDelegate.swift in Sources */,
 				A6442DA52BA9A73A008C9BE9 /* BookAPIEndPoint.swift in Sources */,
 				A646313F2BA839DB00FE67ED /* BookRepository.swift in Sources */,
 				A6442DA02BA9A25C008C9BE9 /* NetworkConfig.swift in Sources */,
 				A6392A1F2BA1812400E94EFA /* SceneDelegate.swift in Sources */,
+				A608BB352BAD4EA900F9F2E3 /* CoreDIContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
