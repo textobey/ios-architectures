@@ -29,6 +29,7 @@
 		A6AD05202BB15F3F00C05092 /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD051F2BB15F3F00C05092 /* NewBookViewController.swift */; };
 		A6AD05222BB15FC200C05092 /* NewBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD05212BB15FC200C05092 /* NewBookViewModel.swift */; };
 		A6AD05252BB1606200C05092 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD05242BB1606200C05092 /* ViewModelType.swift */; };
+		A6AD05282BB18B5300C05092 /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD05272BB18B5300C05092 /* SearchBookViewController.swift */; };
 		A6C4E05A2BAAFCFA001486EA /* DefaultBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4E0592BAAFCFA001486EA /* DefaultBookRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		A6AD051F2BB15F3F00C05092 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
 		A6AD05212BB15FC200C05092 /* NewBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewModel.swift; sourceTree = "<group>"; };
 		A6AD05242BB1606200C05092 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		A6AD05272BB18B5300C05092 /* SearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
 		A6C4E0592BAAFCFA001486EA /* DefaultBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBookRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +253,7 @@
 			children = (
 				A6AD05232BB1605900C05092 /* Common */,
 				A6AD051E2BB15EFC00C05092 /* NewBook */,
+				A6AD05262BB18B2D00C05092 /* Search */,
 			);
 			name = Presentation;
 			path = Domain;
@@ -287,6 +290,14 @@
 				A6AD05242BB1606200C05092 /* ViewModelType.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		A6AD05262BB18B2D00C05092 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A6AD05272BB18B5300C05092 /* SearchBookViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		A6C4E0582BAAFCD2001486EA /* Repositories */ = {
@@ -445,6 +456,7 @@
 				A608BB372BAD502400F9F2E3 /* BookDIContainer.swift in Sources */,
 				A6392A1D2BA1812400E94EFA /* AppDelegate.swift in Sources */,
 				A6AD05252BB1606200C05092 /* ViewModelType.swift in Sources */,
+				A6AD05282BB18B5300C05092 /* SearchBookViewController.swift in Sources */,
 				A6442DA52BA9A73A008C9BE9 /* BookAPIEndPoint.swift in Sources */,
 				A646313F2BA839DB00FE67ED /* BookRepository.swift in Sources */,
 				A6442DA02BA9A25C008C9BE9 /* NetworkConfig.swift in Sources */,

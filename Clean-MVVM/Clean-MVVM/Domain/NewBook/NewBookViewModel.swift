@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class NewBookViewModel: ViewModelType {
-    
     private let bookDIContainer: BookDIContainer
     
     init(bookDIContainer: BookDIContainer) {
@@ -17,41 +16,43 @@ class NewBookViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        
-        let newBooks = input.fetchNewBooksTrigger
-            .flatMap { [weak self] _ -> AnyPublisher<State, Never> in
-                guard let self = self else {
-                    return Just(State.none).eraseToAnyPublisher()
-                }
-                return self.fetchNewBookListChains()
+        return input.flatMap { [weak self] event -> Output in
+            guard let self = self else {
+                return Just(State.none).eraseToAnyPublisher()
             }
-        
-        return Output(state: Publishers.MergeMany([
-            newBooks
-        ]).eraseToAnyPublisher())
+            return self.transform(event: event)
+        }
+        .eraseToAnyPublisher()
     }
 }
 
 extension NewBookViewModel {
-    struct Input {
-        let fetchNewBooksTrigger: AnyPublisher<Void, Never>
+    // View events
+    enum ActionType {
+        case fetchNewBooks
     }
     
+    // Wrapped Output
     enum State {
-        case showNewBooks([Book])
+        case newBooks([Book])
         case none
     }
     
-    struct Output {
-        var state: AnyPublisher<State, Never>
+    private func transform(event: ActionType) -> Output {
+        switch event {
+        case .fetchNewBooks:
+            return self.fetchNewBookList()
+        }
     }
 }
 
+// MARK: - Private view event methods
+
 extension NewBookViewModel {
-    func fetchNewBookListChains() -> AnyPublisher<State, Never> {
+    func fetchNewBookList() -> Output {
         return bookDIContainer.fetchNewBookUseCase.execute()
             .map { booksPage -> State in
-                return State.showNewBooks(booksPage.books ?? [])
+                return State.newBooks(booksPage.books ?? [])
             }
             .replaceError(with: State.none)
             .eraseToAnyPublisher()

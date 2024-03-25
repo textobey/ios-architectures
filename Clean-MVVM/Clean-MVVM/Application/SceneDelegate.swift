@@ -18,42 +18,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        let tabBarController = UITabBarController()
-        
-        let newBookScene = UINavigationController(rootViewController: UIViewController())
-        let searchBookScene = UINavigationController(rootViewController: UIViewController())
-        
-        newBookScene.tabBarItem = UITabBarItem(title: "NewBook", image: UIImage(systemName: "book"), tag: 0)
-        searchBookScene.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "book"), tag: 1)
-        
-        tabBarController.setViewControllers([newBookScene, searchBookScene], animated: false)
-        
-        tabBarController.viewControllers?.forEach {
-            $0.view.backgroundColor = .white
-        }
-        
         window?.windowScene = windowScene
-        window?.rootViewController = tabBarController
-//        window?.rootViewController = ViewController(
-//            bookDIContainer: BookDIContainer(coreDIContainer: coreDIContainer)
-//        )
+        window?.rootViewController = createRootViewController()
         window?.makeKeyAndVisible()
     }
 }
 
 extension SceneDelegate {
-    
     private func createRootViewController() -> UITabBarController {
         let tabBarController = UITabBarController()
         
-        let newBookScene = UINavigationController(rootViewController: UIViewController())
-        let searchBookScene = UINavigationController(rootViewController: UIViewController())
+        let bookDIContainer = BookDIContainer(coreDIContainer: coreDIContainer)
         
-        newBookScene.tabBarItem = UITabBarItem(title: "NewBook", image: UIImage(systemName: "book"), tag: 0)
-        searchBookScene.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "book"), tag: 1)
+        let newBookViewModel = NewBookViewModel(bookDIContainer: bookDIContainer)
+        let newBookViewController = NewBookViewController(viewModel: newBookViewModel)
         
-        tabBarController.setViewControllers([newBookScene, searchBookScene], animated: false)
+        let searchBookViewController = SearchBookViewController()
+        
+        newBookViewController.tabBarItem = UITabBarItem(title: "New", image: UIImage(systemName: "book"), tag: 0)
+        searchBookViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        
+        let navigationControllers = [
+            UINavigationController(rootViewController: newBookViewController),
+            UINavigationController(rootViewController: searchBookViewController)
+        ]
+        
+        tabBarController.setViewControllers(navigationControllers, animated: false)
+        
+        return tabBarController
     }
 }
 
